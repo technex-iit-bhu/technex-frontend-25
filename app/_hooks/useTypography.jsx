@@ -23,9 +23,5 @@ export default function useTypography(text, speed = 100, started = true) {
       };
     }
   }, [start]);
-  if (started) {
-    return [currentText, ended];
-  } else {
-    return [currentText, startTyping, ended];
-  }
+    return [currentText, ended, startTyping];
 }
