@@ -1,5 +1,4 @@
 "use client";
-import useTypography from "../_hooks/useTypography";
 
 export default function WindowCard(props) {
   return (
