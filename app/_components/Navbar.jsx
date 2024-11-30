@@ -13,10 +13,22 @@ export default function Navbar() {
         </div>
         <div className="hidden lg:flex w-4/6 justify-center gap-x-10 px-10">
           <Link
-            href="#"
+            href="/team"
             className="text-white text-3xl hover:bg-slate-700 w-full text-center rounded-md"
           >
             Team
+          </Link>
+          <Link
+            href="/sponsors"
+            className="text-white text-3xl hover:bg-slate-700 w-full text-center rounded-md"
+          >
+            Sponsors
+          </Link>
+          <Link
+            href="/gallery"
+            className="text-white text-3xl hover:bg-slate-700 w-full text-center rounded-md"
+          >
+            Gallery
           </Link>
           <Link
             href="#"
@@ -29,18 +41,6 @@ export default function Navbar() {
             className="text-white text-3xl hover:bg-slate-700 w-full text-center rounded-md"
           >
             Workshops
-          </Link>
-          <Link
-            href="#"
-            className="text-white text-3xl hover:bg-slate-700 w-full text-center rounded-md"
-          >
-            Sponsors
-          </Link>
-          <Link
-            href="#"
-            className="text-white text-3xl hover:bg-slate-700 w-full text-center rounded-md"
-          >
-            Gallery
           </Link>
           <Link
             href="#"

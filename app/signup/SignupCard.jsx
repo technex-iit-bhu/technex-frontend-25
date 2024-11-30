@@ -13,14 +13,13 @@ export default function SignupCard() {
             Have an account already?{" "}
             <Link href="/login" className="text-slate-400">
               {" "}
-              Login
+              Login Here
             </Link>
           </div>
           <div className="lg:flex py-5">
             <div className="w-[400px] p-4">
               <Textbox title="Name" placeholder="Enter Name" />
               <Textbox title="Email" placeholder="Enter Email" />
-              {/* <Textbox title="DOB" placeholder="Enter DOB" /> */}
               <DatePicker />
             </div>
             <div className="w-[400px] p-4">
