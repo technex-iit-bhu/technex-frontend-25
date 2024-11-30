@@ -4,7 +4,7 @@ export default function Background_C() {
   return (
     <>
       <Image
-        src="/bg2.png"
+        src="/bg3.png"
         width={0}
         height={0}
         sizes="100vw"
