@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { motion } from "motion/react";
 
 const FAQItem = ({ index, title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,32 +52,36 @@ export default function FAQ() {
   const items = [
     {
       title: "Lorem ipsumLorem ipsum",
-      content:
-        "Lorem ipsumLorem ipsum",
+      content: "Lorem ipsumLorem ipsum",
     },
     {
       title: "Lorem ipsumLorem ipsum",
-      content:
-        "Lorem ipsumLorem ipsum",
+      content: "Lorem ipsumLorem ipsum",
     },
     {
       title: "Lorem ipsumLorem ipsum",
-      content:
-        "Lorem ipsumLorem ipsum",
+      content: "Lorem ipsumLorem ipsum",
     },
   ];
 
   return (
     <div className="w-full flex flex-col justify-center items-center gap-8 pb-20">
-        <div className="text-white text-5xl">FAQ</div>
-      {items.map((item, index) => (
-        <FAQItem
-          key={index}
-          index={index}
-          title={item.title}
-          content={item.content}
-        />
-      ))}
+      <div className="text-white text-5xl">FAQ</div>
+      <motion.div
+        className="w-full flex flex-col justify-center items-center gap-8 pb-20"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5, amount: 0.5, ease: "linear" }}
+      >
+        {items.map((item, index) => (
+          <FAQItem
+            key={index}
+            index={index}
+            title={item.title}
+            content={item.content}
+          />
+        ))}
+      </motion.div>
     </div>
   );
 }
