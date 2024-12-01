@@ -40,7 +40,7 @@ export default function Team() {
           <TeamSelect title="YYY Team" />
         </div>
         <div className="w-full flex items-center justify-center">
-          <div className="max-w-[1000px] flex flex-wrap gap-10 justify-center items-center">
+          <div className="max-w-[1000px] flex flex-wrap gap-10 pb-10 justify-center items-center">
             <MemberCard name="Name" position="Convenor" phone="+91-XXXX-XX-XXXX" insta="weee"/>
             <MemberCard name="Name" position="Convenor" phone="+91-XXXX-XX-XXXX" insta="weee"/>
             <MemberCard name="Name" position="Convenor" phone="+91-XXXX-XX-XXXX" insta="weee"/>
