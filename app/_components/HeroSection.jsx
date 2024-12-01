@@ -10,7 +10,7 @@ export default function HeroSection() {
       <div className="w-[full] h-[100vh] flex justify-center items-center">
         <div className="relative">
           <div
-            className={`relative left-[-10px] top-[10px] flex justify-center items-center text-9xl text-gray-black text-center ${myFont.className}`}
+            className={`relative left-[-10px] top-[10px] hidden xl:flex justify-center items-center text-9xl text-black text-center ${myFont.className}`}
           >
             {text}
           </div>

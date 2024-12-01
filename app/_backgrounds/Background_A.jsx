@@ -8,7 +8,7 @@ export default function Background_A() {
         width={0}
         height={0}
         sizes="100vw"
-        className="absolute min-w-[400px] w-screen top-0 left-0 z-[-1]"
+        className="absolute min-w-[600px] w-screen top-20 lg:top-[-10vh] left-0 z-[-1]"
       />
     </>
   );

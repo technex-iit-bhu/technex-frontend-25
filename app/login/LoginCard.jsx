@@ -5,8 +5,8 @@ import Textbox from "./Textbox";
 export default function SignupCard() {
   return (
     <>
-      <div className="mt-40 lg:mt-0 w-full h-[90vh] flex flex-col lg:flex-row justify-center items-center text-white">
-        <div className="flex w-full px-10 text-7xl text-center lg:text-left">Welcome To TechNex&apos;25</div>
+      <div className=" w-full h-[90vh] flex flex-col lg:flex-row justify-center items-center text-white">
+        <div className="hidden lg:flex w-full px-10 text-7xl text-center lg:text-left">Welcome To TechNex&apos;25</div>
         <div className="p-10 w-fit rounded-2xl bg-[#252525] bg-opacity-60 flex flex-col justify-center items-center m-20">
           <div className="text-5xl w-full">Login</div>
           <div className="text-2xl w-full">
@@ -16,7 +16,7 @@ export default function SignupCard() {
               Signup here
             </Link>
           </div>
-          <div className="w-[400px] px-4 py-10">
+          <div className="w-[300px] lg:w-[400px] px-4 py-10">
             <Textbox title="Username" placeholder="Enter Username" />
             <Textbox title="Password" placeholder="Enter Password" />
           </div>
