@@ -17,12 +17,12 @@ export default function SignupCard() {
             </Link>
           </div>
           <div className="lg:flex py-5">
-            <div className="w-[400px] p-4">
+            <div className="w-[300px] lg:w-[400px] p-4">
               <Textbox title="Name" placeholder="Enter Name" />
               <Textbox title="Email" placeholder="Enter Email" />
               <DatePicker />
             </div>
-            <div className="w-[400px] p-4">
+            <div className="w-[300px] lg:w-[400px] p-4">
               <Textbox title="Username" placeholder="Enter Username" />
               <Textbox title="Password" placeholder="Enter Password" />
               <Textbox title="Confirm Password" placeholder="Confirm Password" />
