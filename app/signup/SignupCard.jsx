@@ -6,7 +6,7 @@ import DatePicker from "./DatePicker";
 export default function SignupCard() {
   return (
     <>
-      <div className="mt-40 lg:mt-0 w-full h-[90vh] flex justify-center items-center text-white">
+      <div className="mt-40 p-10 lg:mt-0 w-full h-[90vh] flex justify-center items-center text-white">
         <div className="p-10 rounded-2xl bg-[#252525] bg-opacity-60 flex flex-col justify-center items-center">
           <div className="text-5xl w-full">Signup</div>
           <div className="text-2xl w-full">
