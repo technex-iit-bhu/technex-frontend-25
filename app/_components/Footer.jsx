@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import {motion} from 'motion/react'
 
 const SocialCard=({href,src})=>{
     return(
@@ -9,7 +10,7 @@ const SocialCard=({href,src})=>{
 
 export default function Footer(){
     return(<>
-    <div className="text-5xl w-full flex flex-col items-center">
+    <motion.div initial={{opacity:0}} whileInView={{opacity:1}} transition={{ duration: 0.5,delay:0.5, ease: "linear" }}  className="text-5xl w-full flex flex-col items-center">
         <Image src="/sntc_footer.png" width={400} height={0}/>
         <div className="flex justify-center items-center p-5 gap-5">
             <SocialCard href="#" src="/facebook_icon.png"/>
@@ -19,6 +20,6 @@ export default function Footer(){
             <SocialCard href="#" src="/youtube_icon.png"/>
         </div>
         <div className="p-5 text-3xl text-white">For more queries: <Link href="mailto:publicity@technex.in" className="underline text-slate-400">publicity@technex.in</Link></div>
-    </div>
+    </motion.div>
     </>)
 }
