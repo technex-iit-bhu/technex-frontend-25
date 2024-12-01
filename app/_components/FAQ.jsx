@@ -9,7 +9,7 @@ const FAQItem = ({ index, title, content }) => {
   };
 
   return (
-    <div className="bg-[#4D4B4B] text-white px-5 w-[60vw] rounded-xl text-2xl">
+    <div className="bg-[#4D4B4B] bg-opacity-80 text-white px-5 w-[60vw] rounded-xl text-2xl">
       <button
         onClick={toggleFAQ}
         className="w-full flex justify-between items-center py-5"
