@@ -1,6 +1,4 @@
 "use client"
-import useTypography from './_hooks/useTypography';
-import WindowCard from './_ui/WindowCard';
 import Background_A from './_backgrounds/Background_A'
 import Navbar from './_components/Navbar'
 import HeroSection from './_components/HeroSection'
