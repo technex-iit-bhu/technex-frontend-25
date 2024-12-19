@@ -22,6 +22,6 @@ export default function useTypography(text, speed = 100, started = true) {
         clearInterval(interval);
       };
     }
-  }, [start]);
-    return [currentText, ended, startTyping];
+  }, [start, currentText, ptr, speed, text]);
+  return [currentText, ended, startTyping];
 }

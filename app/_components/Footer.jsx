@@ -4,14 +4,14 @@ import {motion} from 'motion/react'
 
 const SocialCard=({href,src})=>{
     return(
-        <Link href={href}><Image src={src} width={50} height={0}/></Link>
+        <Link href={href}><Image src={src} width={50} height={0} alt="social_card"/></Link>
     )
 }
 
 export default function Footer(){
     return(<>
-    <motion.div initial={{opacity:0}} whileInView={{opacity:1}} transition={{ duration: 0.5,delay:0.5, ease: "linear" }}  className="text-5xl w-full flex flex-col items-center">
-        <Image src="/sntc_footer.png" width={400} height={0}/>
+    <motion.div initial={{opacity:0}} whileInView={{opacity:1}} transition={{ duration: 0.5,delay:0.5, ease: "linear" }}  className="text-5xl w-full flex flex-col items-center font-classic">
+        <Image src="/sntc_footer.png" width={400} height={0}alt="sntc_image" />
         <div className="flex justify-center items-center p-5 gap-5">
             <SocialCard href="#" src="/facebook_icon.png"/>
             <SocialCard href="#" src="/insta_icon.png"/>

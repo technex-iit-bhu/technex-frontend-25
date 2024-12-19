@@ -4,7 +4,7 @@ import Navbar from "../_components/Navbar";
 
 const GalleryCard = ({company}) => {
   return <div className="w-[300px] lg:w-[533px] relative h-[160px] lg:h-[300px] flex flex-col justify-center items-center text-white">
-    <Image src="/GalleryCard.png" width={533} height={0} className="w-[300px] lg:w-[533px] absolute z-[-1] top-0"/>
+    <Image src="/GalleryCard.png" width={533} height={0} className="w-[300px] lg:w-[533px] absolute z-[-1] top-0" alt="gallery-card"/>
     <div className="w-[265px] lg:w-[470px] mt-[15px] lg:mt-[10px] h-[160px] lg:h-[260px] bg-white rounded overflow-hidden"></div>
   </div>;
 };

@@ -28,6 +28,7 @@ const MemberCard = ({ name, position, phone, insta }) => {
         width={300}
         height={0}
         className="absolute z-[-1]"
+        alt="member-card"
       />
       <div className="w-[200px] h-[200px] bg-white rounded overflow-hidden"></div>
       <div className="text-3xl pt-4">{name}</div>

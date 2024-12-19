@@ -4,7 +4,7 @@ import Navbar from "../_components/Navbar";
 
 const SponsorCard = ({company}) => {
   return <div className="w-[300px] relative h-[400px] flex flex-col items-center text-white">
-    <Image src="/SponsorCard.png" width={300} height={0} className="absolute z-[-1] top-0"/>
+    <Image src="/SponsorCard.png" width={300} height={0} className="absolute z-[-1] top-0" alt="sponsor-card"/>
     <div className="w-[200px] h-[200px] mt-[37px] mb-[80px] bg-white rounded overflow-hidden"></div>
     <div className="w-[200px] text-2xl text-center bg-black bg-opacity-50 rounded-md">{company}</div>
   </div>;

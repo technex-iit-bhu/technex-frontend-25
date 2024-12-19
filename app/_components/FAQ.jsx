@@ -65,8 +65,8 @@ export default function FAQ() {
   ];
 
   return (
-    <div className="w-full flex flex-col justify-center items-center gap-8 pb-20">
-      <div className="text-white text-5xl">FAQ</div>
+    <div className="w-full flex flex-col justify-center items-center gap-8 pb-20 font-inconsolata">
+      <div className="text-white text-5xl font-normal">FAQ</div>
       <motion.div
         className="w-full flex flex-col justify-center items-center gap-8 pb-20"
         initial={{ opacity: 0 }}
