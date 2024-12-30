@@ -3,13 +3,24 @@ import Image from "next/image";
 import Background_D from "../_backgrounds/Background_D";
 import Navbar from "../_components/Navbar";
 import Footer from "../_components/Footer";
+import { cardVariants } from "../utils/cardVariants";
+import { motion } from "motion/react";
 
-const SponsorCard = ({company}) => {
-  return <div className="w-[300px] relative h-[400px] flex flex-col items-center text-white">
-    <Image src="/SponsorCard.png" width={300} height={0} className="absolute z-[-1] top-0" alt="sponsor-card"/>
-    <div className="w-[200px] h-[200px] mt-[37px] mb-[80px] bg-white rounded overflow-hidden"></div>
-    <div className="w-[200px] text-2xl text-center bg-black bg-opacity-50 rounded-md">{company}</div>
-  </div>;
+
+const SponsorCard = ({ company }) => {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.08 }}
+      transition={{ duration: 0.2 }}
+      initial="offscreen" whileInView="onscreen"
+      variants={cardVariants} viewport={{margin: "-160px 0px -10px 0px", amount: 0.1 }}
+      className="w-[300px] relative h-[400px] flex flex-col items-center text-white"
+    >
+      <Image src="/SponsorCard.png" width={300} height={0} className="absolute z-[-1] top-0" alt="sponsor-card" />
+      <div className="w-[200px] h-[200px] mt-[37px] mb-[80px] bg-white rounded overflow-hidden"></div>
+      <div className="w-[200px] text-2xl text-center bg-black bg-opacity-50 rounded-md">{company}</div>
+    </motion.div>
+  );
 };
 
 export default function Sponsors() {
