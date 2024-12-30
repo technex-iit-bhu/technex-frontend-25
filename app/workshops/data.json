@@ -1,0 +1,74 @@
+[
+    {
+      "id": "ObjectID1",
+      "name": "Workshop 1",
+      "description": "Workshop 1 Description",
+      "sub_description": "Additional Information",
+      "start_date": "2024-12-01",
+      "end_date": "2024-12-31",
+      "github": "https://github.com/technex-iit-bhu/workshops/workshop1.md"
+    },
+    {
+      "id": "ObjectID2",
+      "name": "Workshop 2",
+      "description": "Workshop 2 Description",
+      "sub_description": "Additional Information",
+      "start_date": "2024-12-01",
+      "end_date": "2024-12-31",
+      "github": "https://github.com/technex-iit-bhu/workshops/workshop2.md"
+    },
+    {
+        "id": "ObjectID2",
+        "name": "Workshop 2",
+        "description": "Workshop 2 Description",
+        "sub_description": "Additional Information",
+        "start_date": "2024-12-01",
+        "end_date": "2024-12-31",
+        "github": "https://github.com/technex-iit-bhu/workshops/workshop2.md"
+      },
+      {
+        "id": "ObjectID2",
+        "name": "Workshop 2",
+        "description": "Workshop 2 Description",
+        "sub_description": "Additional Information",
+        "start_date": "2024-12-01",
+        "end_date": "2024-12-31",
+        "github": "https://github.com/technex-iit-bhu/workshops/workshop2.md"
+      },
+      {
+        "id": "ObjectID2",
+        "name": "Workshop 2",
+        "description": "Workshop 2 Description",
+        "sub_description": "Additional Information",
+        "start_date": "2024-12-01",
+        "end_date": "2024-12-31",
+        "github": "https://github.com/technex-iit-bhu/workshops/workshop2.md"
+      },
+      {
+        "id": "ObjectID2",
+        "name": "Workshop 2",
+        "description": "Workshop 2 Description",
+        "sub_description": "Additional Information",
+        "start_date": "2024-12-01",
+        "end_date": "2024-12-31",
+        "github": "https://github.com/technex-iit-bhu/workshops/workshop2.md"
+      },
+      {
+        "id": "ObjectID2",
+        "name": "Workshop 2",
+        "description": "Workshop 2 Description",
+        "sub_description": "Additional Information",
+        "start_date": "2024-12-01",
+        "end_date": "2024-12-31",
+        "github": "https://github.com/technex-iit-bhu/workshops/workshop2.md"
+      },
+      {
+        "id": "ObjectID2",
+        "name": "Workshop 2",
+        "description": "Workshop 2 Description",
+        "sub_description": "Additional Information",
+        "start_date": "2024-12-01",
+        "end_date": "2024-12-31",
+        "github": "https://github.com/technex-iit-bhu/workshops/workshop2.md"
+      }
+]

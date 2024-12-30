@@ -52,7 +52,7 @@ export default function Navbar() {
             Events
           </Link>
           <Link
-            href="#"
+            href="/workshops"
             className="text-white text-xl hover:bg-slate-700 p-2 rounded-md"
           >
             Workshops
