@@ -1,9 +1,21 @@
+"use client"
+import { useEffect, useState } from "react";
 import Background_E from "../_backgrounds/Background_E";
 import Navbar from "../_components/Navbar";
 import WorkshopCard from "./workshopcard";
-import data from "./data.json"
+
+const backendURL = "http://localhost:6969";
 
 export default function Workshops() {
+  const [workshops, setWorkshops] = useState([]);
+
+  useEffect(() => {
+    fetch(`${backendURL}/api/workshops`)
+      .then((response) => response.json())
+      .then((data) => setWorkshops(data.workshops))
+      .catch((error) => console.error("Error fetching workshops:", error));
+  }, []);
+
   return (
     <>
       <Background_E />
@@ -11,7 +23,7 @@ export default function Workshops() {
         <Navbar />
         <div className="text-white px-20 py-10 text-5xl">Workshops</div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-10 m-10">
-          {data.map((workshop) => (
+          {workshops.map((workshop) => (
             <WorkshopCard
               key={workshop.id}
               name={workshop.name}

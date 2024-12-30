@@ -82,14 +82,29 @@ export default function WorkshopCard({
                 </div>
             </div>
             {showSubworkshops && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                    <div className="bg-white p-4 rounded-lg max-w-lg w-full">
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+                    onClick={() => setShowSubworkshops(false)}
+                >
+                    <div
+                        className="bg-white p-4 rounded-lg max-w-lg w-full max-h-[80vh] overflow-y-auto"
+                        onClick={(e) => e.stopPropagation()}
+                    >
                         <h2 className="text-2xl mb-4">Subworkshops</h2>
-                        <ul>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {subworkshops.map((sub, index) => (
-                                <li key={index} className="mb-2">
-                                    <h3 className="text-xl">{sub.name}</h3>
-                                    <p>{sub.description}</p>
+                                <li key={index} className="mb-2 flex items-center">
+                                    <Image
+                                        src="/logo.png"
+                                        alt="Subworkshop Logo"
+                                        width={200}
+                                        height={200}
+                                        className="mr-4"
+                                    />
+                                    <div>
+                                        <h3 className="text-xl">{sub.name}</h3>
+                                        <p>{sub.description}</p>
+                                    </div>
                                 </li>
                             ))}
                         </ul>
