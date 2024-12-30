@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/page.jsx", "app/utils/animation.js", "app/_components/Minecraft-dialog.jsx", "app/_components/Minecraft-button.jsx", "app/_components/FAQ.jsx"],
   "exclude": ["node_modules"]
 }
