@@ -86,7 +86,6 @@ const Navbar = () => {
     { name: "Events", href: "/events", icon: Calendar },
     { name: "Workshops", href: "/workshops", icon: BookOpen },
     { name: "Schedule", href: "/schedule", icon: ClipboardList },
-    { name: "CA", href: "https://ca-frontend-25.vercel.app/", icon: UserCheck },
   ];
 
   useEffect(() => {
@@ -202,132 +201,96 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* User Profile and Menu Section */}
-        <div className="flex flex-1 justify-end gap-x-4">
-          {/* Menu Section */}
-          <button
-            onClick={() => {
-              setIsMenuOpen(!isMenuOpen);
-              if (!isMenuOpen) setIsUserMenuOpen(false);
-            }}
-            className="lg:hidden pr-5 transition-transform duration-300"
-          >
-            <Image
-              src={isMenuOpen ? "/close.png" : "/menu.png"}
-              width={30}
-              height={30}
-              alt="Menu"
-              className={`transition-transform duration-300 ${
-                isMenuOpen ? "rotate-90" : "rotate-0"
-              }`}
-            />
-          </button>
-
+        {/* Mobile Navigation Menu */}
+        <AnimatePresence>
           {isMenuOpen && (
-            <div className="absolute top-20 right-16 bg-[#252525CC] text-white rounded-md shadow-lg p-4 w-[196px] text-right text-xl transition-all ease-in-out duration-300">
-              <Link
-                href="/team"
-                className="block p-2 hover:bg-slate-700 rounded-md"
-              >
-                Team
-              </Link>
-              <Link
-                href="/sponsors"
-                className="block p-2 hover:bg-slate-700 rounded-md"
-              >
-                Sponsors
-              </Link>
-              <Link
-                href="/gallery"
-                className="block p-2 hover:bg-slate-700 rounded-md"
-              >
-                Gallery
-              </Link>
-              <Link
-                href="#"
-                className="block p-2 hover:bg-slate-700 rounded-md"
-              >
-                Events
-              </Link>
-              <Link
-                href="#"
-                className="block p-2 hover:bg-slate-700 rounded-md"
-              >
-                Workshops
-              </Link>
-              <Link
-                href="#"
-                className="block p-2 hover:bg-slate-700 rounded-md"
-              >
-                Schedule
-              </Link>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="lg:hidden bg-black bg-opacity-95 border-t border-gray-800"
+            >
+              <div className="px-4 pt-2 pb-3 space-y-2">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="text-gray-300 hover:text-white flex items-center gap-2 px-3 py-2 font-minecraft"
+                  >
+                    <item.icon className="w-5 h-5" />
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
           )}
-          {/* User Profile */}
-          <button
-            onClick={() => {
-              setIsUserMenuOpen(!isUserMenuOpen);
-              if (!isUserMenuOpen) setIsMenuOpen(false);
-            }}
-            className="lg:hidden pr-5 transition-transform duration-500"
-          >
-            <Image
-              src={isUserMenuOpen ? "/close.png" : "/user.png"}
-              width={30}
-              height={30}
-              alt="User Menu"
-              className={`transition-transform duration-300 ${
-                isUserMenuOpen ? "rotate-90" : "rotate-0"
-              }`}
-            />
-          </button>
 
+          {/* Mobile User Menu */}
           {isUserMenuOpen && (
-            <div className="absolute top-20 right-4 bg-[#252525CC] text-white shadow-lg p-4 w-[196px] text-right text-xl transition-all ease-in-out duration-300">
-              {!isLoggedIn ? (
-                <>
-                  <Link
-                    href="/login"
-                    className="block p-2 hover:bg-slate-700 rounded-md"
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    href="/signup"
-                    className="block p-2 hover:bg-slate-700 rounded-md"
-                  >
-                    Signup
-                  </Link>
-                  <Link
-                    href="https://ca-frontend-25.vercel.app/"
-                    target="_blank"
-                    className="block p-2 hover:bg-slate-700 rounded-md"
-                  >
-                    CA
-                  </Link>
-                </>
-              ) : (
-                <>
-                  <Link
-                    href="/profile"
-                    className="block p-2 hover:bg-slate-700 rounded-md"
-                  >
-                    Profile
-                  </Link>
-                  <button
-                    onClick={() => {
-                      localStorage.removeItem("userToken");
-                      setIsLoggedIn(false);
-                    }}
-                    className="block w-full text-left p-2 hover:bg-slate-700 rounded-md"
-                  >
-                    Logout
-                  </button>
-                </>
-              )}
-            </div>
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="lg:hidden bg-black bg-opacity-95 border-t border-gray-800"
+            >
+              <div className="px-4 pt-2 pb-3 m-2 space-y-2">
+                {!isLoggedIn ? (
+                  <>
+                    <Link href="/login" className="block w-full">
+                      <button className="w-full flex items-center gap-2 text-white font-minecraft">
+                        <LogIn className="w-5 h-5 text-white" />
+                        LOGIN
+                      </button>
+                    </Link>
+                    <Link href="/signup" className="block w-full">
+                      <button className="w-full flex items-center gap-2 text-white font-minecraft">
+                        <UserPlus className="w-5 h-5 text-white" />
+                        SIGN UP
+                      </button>
+                    </Link>
+                    <Link
+                      href="https://ca-frontend-25.vercel.app/"
+                      className="block w-full"
+                    >
+                      <button className="w-full flex items-center gap-2 text-white font-minecraft">
+                        <UserCheck className="w-5 h-5 text-white" />
+                        CA
+                      </button>
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link href="/profile" className="block w-full">
+                      <button className="w-full flex items-center gap-2 text-white font-minecraft">
+                        <User className="w-5 h-5 text-white" />
+                        Profile
+                      </button>
+                    </Link>
+                    <Link
+                      href="https://ca-frontend-25.vercel.app/"
+                      className="block w-full"
+                    >
+                      <button className="w-full flex items-center gap-2 text-white font-minecraft">
+                        <UserCheck className="w-5 h-5 text-white" />
+                        CA
+                      </button>
+                    </Link>
+                    <button
+                      className="w-full flex items-center gap-2 text-white font-minecraft"
+                      onClick={() => {
+                        localStorage.removeItem("userToken");
+                        setIsLoggedIn(false);
+                      }}
+                    >
+                      <LogOut className="w-5 h-5 text-white" />
+                      LOGOUT
+                    </button>
+                  </>
+                )}
+              </div>
+            </motion.div>
           )}
-        </div>
+        </AnimatePresence>
       </motion.nav>
       <div className="h-16" /> {/* Spacer */}
     </>
