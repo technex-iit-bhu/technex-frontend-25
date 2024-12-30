@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import Background_D from "../_backgrounds/Background_D";
 import Navbar from "../_components/Navbar";
+import Footer from "../_components/Footer";
 
 const SponsorCard = ({company}) => {
   return <div className="w-[300px] relative h-[400px] flex flex-col items-center text-white">
@@ -27,6 +29,7 @@ export default function Sponsors() {
             <SponsorCard company="Company A"/>
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );
