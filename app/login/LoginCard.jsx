@@ -1,9 +1,29 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Textbox from "./Textbox";
 import { motion } from "motion/react";
+import { loginUser } from "../utils/api";
 
-export default function SignupCard() {
+export default function LoginCard() {
+  const router = useRouter();
+  const [credentials, setCredentials] = useState({ username: "", password: "" });
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await loginUser(credentials);
+      if (response.token) {
+        localStorage.setItem('token', response.token);
+        router.push('/');
+      }
+    } catch (err) {
+      setError("Invalid credentials");
+    }
+  };
+
   return (
     <>
       <div className=" w-full h-[90vh] flex flex-col lg:flex-row justify-center items-center text-white">
@@ -29,13 +49,28 @@ export default function SignupCard() {
               Signup here
             </Link>
           </div>
-          <div className="w-[300px] lg:w-[400px] px-4 py-10">
-            <Textbox title="Username" placeholder="Enter Username" />
-            <Textbox title="Password" placeholder="Enter Password" />
-          </div>
-          <button className="text-white border py-2 px-20 text-2xl hover:bg-white hover:text-black transition">
-            Login
-          </button>
+          <form onSubmit={handleSubmit} className="w-[300px] lg:w-[400px] px-4 py-10 flex flex-col items-center">
+            <Textbox
+              title="Username"
+              placeholder="Enter Username"
+              value={credentials.username}
+              onChange={(e) => setCredentials({...credentials, username: e.target.value})}
+            />
+            <Textbox
+              title="Password"
+              placeholder="Enter Password"
+              type="password"
+              value={credentials.password}
+              onChange={(e) => setCredentials({...credentials, password: e.target.value})}
+            />
+            {error && <div className="text-red-500 mt-2 mb-4">{error}</div>}
+            <button 
+              type="submit"
+              className="text-white border py-2 px-20 text-2xl hover:bg-white hover:text-black transition mt-4"
+            >
+              Login
+            </button>
+          </form>
         </motion.div>
       </div>
     </>
