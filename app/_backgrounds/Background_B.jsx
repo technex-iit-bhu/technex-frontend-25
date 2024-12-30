@@ -1,16 +1,16 @@
 import Image from "next/image";
 
-export default function Background_B() {
+export default function Background_B({ children }) {
   return (
-    <>
+    <div className="relative w-full h-full">
       <Image
         src="/bg2.png"
-        width={0}
-        height={0}
-        sizes="100vw"
-        alt="bg-2"
-        className="absolute min-w-[400px] w-[100vw] h-[100vh] object-cover overflow-hidden top-0 left-0 z-[-1]"
+        layout="fill"
+        objectFit="cover"
+        alt="bg-a"
+        className="fixed top-0 left-0 z-[-1] w-full h-full p-[0.001px]"
       />
-    </>
+      <div className="relative z-10">{children}</div>
+    </div>
   );
 }
