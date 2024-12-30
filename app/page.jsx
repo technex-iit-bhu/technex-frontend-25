@@ -8,13 +8,14 @@ import Footer from "./_components/Footer";
 export default function Home() {
   return (
     <>
-      <Background_A />
-      <div className="w-[100vw] h-[100vh] overflow-y-auto lg:h-fit">
-        <Navbar />
-        <HeroSection />
-        <FAQ />
-        <Footer />
-      </div>
+      <Background_A>
+        <div className="w-[100vw] h-[100vh] overflow-y-auto lg:h-fit">
+          <Navbar />
+          <HeroSection />
+          <FAQ />
+          <Footer />
+        </div>
+      </Background_A>
     </>
   );
 }

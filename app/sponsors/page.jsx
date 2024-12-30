@@ -2,8 +2,10 @@
 import Image from "next/image";
 import Background_D from "../_backgrounds/Background_D";
 import Navbar from "../_components/Navbar";
+import Footer from "../_components/Footer";
 import { cardVariants } from "../utils/cardVariants";
 import { motion } from "motion/react";
+
 
 const SponsorCard = ({ company }) => {
   return (
@@ -38,6 +40,7 @@ export default function Sponsors() {
             <SponsorCard company="Company A"/>
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );

@@ -2,9 +2,11 @@
 import Image from "next/image";
 import Background_D from "../_backgrounds/Background_D";
 import Navbar from "../_components/Navbar";
+import Footer from "../_components/Footer";
 import { cardVariants } from "../utils/cardVariants";
 import { motion } from "motion/react";
 import { useState } from "react";
+
 
 const GalleryModal = ({ onClick, children }) => {
   return <div onClick={onClick} className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-10 flex justify-center items-center">
@@ -42,7 +44,7 @@ export default function Gallery() {
       <div className="w-[100vw] h-[100vh] overflow-y-auto">
         <Navbar />
         <div className="text-white px-20 py-10 text-5xl">Gallery</div>
-        <div className="w-full flex items-center justify-center">
+        <div className="w-full flex items-center justify-center mb-24">
           <div className="max-w-[1200px] flex flex-wrap gap-20 justify-center items-center">
             <GalleryCard imageSrc="dummy0.jpg" expand={setExpandedImage} />
             <GalleryCard imageSrc="dummy1.jpg" expand={setExpandedImage} />
@@ -52,6 +54,7 @@ export default function Gallery() {
             <GalleryCard imageSrc="dummy5.jpg" expand={setExpandedImage} />
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );
