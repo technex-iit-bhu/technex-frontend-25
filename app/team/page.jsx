@@ -3,6 +3,7 @@ import Image from "next/image";
 import Background_C from "../_backgrounds/Background_C";
 import Navbar from "../_components/Navbar";
 import { motion } from "motion/react";
+import Footer from "../_components/Footer";
 
 const TeamSelect = ({ title, selected }) => {
   return (
@@ -93,6 +94,7 @@ export default function Team() {
             />
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );

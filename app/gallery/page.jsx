@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import Background_D from "../_backgrounds/Background_D";
 import Navbar from "../_components/Navbar";
+import Footer from "../_components/Footer";
 
 const GalleryCard = ({company}) => {
   return <div className="w-[300px] lg:w-[533px] relative h-[160px] lg:h-[300px] flex flex-col justify-center items-center text-white">
@@ -16,7 +18,7 @@ export default function Gallery() {
       <div className="w-[100vw] h-[100vh] overflow-y-auto">
         <Navbar />
         <div className="text-white px-20 py-10 text-5xl">Gallery</div>
-        <div className="w-full flex items-center justify-center">
+        <div className="w-full flex items-center justify-center mb-24">
           <div className="max-w-[1200px] flex flex-wrap gap-20 justify-center items-center">
             <GalleryCard company="Company A"/>
             <GalleryCard company="Company A"/>
@@ -26,6 +28,7 @@ export default function Gallery() {
             <GalleryCard company="Company A"/>
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );
