@@ -41,76 +41,38 @@ export default function SignupCard() {
 
   return (
     <>
-      <div className="mt-40 p-10 lg:mt-0 w-full h-[90vh] flex justify-center items-center text-white">
+      <div className="mt-40 p-2 md:p-10 lg:mt-0 w-full h-[90vh] flex justify-center items-center text-white mb-20">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.3, ease: "linear" }}
-          className="p-10 rounded-2xl bg-[#252525] bg-opacity-60 flex flex-col justify-center items-center"
+          className="p-6 md:p-10 rounded-2xl bg-[#252525] bg-opacity-60 flex flex-col justify-center items-center mb-10 "
         >
-          <div className="text-5xl w-full">Signup</div>
-          <div className="text-2xl w-full">
+          <div className="text-3xl sm:text-5xl w-full text-center">Signup</div>
+          <div className="text-xl sm:text-2xl w-full text-center mt-2">
             Have an account already?{" "}
             <Link href="/login" className="text-slate-400">
-              {" "}
               Login Here
             </Link>
           </div>
-          <form onSubmit={handleSubmit} className="flex flex-col items-center">
-            <div className="lg:flex py-5">
-              <div className="w-[300px] lg:w-[400px] p-4">
-                <Textbox
-                  title="Name"
-                  placeholder="Enter Name"
-                  value={formData.name}
-                  onChange={(e) => {
-                    console.log("Name changed:", e.target.value);
-                    setFormData(prev => ({...prev, name: e.target.value}));
-                  }}
-                />
-                <Textbox
-                  title="Email"
-                  placeholder="Enter Email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData(prev => ({...prev, email: e.target.value}))}
-                />
-                <DatePicker
-                  value={formData.dob}
-                  onChange={(date) => setFormData(prev => ({...prev, dob: date}))}
-                />
-              </div>
-              <div className="w-[300px] lg:w-[400px] p-4">
-                <Textbox
-                  title="Username"
-                  placeholder="Enter Username"
-                  value={formData.username}
-                  onChange={(e) => setFormData(prev => ({...prev, username: e.target.value}))}
-                />
-                <Textbox
-                  title="Password"
-                  type="password"
-                  placeholder="Enter Password"
-                  value={formData.password}
-                  onChange={(e) => setFormData(prev => ({...prev, password: e.target.value}))}
-                />
-                <Textbox
-                  title="Confirm Password"
-                  type="password"
-                  placeholder="Confirm Password"
-                  value={formData.confirmPassword}
-                  onChange={(e) => setFormData(prev => ({...prev, confirmPassword: e.target.value}))}
-                />
-              </div>
+          <div className="flex flex-col lg:flex-row py-5 w-full">
+            <div className="w-full md:w-[400px] p-4">
+              <Textbox title="Name" placeholder="Enter Name" />
+              <Textbox title="Email" placeholder="Enter Email" />
+              <DatePicker />
             </div>
-            {error && <div className="text-red-500 mb-4">{error}</div>}
-            <button 
-              type="submit" 
-              className="text-white border py-2 px-20 text-2xl hover:bg-white hover:text-black transition"
-            >
-              Signup
-            </button>
-          </form>
+            <div className="w-full md:w-[400px] p-4">
+              <Textbox title="Username" placeholder="Enter Username" />
+              <Textbox title="Password" placeholder="Enter Password" />
+              <Textbox
+                title="Confirm Password"
+                placeholder="Confirm Password"
+              />
+            </div>
+          </div>
+          <button className="text-white border py-2 px-10 sm:px-20 text-xl sm:text-2xl hover:bg-white hover:text-black transition">
+            Signup
+          </button>
         </motion.div>
       </div>
     </>
