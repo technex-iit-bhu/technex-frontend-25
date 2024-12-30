@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Background_C from "../_backgrounds/Background_C";
 import Navbar from "../_components/Navbar";
+import { cardVariants } from "../utils/cardVariants";
 import { motion } from "motion/react";
 
 const TeamSelect = ({ title, selected }) => {
@@ -21,6 +22,8 @@ const MemberCard = ({ name, position, phone, insta }) => {
     <motion.div
       whileHover={{ scale: 1.08,boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}
       transition={{ duration: 0.2 }}
+      initial="offscreen" whileInView="onscreen"
+      variants={cardVariants} viewport={{margin: "-80px 0px -10px 0px", amount: 0.1 }}
       className="w-[300px] relative h-[400px] flex flex-col justify-center items-center text-white rounded-lg"
     >
       <Image

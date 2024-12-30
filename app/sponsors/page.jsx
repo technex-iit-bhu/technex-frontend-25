@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Background_D from "../_backgrounds/Background_D";
 import Navbar from "../_components/Navbar";
+import { cardVariants } from "../utils/cardVariants";
 import { motion } from "motion/react";
 
 const SponsorCard = ({ company }) => {
@@ -9,6 +10,8 @@ const SponsorCard = ({ company }) => {
     <motion.div
       whileHover={{ scale: 1.08 }}
       transition={{ duration: 0.2 }}
+      initial="offscreen" whileInView="onscreen"
+      variants={cardVariants} viewport={{margin: "-160px 0px -10px 0px", amount: 0.1 }}
       className="w-[300px] relative h-[400px] flex flex-col items-center text-white"
     >
       <Image src="/SponsorCard.png" width={300} height={0} className="absolute z-[-1] top-0" alt="sponsor-card" />
