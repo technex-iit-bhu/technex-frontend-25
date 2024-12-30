@@ -46,7 +46,7 @@ export default function Navbar() {
             Gallery
           </Link>
           <Link
-            href="#"
+            href="/events"
             className="text-white text-xl hover:bg-slate-700 p-2 rounded-md"
           >
             Events
