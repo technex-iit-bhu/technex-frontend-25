@@ -4,14 +4,16 @@ import Navbar from "./_components/Navbar";
 import HeroSection from "./_components/HeroSection";
 import FAQ from "./_components/FAQ";
 import Footer from "./_components/Footer";
+import {FireEffect} from "./_components/particleEffects"
 import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <div className="absolute">
       <Background_A />
+      <FireEffect />
       {[...Array(20)].map((_, i) => (
-        <motion.div
+      <motion.div
           key={i}
           className="absolute w-2 h-2 bg-yellow-500 opacity-50"
           initial={{

@@ -1,30 +1,53 @@
 "use client";
+import { useState, useRef } from "react";
+import { motion } from "motion/react";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { MinecraftDialog } from "./Minecraft-dialog.jsx";
-import { MinecraftButton } from "./Minecraft-button.jsx";
+const FAQItem = ({ index, title, content }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const contentRef = useRef(null);
 
-const faqs = [
-  {
-    question: "What is SNTC?",
-    answer:
-      "The Science and Technology Council (SNTC) at IIT BHU Varanasi is a student body that promotes scientific and technological activities. We organize various events, workshops, and competitions throughout the year.",
-    image: "/placeholder.svg?height=100&width=100",
-  },
-  {
-    question: "How can I participate?",
-    answer:
-      "You can register through our website and participate in various events and workshops. Simply click the 'Register' button on the event you're interested in and follow the instructions.",
-    image: "/placeholder.svg?height=100&width=100",
-  },
-  {
-    question: "What are the event dates?",
-    answer:
-      "Our main events are scheduled throughout the academic year. The next major event series will be held from January to March 2024. Check the schedule section for specific event timings.",
-    image: "/placeholder.svg?height=100&width=100",
-  },
-];
+  const toggleFAQ = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className="bg-[#4D4B4B] bg-opacity-80 text-white px-5 w-[60vw] rounded-xl text-2xl">
+      <button
+        onClick={toggleFAQ}
+        className="w-full flex justify-between items-center py-5"
+      >
+        <span>{title}</span>
+        <span
+          className={`transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="white"
+            className="w-4 h-4"
+          >
+            <path
+              fillRule="evenodd"
+              d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </span>
+      </button>
+      <div
+        ref={contentRef}
+        style={{
+          maxHeight: isOpen ? `${contentRef.current.scrollHeight}px` : "0",
+        }}
+        className="overflow-hidden transition-all duration-300 ease-in-out"
+      >
+        <div className="pb-5 text-xl text-white">{content}</div>
+      </div>
+    </div>
+  );
+};
 
 export default function FAQ() {
   const [currentFaq, setCurrentFaq] = useState(0);
