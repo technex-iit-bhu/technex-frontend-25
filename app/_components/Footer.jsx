@@ -72,7 +72,7 @@ export default function Footer() {
       >
         <SocialCard href="https://www.facebook.com/technexiitbhu/" src="/facebook_icon.png" alt="Facebook" />
         <SocialCard href="https://www.instagram.com/technexiitbhu/" src="/insta_icon.png" alt="Instagram" />
-        <SocialCard href="https://www.linkedin.com/company/technex/" src="/linkedin_icon.png" alt="LinkedIn" />
+        <SocialCard href="https://www.linkedin.com/company/technex-iit-bhu-varanasi/" src="/linkedin_icon.png" alt="LinkedIn" />
         <SocialCard href="https://x.com/technexiitbhu" src="/X_icon.png" alt="Twitter" />
         <SocialCard href="https://www.youtube.com/@TechnexIITBHU" src="/youtube_icon.png" alt="YouTube" />
       </motion.div>
