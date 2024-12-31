@@ -7,7 +7,7 @@ export default function Background_C() {
       width={0}
       height={0}
       alt="bg-c"
-      className="absolute min-w-[400px] w-[100vw] h-[100vh] object-cover overflow-hidden top-0 left-0 z-[-1]"
+      className="fixed min-w-[400px] w-[100vw] h-[100vh] object-cover overflow-hidden top-0 left-0 z-[-1]"
       sizes="100vw"
       style={{
         maxWidth: "100%",

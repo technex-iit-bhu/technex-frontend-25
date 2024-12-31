@@ -3,10 +3,9 @@ import Image from "next/image";
 import Background_D from "../_backgrounds/Background_D";
 import Navbar from "../_components/Navbar";
 import {FireEffect} from "../_components/particleEffects"
-import Footer from "../_components/Footer";
 import { cardVariants } from "../utils/cardVariants";
 import { motion } from "motion/react";
-
+import Footer from "../_components/Footer";
 
 const SponsorCard = ({ company }) => {
   return (

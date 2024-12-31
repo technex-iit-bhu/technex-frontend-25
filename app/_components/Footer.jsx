@@ -27,7 +27,7 @@ export default function Footer() {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.5, ease: "easeInOut" }}
-      className="relative w-full py-12 flex flex-col items-center font-classic bg-black/50 backdrop-blur-sm text-white overflow-hidden border border-transparent rounded-lg"
+      className="w-[99%] ml-2 py-12 flex flex-col items-center font-classic bg-black/50 backdrop-blur-sm text-white overflow-hidden border border-transparent rounded-lg"
     >
       <motion.div
         className="absolute inset-0 rounded-lg border-4 border-black animate-border"

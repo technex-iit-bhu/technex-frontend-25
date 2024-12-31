@@ -1,8 +1,10 @@
+"use client";
 import Link from "next/link";
 import Background_C from "../_backgrounds/Background_C";
 import Navbar from "../_components/Navbar";
 import Image from "next/image";
 import { SnowEffect } from "../_components/particleEffects";
+import Footer from "../_components/Footer";
 
 const EventsCard = ({ name, id }) => {
   return (
@@ -87,24 +89,25 @@ const eventsArray = [
   },
 ];
 
-const events = () => {
+const Events = () => {
   return (
     <>
       <Background_C />
       <SnowEffect />
-      <div className="w-[100vw] h-[100vh] overflow-y-auto">
-        <Navbar />
+      <Navbar />
+      <main className="flex-grow">
         <div className="text-white px-20 py-10 text-5xl">Events</div>
-        <div className="w-full flex items-center justify-center">
+        <div className="w-full flex items-center justify-center px-4 md:px-10 lg:px-20 mb-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-20">
             {eventsArray.map((event) => (
               <EventsCard key={event.id} id={event.id} name={event.name} />
             ))}
           </div>
         </div>
-      </div>
+       <Footer />
+      </main>
     </>
   );
 };
 
-export default events;
+export default Events;
