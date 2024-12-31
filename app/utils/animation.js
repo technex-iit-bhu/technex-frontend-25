@@ -1,6 +1,6 @@
-const { cubicBezier } = require("framer-motion");
-const { clsx } = require("clsx");
-const { twMerge } = require("tailwind-merge");
+import { cubicBezier } from "framer-motion";
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 const blockFloat = {
   initial: { y: 0 },

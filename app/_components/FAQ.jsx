@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MinecraftDialog } from "./Minecraft-dialog";
 import { MinecraftButton } from "./Minecraft-button";
+import Image from "next/image";
 
 const FAQItem = ({ index, title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -94,9 +95,10 @@ export default function FAQ() {
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="w-32 h-32 bg-[#C6C6C6] border-2 border-[#373737] p-1 flex-shrink-0 mx-auto md:mx-0">
                     <div className="w-full h-full bg-white">
-                      <img
+                      <Image
                         src="/skin.png"
                         alt=""
+                        
                         className="w-full h-full object-cover"
                       />
                     </div>

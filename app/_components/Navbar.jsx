@@ -110,7 +110,7 @@ const Navbar = () => {
                   }}
                 />
                 <span className="ml-2 text-3xl text-[#E0D3B3] font-minecraft uppercase tracking-wide">
-                  Technex'25
+                  Technex&apos;25
                 </span>
               </div>
             </Link>
