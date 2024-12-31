@@ -9,7 +9,7 @@ export default function Background_E() {
         height={0}
         sizes="100vw"
         alt="bg-2"
-        className="sticky min-w-[400px] w-[100vw] h-[100vh] object-cover overflow-hidden top-0 left-0 z-[-1]"
+        className="fixed min-w-[400px] w-[100vw] h-[100vh] object-cover overflow-hidden top-0 left-0 z-[-1]"
       />
     </>
   );
