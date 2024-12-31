@@ -4,21 +4,6 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Users,
-  HandshakeIcon,
-  Image as ImageIcon,
-  Calendar,
-  BookOpen,
-  ClipboardList,
-  UserCheck,
-  LogIn,
-  UserPlus,
-  LogOut,
-  User,
-  Menu,
-  X,
-} from "lucide-react";
 
 const NavLink = ({ href, children, icon: Icon }) => {
   return (

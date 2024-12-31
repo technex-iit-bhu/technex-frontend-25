@@ -1,6 +1,8 @@
 "use client";
 import { useState, useRef } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
+import { MinecraftDialog } from "./Minecraft-dialog";
+import { MinecraftButton } from "./Minecraft-button";
 
 const FAQItem = ({ index, title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,6 +54,25 @@ const FAQItem = ({ index, title, content }) => {
 export default function FAQ() {
   const [currentFaq, setCurrentFaq] = useState(0);
   const [isOpen, setIsOpen] = useState(true);
+
+  const faqs = [
+    {
+      question: "What is Technex?",
+      answer: "Technex is the annual techno-management festival of IIT (BHU) Varanasi."
+    },
+    {
+      question: "When is Technex 2024?",
+      answer: "Technex 2024 will be held from March 15 to March 17, 2024."
+    },
+    {
+      question: "How can I register for events?",
+      answer: "You can register for events through the official Technex website."
+    },
+    {
+      question: "Are there any participation fees?",
+      answer: "Some events may have participation fees. Please check the event details on the website."
+    }
+  ];
 
   return (
     <div className="relative overflow-hidden flex items-center justify-center xl:scale-150 my-16 mb-32">
