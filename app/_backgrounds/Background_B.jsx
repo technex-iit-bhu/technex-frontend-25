@@ -5,9 +5,9 @@ export default function Background_B({ children }) {
     <div className="relative w-full h-full">
       <Image
         src="/bg2.png"
-        layout="fill"
+        fill
         objectFit="cover"
-        alt="bg-a"
+        alt="bg-b"
         className="fixed top-0 left-0 z-[-1] w-full h-full p-[0.001px]"
       />
       <div className="relative z-10">{children}</div>

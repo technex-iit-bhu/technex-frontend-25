@@ -3,10 +3,9 @@ import { useEffect } from "react";
 
 export default function Background_E() {
   useEffect(() => {
-    // Start the rain effect once the component is mounted
     const makeItRain = () => {
       const rain = document.querySelector('.rain.front-row');
-      rain.innerHTML = '';  // clear any existing rain
+      rain.innerHTML = '';
 
       let increment = 0;
       let drops = '';
@@ -39,7 +38,7 @@ export default function Background_E() {
           height={0}
           sizes="100vw"
           alt="bg-2"
-          className="fixed min-w-[400px] w-[100vw] h-[100vh] object-cover top-0 left-0 z-[-1]"
+          className="fixed min-w-[400px] w-[100vw] h-[100vh] object-cover top-0 left-0 z-[-1] blur-sm"
         />
       </div>
     </>
