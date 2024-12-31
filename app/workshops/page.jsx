@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Background_E from "../_backgrounds/Background_E";
 import Navbar from "../_components/Navbar";
 import WorkshopCard from "./workshopcard";
+import Footer from "../_components/Footer";
 
 const backendURL = "http://localhost:6969";
 
@@ -36,6 +37,7 @@ export default function Workshops() {
             />
           ))}
         </div>
+        <Footer />
       </div>
     </>
   );

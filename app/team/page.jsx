@@ -99,7 +99,7 @@ export default function Team() {
     <>
       <Background_C />
       <SnowEffect />
-      <div className="w-[100vw] h-[100vh] overflow-y-auto">
+      <div className="w-[100vw] h-[100vh] overflow-y-auto overflow-x-auto scrollbar-hide">
         <Navbar />
         <div className="text-white px-20 py-10 text-5xl">Meet the team</div>
         <div className="px-20 pb-10 text-2xl flex gap-5 max-w-[80vw] overflow-auto">
