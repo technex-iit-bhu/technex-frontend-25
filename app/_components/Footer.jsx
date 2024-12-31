@@ -70,11 +70,11 @@ export default function Footer() {
         transition={{ duration: 1.5, ease: "easeInOut", delayChildren: 0.5 }}
         className="flex justify-center items-center p-5 gap-5 z-10 flex-wrap"
       >
-        <SocialCard href="#" src="/facebook_icon.png" alt="Facebook" />
-        <SocialCard href="#" src="/insta_icon.png" alt="Instagram" />
-        <SocialCard href="#" src="/linkedin_icon.png" alt="LinkedIn" />
-        <SocialCard href="#" src="/X_icon.png" alt="Twitter" />
-        <SocialCard href="#" src="/youtube_icon.png" alt="YouTube" />
+        <SocialCard href="https://www.facebook.com/technexiitbhu/" src="/facebook_icon.png" alt="Facebook" />
+        <SocialCard href="https://www.instagram.com/technexiitbhu/" src="/insta_icon.png" alt="Instagram" />
+        <SocialCard href="https://www.linkedin.com/company/technex/" src="/linkedin_icon.png" alt="LinkedIn" />
+        <SocialCard href="https://x.com/technexiitbhu" src="/X_icon.png" alt="Twitter" />
+        <SocialCard href="https://www.youtube.com/@TechnexIITBHU" src="/youtube_icon.png" alt="YouTube" />
       </motion.div>
 
       {/* Contact Info */}
