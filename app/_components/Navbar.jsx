@@ -1,23 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Users,
-  HandshakeIcon,
-  Image as ImageIcon,
-  Calendar,
-  BookOpen,
-  ClipboardList,
-  UserCheck,
-  LogIn,
-  UserPlus,
-  LogOut,
-  User,
-  Menu,
-  X,
-} from "lucide-react";
 
 const NavLink = ({ href, children, icon: Icon }) => {
   return (
@@ -75,261 +61,95 @@ const MinecraftButton = ({
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const pathname = usePathname();
 
-  const navItems = [
-    { name: "Team", href: "/team", icon: Users },
-    { name: "Sponsors", href: "/sponsors", icon: HandshakeIcon },
-    { name: "Gallery", href: "/gallery", icon: ImageIcon },
-    { name: "Events", href: "/events", icon: Calendar },
-    { name: "Workshops", href: "/workshops", icon: BookOpen },
-    { name: "Schedule", href: "/schedule", icon: ClipboardList },
-    { name: "CA", href: "https://ca-frontend-25.vercel.app/", icon: UserCheck },
-  ];
+  const NavButton = ({ href, children }) => {
+    const isActive = pathname === href;
 
-  useEffect(() => {
-    const token = localStorage.getItem("userToken");
-    setIsLoggedIn(!!token);
-
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return (
+      <Link href={href} className="group">
+        <div className={`
+          px-4 py-2 
+          ${isActive ? "bg-[#5A5A5A]" : "bg-[#4D4D4D] hover:bg-[#5A5A5A]"}
+          border-2 border-[#272727]
+          relative
+          transition-all duration-100
+          hover:translate-y-[2px]
+          before:absolute before:inset-0 
+          before:border-t-2 before:border-l-[1px]
+          before:border-white/10
+          after:absolute after:inset-0
+          after:border-r-[1px] after:border-b-2
+          after:border-black/20
+        `}>
+          <span className={`text-lg ${isActive ? "text-white" : "text-[#E0D3B3] group-hover:text-white"} 
+            font-minecraft uppercase tracking-wide
+            drop-shadow-[2px_2px_0px_rgba(0,0,0,0.5)]`}>
+            {children}
+          </span>
+        </div>
+      </Link>
+    );
+  };
 
   return (
     <>
-      <motion.nav
-        initial={false}
-        animate={{
-          backgroundColor: isScrolled
-            ? "rgba(0, 0, 0, 0.95)"
-            : "rgba(0, 0, 0, 0.7)",
-        }}
-        className="fixed w-full z-50 top-0 border-b-2 border-gray-800"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            {/* Logo */}
-            <motion.div
-              className="flex-shrink-0 flex items-center"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link href="/">
+      <div className="fixed top-0 left-0 right-0 bg-[#373737] border-b-4 border-[#1F1F1F] z-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <Link href="/" className="flex-shrink-0">
+              <div className="flex items-center border-2 border-[#373737] p-2 hover:translate-y-[2px] transition-transform">
                 <Image
                   src="/logo.png"
+                  width={32}
+                  height={32}
                   alt="Logo"
-                  width={40}
-                  height={40}
-                  className="rounded-lg"
+                  style={{
+                    height: "auto",
+                    width: "auto",
+                  }}
                 />
-              </Link>
-            </motion.div>
+                <span className="ml-2 text-3xl text-[#E0D3B3] font-minecraft uppercase tracking-wide">
+                  Technex'25
+                </span>
+              </div>
+            </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-6">
-              {navItems.map((item) => (
-                <NavLink key={item.name} href={item.href} icon={item.icon}>
-                  {item.name}
-                </NavLink>
+            <div className="hidden md:flex items-center gap-2">
+              {['Team', 'Events', 'Workshops', 'Sponsors', 'Gallery', 'Schedule'].map(item => (
+                <NavButton key={item} href={`/${item.toLowerCase()}`}>{item}</NavButton>
               ))}
-
-              {!isLoggedIn ? (
-                <div className="flex space-x-4">
-                  <Link href="/login">
-                    <MinecraftButton variant="primary" icon={LogIn}>
-                      LOGIN
-                    </MinecraftButton>
-                  </Link>
-                  <Link href="/signup">
-                    <MinecraftButton variant="success" icon={UserPlus}>
-                      SIGN UP
-                    </MinecraftButton>
-                  </Link>
-                </div>
-              ) : (
-                <div className="flex space-x-4">
-                  <NavLink href="/profile" icon={User}>
-                    Profile
-                  </NavLink>
-                  <MinecraftButton
-                    onClick={() => {
-                      localStorage.removeItem("userToken");
-                      setIsLoggedIn(false);
-                    }}
-                    icon={LogOut}
-                  >
-                    LOGOUT
-                  </MinecraftButton>
-                </div>
-              )}
             </div>
 
-            {/* Mobile menu buttons */}
-            <div className="lg:hidden flex items-center space-x-4">
+            <div className="flex items-center gap-2">
+              <NavButton href="https://ca-frontend-25.vercel.app/">CA</NavButton>
+              <NavButton href="/login">Login</NavButton>
+
               <button
-                onClick={() => {
-                  setIsMenuOpen(!isMenuOpen);
-                  setIsUserMenuOpen(false);
-                }}
-                className="text-gray-300 hover:text-white p-2"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden p-2 bg-[#4D4D4D] border-2 border-[#373737]"
               >
-                {isMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
-              </button>
-              <button
-                onClick={() => {
-                  setIsUserMenuOpen(!isUserMenuOpen);
-                  setIsMenuOpen(false);
-                }}
-                className="text-gray-300 hover:text-white p-2"
-              >
-                {isUserMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <User className="w-6 h-6" />
-                )}
+                <div className="w-6 h-6 flex flex-col justify-center space-y-1">
+                  <span className="block h-0.5 bg-[#E0D3B3]" />
+                  <span className="block h-0.5 bg-[#E0D3B3]" />
+                  <span className="block h-0.5 bg-[#E0D3B3]" />
+                </div>
               </button>
             </div>
           </div>
-        </div>
-
-        {/* User Profile and Menu Section */}
-        <div className="flex flex-1 justify-end gap-x-4">
-          {/* Menu Section */}
-          <button
-            onClick={() => {
-              setIsMenuOpen(!isMenuOpen);
-              if (!isMenuOpen) setIsUserMenuOpen(false);
-            }}
-            className="lg:hidden pr-5 transition-transform duration-300"
-          >
-            <Image
-              src={isMenuOpen ? "/close.png" : "/menu.png"}
-              width={30}
-              height={30}
-              alt="Menu"
-              className={`transition-transform duration-300 ${
-                isMenuOpen ? "rotate-90" : "rotate-0"
-              }`}
-            />
-          </button>
 
           {isMenuOpen && (
-            <div className="absolute top-20 right-16 bg-[#252525CC] text-white rounded-md shadow-lg p-4 w-[196px] text-right text-xl transition-all ease-in-out duration-300">
-              <Link
-                href="/team"
-                className="block p-2 hover:bg-slate-700 rounded-md"
-              >
-                Team
-              </Link>
-              <Link
-                href="/sponsors"
-                className="block p-2 hover:bg-slate-700 rounded-md"
-              >
-                Sponsors
-              </Link>
-              <Link
-                href="/gallery"
-                className="block p-2 hover:bg-slate-700 rounded-md"
-              >
-                Gallery
-              </Link>
-              <Link
-                href="#"
-                className="block p-2 hover:bg-slate-700 rounded-md"
-              >
-                Events
-              </Link>
-              <Link
-                href="/workshops"
-                className="block p-2 hover:bg-slate-700 rounded-md"
-              >
-                Workshops
-              </Link>
-              <Link
-                href="#"
-                className="block p-2 hover:bg-slate-700 rounded-md"
-              >
-                Schedule
-              </Link>
-            </div>
-          )}
-          {/* User Profile */}
-          <button
-            onClick={() => {
-              setIsUserMenuOpen(!isUserMenuOpen);
-              if (!isUserMenuOpen) setIsMenuOpen(false);
-            }}
-            className="lg:hidden pr-5 transition-transform duration-500"
-          >
-            <Image
-              src={isUserMenuOpen ? "/close.png" : "/user.png"}
-              width={30}
-              height={30}
-              alt="User Menu"
-              className={`transition-transform duration-300 ${
-                isUserMenuOpen ? "rotate-90" : "rotate-0"
-              }`}
-            />
-          </button>
-
-          {isUserMenuOpen && (
-            <div className="absolute top-20 right-4 bg-[#252525CC] text-white shadow-lg p-4 w-[196px] text-right text-xl transition-all ease-in-out duration-300">
-              {!isLoggedIn ? (
-                <>
-                  <Link
-                    href="/login"
-                    className="block p-2 hover:bg-slate-700 rounded-md"
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    href="/signup"
-                    className="block p-2 hover:bg-slate-700 rounded-md"
-                  >
-                    Signup
-                  </Link>
-                  <Link
-                    href="https://ca-frontend-25.vercel.app/"
-                    target="_blank"
-                    className="block p-2 hover:bg-slate-700 rounded-md"
-                  >
-                    CA
-                  </Link>
-                </>
-              ) : (
-                <>
-                  <Link
-                    href="/profile"
-                    className="block p-2 hover:bg-slate-700 rounded-md"
-                  >
-                    Profile
-                  </Link>
-                  <button
-                    onClick={() => {
-                      localStorage.removeItem("userToken");
-                      setIsLoggedIn(false);
-                    }}
-                    className="block w-full text-left p-2 hover:bg-slate-700 rounded-md"
-                  >
-                    Logout
-                  </button>
-                </>
-              )}
+            <div className="md:hidden border-t-2 border-[#1F1F1F] bg-[#373737]">
+              <div className="p-2 space-y-2">
+                {['Team', 'Events', 'Workshops', 'Sponsors', 'Gallery', 'Schedule', 'CA'].map(item => (
+                  <NavButton key={item} href={`/${item.toLowerCase()}`}>{item}</NavButton>
+                ))}
+              </div>
             </div>
           )}
         </div>
-      </motion.nav>
-      <div className="h-16" /> {/* Spacer */}
+      </div>
+      <div className="h-20" />
     </>
   );
 };

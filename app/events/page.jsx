@@ -2,6 +2,7 @@ import Link from "next/link";
 import Background_C from "../_backgrounds/Background_C";
 import Navbar from "../_components/Navbar";
 import Image from "next/image";
+import { SnowEffect } from "../_components/particleEffects";
 
 const EventsCard = ({ name, id }) => {
   return (
@@ -90,6 +91,7 @@ const events = () => {
   return (
     <>
       <Background_C />
+      <SnowEffect />
       <div className="w-[100vw] h-[100vh] overflow-y-auto">
         <Navbar />
         <div className="text-white px-20 py-10 text-5xl">Events</div>
