@@ -1,3 +1,4 @@
+import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -5,16 +6,16 @@ import { motion } from "framer-motion";
 const SocialCard = ({ href, src, alt }) => {
   return (
     <motion.div
-      whileHover={{ rotate: 360, scale: 1.2 }}
-      transition={{ duration: 1.2, ease: "easeInOut" }}
+      whileHover={{ scale: 1.2 }}
+      className="pixel-card"
     >
       <Link href={href} target="_blank" rel="noopener noreferrer">
         <Image
           src={src}
-          width={50}
-          height={50}
+          width={40}
+          height={40}
           alt={alt}
-          className="rounded-full shadow-lg"
+          className="pixel-image"
         />
       </Link>
     </motion.div>
@@ -23,71 +24,163 @@ const SocialCard = ({ href, src, alt }) => {
 
 export default function Footer() {
   return (
-    <motion.footer
-      initial={{ opacity: 0, y: 50 }}
+    <motion.footer 
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.5, ease: "easeInOut" }}
-      className="w-[99%] ml-2 py-12 flex flex-col items-center font-classic bg-black/50 backdrop-blur-sm text-white overflow-hidden border border-transparent rounded-lg"
+      className="w-full py-8 relative overflow-hidden"
     >
-      <motion.div
-        className="absolute inset-0 rounded-lg border-4 border-black animate-border"
-        style={{
-          background:
-            "linear-gradient(130deg, rgba(255, 0, 150, 0.4), rgba(0, 204, 255, 0.4))",
-          maskImage: "linear-gradient(#fff, rgba(255,255,255,0))",
-          WebkitMaskImage: "linear-gradient(#fff, rgba(255,255,255,0))",
-        }}
-        animate={{
-          opacity: [0.4, 0.8, 0.4],
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 6,
-          ease: "easeInOut",
-        }}
-      ></motion.div>
+      {/* Minecraft-style background */}
+      <div className="absolute inset-0 minecraft-pattern"></div>
+      
+      {/* Animated border */}
 
-      {/* Footer Logo */}
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.2, ease: "easeInOut" }}
-        className="relative z-10 px-6"
-      >
-        <Image
-          src="/sntc_footer.png"
-          width={400}
-          height={0}
-          alt="SNTC Image"
-          className="mb-4 drop-shadow-lg max-w-full"
-        />
-      </motion.div>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="flex flex-col items-center space-y-8">
+          {/* Logo */}
+          <motion.div
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            className="mb-4"
+          >
+            <Image
+              src="/sntc_footer.png"
+              width={200}
+              height={50}
+              alt="SNTC Logo"
+              className="pixel-logo"
+            />
+          </motion.div>
 
-      {/* Social Cards */}
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.5, ease: "easeInOut", delayChildren: 0.5 }}
-        className="flex justify-center items-center p-5 gap-5 z-10 flex-wrap"
-      >
-        <SocialCard href="https://www.facebook.com/technexiitbhu/" src="/facebook_icon.png" alt="Facebook" />
-        <SocialCard href="https://www.instagram.com/technexiitbhu/" src="/insta_icon.png" alt="Instagram" />
-        <SocialCard href="https://www.linkedin.com/company/technex-iit-bhu-varanasi/" src="/linkedin_icon.png" alt="LinkedIn" />
-        <SocialCard href="https://x.com/technexiitbhu" src="/X_icon.png" alt="Twitter" />
-        <SocialCard href="https://www.youtube.com/@TechnexIITBHU" src="/youtube_icon.png" alt="YouTube" />
-      </motion.div>
+          {/* Social Icons */}
+          <div className="flex flex-wrap justify-center gap-6">
+            <SocialCard href="https://www.facebook.com/technexiitbhu/" src="/facebook_icon.png" alt="Facebook" />
+            <SocialCard href="https://www.instagram.com/technexiitbhu/" src="/insta_icon.png" alt="Instagram" />
+            <SocialCard href="https://www.linkedin.com/company/technex-iit-bhu-varanasi/" src="/linkedin_icon.png" alt="LinkedIn" />
+            <SocialCard href="https://x.com/technexiitbhu" src="/X_icon.png" alt="Twitter" />
+            <SocialCard href="https://www.youtube.com/@TechnexIITBHU" src="/youtube_icon.png" alt="YouTube" />
+          </div>
 
-      {/* Contact Info */}
-      <motion.div
-        className="p-5 text-lg text-white z-10 text-center font-minecraft"
-        whileHover={{ scale: 1.2, color: "#FFEB3B" }}
-        transition={{ duration: 0.5 }}
-      >
-        For more queries:{' '}
-        <Link href="mailto:publicity@technex.in" className="underline">
-          publicity@technex.in
-        </Link>
-      </motion.div>
+          {/* Contact info */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="text-lg font-minecraft text-center minecraft-text"
+          >
+            For queries:{' '}
+            <Link 
+              href="mailto:publicity@technex.in"
+              className="hover:text-yellow-400 transition-colors minecraft-link"
+            >
+              publicity@technex.in
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+
+      <style jsx global>{`
+        @font-face {
+          font-family: 'Minecraft';
+          src: url('/fonts/minecraft.ttf') format('truetype');
+        }
+
+        .minecraft-pattern {
+          background: 
+            linear-gradient(135deg, #2a2a2a 25%, transparent 25%) -10px 0,
+            linear-gradient(225deg, #2a2a2a 25%, transparent 25%) -10px 0,
+            linear-gradient(315deg, #2a2a2a 25%, transparent 25%),
+            linear-gradient(45deg, #2a2a2a 25%, transparent 25%);
+          background-size: 20px 20px;
+          background-color: #333333;
+          animation: patternShift 40s linear infinite;
+        }
+
+        @keyframes patternShift {
+          from { background-position: 0 0; }
+          to { background-position: 100px 100px; }
+        }
+
+        .pixel-border-animate {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, 
+            #ff0000, #ff7f00, #ffff00, #00ff00, 
+            #0000ff, #4b0082, #8f00ff, #ff0000);
+          background-size: 200% 100%;
+          animation: borderFlow 2s linear infinite;
+        }
+
+        @keyframes borderFlow {
+          0% { background-position: 200% 0; }
+          100% { background-position: 0 0; }
+        }
+
+        .pixel-card {
+          background: #1a1a1a;
+          padding: 10px;
+          border: 4px solid #404040;
+          position: relative;
+          transition: all 0.3s ease;
+          image-rendering: pixelated;
+        }
+
+        .pixel-card::after {
+          content: '';
+          position: absolute;
+          inset: -5px;
+          background: linear-gradient(45deg, #404040, #1a1a1a);
+          z-index: -1;
+          transition: all 0.3s ease;
+        }
+
+        .pixel-card:hover::after {
+          filter: brightness(1.5);
+        }
+
+        .pixel-logo {
+          filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+          image-rendering: pixelated;
+        }
+
+        .minecraft-text {
+          color: #ffffff;
+          text-shadow: 2px 2px #000000;
+          letter-spacing: 0.05em;
+        }
+
+        .minecraft-link {
+          position: relative;
+          color: #ffaa00;
+          text-decoration: none;
+          text-shadow: 1px 1px #000000;
+        }
+
+        .minecraft-link::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -2px;
+          height: 2px;
+          background: currentColor;
+          transform: scaleX(0);
+          transition: transform 0.3s ease;
+        }
+
+        .minecraft-link:hover::after {
+          transform: scaleX(1);
+        }
+
+        .pixel-image {
+          image-rendering: pixelated;
+          transition: filter 0.3s ease;
+        }
+
+        .pixel-image:hover {
+          filter: brightness(1.2);
+        }
+      `}</style>
     </motion.footer>
   );
 }
