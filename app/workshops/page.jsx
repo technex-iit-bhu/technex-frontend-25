@@ -5,8 +5,8 @@ import Navbar from "../_components/Navbar";
 import WorkshopCard from "./workshopcard";
 import Footer from "../_components/Footer";
 
-//  TODO : Make it dynamic
-const backendURL = "http://localhost:6969";
+const backendURL = process.env.NEXT_PUBLIC_BACKEND_URL;
+console.log("backend URL here : ", backendURL)
 
 export default function Workshops() {
   const [workshops, setWorkshops] = useState([]);
@@ -15,7 +15,9 @@ export default function Workshops() {
     fetch(`${backendURL}/api/workshops`)
       .then((response) => response.json())
       .then((data) => setWorkshops(data.workshops))
-      .catch((error) => console.error("Error fetching workshops:", error));
+      .catch((error) => {
+        return console.error("Error fetching workshops:", error)
+      });
   }, []);
 
   return (

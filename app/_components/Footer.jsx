@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const SocialCard = ({ href, src, alt }) => {
+const SocialCard = ({ href = "#", src, alt }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.2 }}

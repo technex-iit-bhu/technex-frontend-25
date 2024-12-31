@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const backendURL = "http://localhost:6969";
+const backendURL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export default function WorkshopCard({
   id,

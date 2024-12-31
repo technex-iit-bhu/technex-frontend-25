@@ -1,13 +1,11 @@
-"use client";
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
-const NavButton = ({ href, children, isActive }) => {
+const NavButton = ({ href = "#", children, isActive, onClick }) => {
   return (
-    <Link href={href} className="group">
+    <Link href={href} className="group" onClick={onClick}>
       <div
         className={`px-4 py-2 
         ${isActive ? "bg-[#5A5A5A]" : "bg-[#4D4D4D] hover:bg-[#5A5A5A]"}
@@ -24,9 +22,7 @@ const NavButton = ({ href, children, isActive }) => {
       >
         <span
           className={`text-lg ${
-            isActive
-              ? "text-white"
-              : "text-[#E0D3B3] group-hover:text-white"
+            isActive ? "text-white" : "text-[#E0D3B3] group-hover:text-white"
           } 
           font-minecraft uppercase tracking-wide
           drop-shadow-[2px_2px_0px_rgba(0,0,0,0.5)]`}
@@ -61,12 +57,12 @@ const Navbar = () => {
     ? [
         { name: "Profile", href: "/profile" },
         { name: "Logout", onClick: handleLogout },
-        { name: "CA" , href: "https://ca-frontend-25.vercel.app/" },
+        { name: "CA", href: "https://ca-frontend-25.vercel.app/" },
       ]
     : [
         { name: "Login", href: "/login" },
         { name: "Signup", href: "/signup" },
-        { name: "CA" , href: "https://ca-frontend-25.vercel.app/" },
+        { name: "CA", href: "https://ca-frontend-25.vercel.app/" },
       ];
 
   useEffect(() => {
@@ -99,7 +95,7 @@ const Navbar = () => {
             </Link>
 
             {/* Main Navigation Links */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-2">
               {mainNavLinks.map((item) => (
                 <NavButton
                   key={item}
@@ -112,7 +108,7 @@ const Navbar = () => {
             </div>
 
             {/* Functional Links */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-2">
               {functionalLinks.map((link) => (
                 <NavButton
                   key={link.name}
@@ -128,7 +124,7 @@ const Navbar = () => {
             {/* Hamburger Menu */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 bg-[#4D4D4D] border-2 border-[#373737]"
+              className="lg:hidden p-2 bg-[#4D4D4D] border-2 border-[#373737]"
             >
               <div className="w-6 h-6 flex flex-col justify-center space-y-1">
                 <span className="block h-0.5 bg-[#E0D3B3]" />
@@ -156,7 +152,6 @@ const Navbar = () => {
                   {item}
                 </NavButton>
               ))}
-              
             </div>
 
             {/* Functional Links */}

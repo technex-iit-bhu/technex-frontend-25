@@ -1,5 +1,4 @@
-// TODO : Replace with process env next public base url
-const API_BASE_URL = 'http://localhost:6969/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export const registerUser = async (userData) => {
   const response = await fetch(`${API_BASE_URL}/user/register`, {

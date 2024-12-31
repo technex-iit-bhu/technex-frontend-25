@@ -10,7 +10,7 @@ export default function HeroSection() {
   const text = `${daysRemaining} days to go`;
   return (
     <>
-      <div className="w-[full] h-[100vh] flex justify-center items-center">
+      <div className="w-[full] h-[100vh] flex justify-center items-center mt-[3rem] sm:mt-0">
         <div className="relative">
           <motion.div
             className="div"
@@ -18,6 +18,7 @@ export default function HeroSection() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.3, amount: 0.5, ease: "linear" }}
           >
+            {/* Black text Div */}
             <motion.div
               initial={{ top: "0px", left: "0px" }}
               whileInView={{ top: "10px", left: "-10px" }}
@@ -31,6 +32,7 @@ export default function HeroSection() {
             >
               {text}
             </motion.div>
+            {/* White text Div */}
             <div
               className={`relative top-[-128px] flex justify-center items-center text-9xl text-white text-center ${myFont.className} animate-pulse`}
             >
