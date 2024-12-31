@@ -250,7 +250,7 @@ const Navbar = () => {
                 Events
               </Link>
               <Link
-                href="#"
+                href="/workshops"
                 className="block p-2 hover:bg-slate-700 rounded-md"
               >
                 Workshops
