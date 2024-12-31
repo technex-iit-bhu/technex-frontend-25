@@ -6,6 +6,7 @@ import FAQ from "./_components/FAQ";
 import Footer from "./_components/Footer";
 import { FireEffect } from "./_components/particleEffects";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [windowDimensions, setWindowDimensions] = useState({
