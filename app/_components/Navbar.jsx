@@ -137,7 +137,9 @@ const Navbar = () => {
               </button>
             </div>
           </div>
+        </div>
 
+        {/* Mobile Navigation Menu */}
           {isMenuOpen && (
             <div className="md:hidden border-t-2 border-[#1F1F1F] bg-[#373737]">
               <div className="p-2 space-y-2">
@@ -148,8 +150,8 @@ const Navbar = () => {
             </div>
           )}
         </div>
-      </div>
-      <div className="h-20" />
+  
+      <div className="h-16" /> {/* Spacer */}
     </>
   );
 };
