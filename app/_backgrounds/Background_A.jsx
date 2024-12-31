@@ -7,7 +7,7 @@ export default function Background_A({ children }) {
       fill
       objectFit="cover"
       alt="bg-a"
-      className="sticky top-0 left-0 z-[-1] w-full h-full blur-sm"
+      className="sticky top-0 left-0 z-[-1] w-full h-full blur-sm  overflow-x-hidden"
     />
   );
 }
