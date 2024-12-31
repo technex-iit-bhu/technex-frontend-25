@@ -3,6 +3,8 @@ import { useState } from "react";
 import Background_C from "@/app/_backgrounds/Background_C";
 import Navbar from "@/app/_components/Navbar";
 import Image from "next/image";
+import { SnowEffect } from "@/app/_components/particleEffects";
+import Footer from "@/app/_components/Footer";
 
 const EventCard = ({ subevent, onClick }) => {
   return (
@@ -119,8 +121,9 @@ const EventPage = () => {
   return (
     <>
       <Background_C />
-      <div className="w-[100vw] h-[100vh] overflow-y-auto">
-        <Navbar />
+      <SnowEffect />
+      <Navbar />
+      <main className="flex-grow">
         <div className="text-white px-20 py-10 text-6xl flex justify-center">
           Event Name
         </div>
@@ -161,8 +164,9 @@ const EventPage = () => {
             </div>
           </div>
         </div>
-      </div>
-      <Modal subevent={selectedSubevent} onClose={handleCloseModal} />
+        <Modal subevent={selectedSubevent} onClose={handleCloseModal} />
+        <Footer />
+      </main>
     </>
   );
 };
