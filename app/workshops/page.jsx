@@ -26,6 +26,7 @@ export default function Workshops() {
           {workshops.map((workshop) => (
             <WorkshopCard
               key={workshop.id}
+              id={workshop.id}
               name={workshop.name}
               description={workshop.description}
               sub_description={workshop.sub_description}

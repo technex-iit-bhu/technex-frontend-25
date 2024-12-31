@@ -2,9 +2,11 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import subworkshops from "./subworkshops.json";
+
+const backendURL = "http://localhost:6969";
 
 export default function WorkshopCard({
+    id,
     name,
     description,
     sub_description,
@@ -15,15 +17,28 @@ export default function WorkshopCard({
     const [isFlipped, setIsFlipped] = useState(false);
     const [showImage, setShowImage] = useState(true);
     const [showSubworkshops, setShowSubworkshops] = useState(false);
+    const [subworkshops, setSubworkshops] = useState([]);
 
     useEffect(() => {
         if (isFlipped) {
-            const timer = setTimeout(() => setShowImage(false), 500); // 500ms matches the transition duration
+            const timer = setTimeout(() => setShowImage(false), 500);
             return () => clearTimeout(timer);
         } else {
             setShowImage(true);
         }
     }, [isFlipped]);
+
+    const fetchSubworkshops = async () => {
+        try {
+            const response = await fetch(`${backendURL}/api/workshops/subworkshops?id=${id}`);
+            const data = await response.json();
+            console.log(data);
+            setSubworkshops(data.subworkshops);
+            setShowSubworkshops(true);
+        } catch (error) {
+            console.error("Error fetching subworkshops:", error);
+        }
+    };
 
     return (
         <motion.div
@@ -51,7 +66,7 @@ export default function WorkshopCard({
                         <button
                             onClick={(e) => {
                                 e.stopPropagation();
-                                setShowSubworkshops(true);
+                                fetchSubworkshops();
                             }}
                             className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
                         >
