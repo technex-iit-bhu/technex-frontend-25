@@ -137,7 +137,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-[#373737]">
+          <div className="lg:hidden bg-[#373737]">
             {/* Main Navigation */}
             <div className="p-2 space-y-2">
               <p className="text-lg font-minecraft text-[#E0D3B3] mb-1 border-b border-[#272727] pb-2">
