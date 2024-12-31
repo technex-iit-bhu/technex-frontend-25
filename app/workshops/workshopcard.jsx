@@ -11,8 +11,7 @@ export default function WorkshopCard({
     description,
     sub_description,
     start_date,
-    end_date,
-    github,
+    end_date
 }) {
     const [isFlipped, setIsFlipped] = useState(false);
     const [showImage, setShowImage] = useState(true);
@@ -55,14 +54,6 @@ export default function WorkshopCard({
                     >
                         <p className="text-md mb-2">{sub_description}</p>
                         <p className="text-md">{`From: ${start_date} To: ${end_date}`}</p>
-                        <a
-                            href={github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-400 hover:underline mt-4"
-                        >
-                            GitHub Link
-                        </a>
                         <button
                             onClick={(e) => {
                                 e.stopPropagation();

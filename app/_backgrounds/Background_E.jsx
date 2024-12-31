@@ -4,7 +4,7 @@ export default function Background_E() {
   return (
     <>
       <Image
-        src="/testbg3.jpg"
+        src="/bg5.png"
         width={0}
         height={0}
         sizes="100vw"
