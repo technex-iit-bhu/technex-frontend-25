@@ -53,9 +53,7 @@ export default function Gallery() {
         </motion.div>
       </GalleryModal>}
       <Background_D />
-      <div className="p-0 m-0 pointer-events-none">
-        <FireEffect />
-      </div>
+      <FireEffect />
       <div className="w-[100vw] h-[100vh] overflow-y-auto">
         <Navbar />
         <div className="text-white px-20 py-10 text-5xl">Gallery</div>
