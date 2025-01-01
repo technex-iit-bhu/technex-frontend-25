@@ -83,19 +83,18 @@ const EventPage = () => {
 
   useEffect(() => {
     if (id) {
-      // Fetch the event details using the `id`
       const fetchEvent = async () => {
         try {
           const eventData = await getEventById(id);
           setEvent(eventData);
-          setsubEvents(eventData.subEvents || []); // Populate the subEvents array
+          setsubEvents(eventData.subEvents || []);
         } catch (error) {
           console.error("Failed to fetch event details:", error);
         }
       };
       fetchEvent();
     }
-  }, [id]); // Fetch event when `id` changes
+  }, [id]);
 
   const handleCardClick = (subevent) => {
     setSelectedSubevent(subevent);

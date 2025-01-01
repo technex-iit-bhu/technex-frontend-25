@@ -33,19 +33,32 @@ export const getAllEvents = async () => {
   return data.events;
 };
 
-export const getEventById = async (id) => {
-  const response = await fetch(`${API_BASE_URL}/api/events/getEventByID/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ id }),
+export async function getEventById(id) {
+  console.log("ID recieved = ", id);
+  const res = await fetch(`${API_BASE_URL}/api/events/getEventByID?id=${id}`, {
+    method: "GET",
   });
-
-  if (!response.ok) {
-    throw new Error(`Failed to fetch event: ${response.statusText}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch event: " + res.statusText);
   }
+  const data = await res.json();
+  console.log("data recieved = ", data);
+  return data;
+}
 
-  const data = await response.json();
-  return data.event; // Assuming the response contains an 'event' object
-};
+export async function getSubEventByName(eventId, subEventName) {
+  const url = `http://localhost:6969/api/events/subevents?id=${eventId}&name=${encodeURIComponent(
+    subEventName
+  )}`;
+
+  console.log("GET =>", url);
+
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Failed to fetch subEvent: ${res.statusText}`);
+  }
+  const data = await res.json();
+  console.log("data is =", data);
+  console.log("subEvent is =", data.subEvent);
+  return data.subEvent;
+}
