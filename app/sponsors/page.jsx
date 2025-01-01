@@ -6,6 +6,7 @@ import {FireEffect} from "../_components/particleEffects"
 import { cardVariants } from "../utils/cardVariants";
 import { motion } from "motion/react";
 import Footer from "../_components/Footer";
+import ComingSoon from "../_components/ComingSoon";
 
 const SponsorCard = ({ company }) => {
   return (
@@ -42,7 +43,7 @@ export default function Sponsors() {
       <div className="w-[100vw] h-[100vh] overflow-y-auto">
         <Navbar />
         <div className="text-white px-20 py-10 text-5xl">Sponsors</div>
-        <div className="w-full flex items-center justify-center">
+        {/* <div className="w-full flex items-center justify-center">
           <div className="max-w-[1000px] flex flex-wrap gap-10 justify-center items-center">
             <SponsorCard company="Company A"/>
             <SponsorCard company="Company A"/>
@@ -51,7 +52,8 @@ export default function Sponsors() {
             <SponsorCard company="Company A"/>
             <SponsorCard company="Company A"/>
           </div>
-        </div>
+        </div> */}
+        <ComingSoon/>
         <Footer />
       </div>
     </>

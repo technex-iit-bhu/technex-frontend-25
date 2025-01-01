@@ -7,7 +7,7 @@ export default function HeroSection() {
   const currentDate = new Date();
   const timeDiff = targetDate - currentDate;
   const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-  const text = `${daysRemaining} days to go`;
+  const text = daysRemaining <= 0 ? "Stay Technexed!" : `${daysRemaining} days to go`;
   return (
     <>
       <div className="w-[full] h-[100vh] flex justify-center items-center mt-[3rem] sm:mt-0">
