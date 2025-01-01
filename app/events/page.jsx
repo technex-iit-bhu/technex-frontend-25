@@ -5,8 +5,11 @@ import Navbar from "../_components/Navbar";
 import Image from "next/image";
 import { SnowEffect } from "../_components/particleEffects";
 import Footer from "../_components/Footer";
+import { useEffect, useState } from "react";
+import { getAllEvents } from "../utils/api";
 
-const EventsCard = ({ name, id }) => {
+const EventsCard = ({ name, id, imgsrc }) => {
+  console.log(name);
   return (
     <Link href={`/events/event/${id}`} passHref>
       <div className="w-[300px] h-[400px] relative flex flex-col items-center text-white transition-transform transform hover:scale-105 cursor-pointer">
@@ -17,7 +20,14 @@ const EventsCard = ({ name, id }) => {
           className="absolute z-[-1] top-0"
           alt="sponsor-card"
         />
-        <div className="w-[230px] h-[220px] mt-[30px] mb-[80px] bg-white rounded overflow-hidden"></div>
+
+        <Image
+          src={imgsrc}
+          width={300}
+          height={0}
+          className="w-[230px] h-[220px] mt-[30px] mb-[80px]  rounded overflow-hidden"
+          alt="event"
+        />
         <div className="w-[200px] text-2xl text-center bg-black bg-opacity-50 rounded-md">
           {name}
         </div>
@@ -26,70 +36,26 @@ const EventsCard = ({ name, id }) => {
   );
 };
 
-const eventsArray = [
-  {
-    id: "64bfea1c3e50a92c40e7cbae",
-    name: "Event1",
-    desc: "Description for Event1",
-    description: "Description for Event1",
-  },
-  {
-    id: "64bfea1c3e50a92c40e7cbb1",
-    name: "Event2",
-    desc: "Description for Event2",
-    description: "Description for Event2",
-  },
-  {
-    id: "64bfea1c3e50a92c40e7cbb2",
-    name: "Event3",
-    desc: "Description for Event3",
-    description: "Description for Event3",
-  },
-  {
-    id: "64bfea1c3e50a92c40e7cbb3",
-    name: "Event4",
-    desc: "Description for Event4",
-    description: "Description for Event4",
-  },
-  {
-    id: "64bfea1c3e50a92c40e7cbb4",
-    name: "Event5",
-    desc: "Description for Event5",
-    description: "Description for Event5",
-  },
-  {
-    id: "64bfea1c3e50a92c40e7cbb5",
-    name: "Event6",
-    desc: "Description for Event6",
-    description: "Description for Event6",
-  },
-  {
-    id: "64bfea1c3e50a92c40e7cbb6",
-    name: "Event7",
-    desc: "Description for Event7",
-    description: "Description for Event7",
-  },
-  {
-    id: "64bfea1c3e50a92c40e7cbb7",
-    name: "Event8",
-    desc: "Description for Event8",
-    description: "Description for Event8",
-  },
-  {
-    id: "64bfea1c3e50a92c40e7cbb8",
-    name: "Event9",
-    desc: "Description for Event9",
-    description: "Description for Event9",
-  },
-  {
-    id: "64bfea1c3e50a92c40e7cbb9",
-    name: "Event10",
-    desc: "Description for Event10",
-    description: "Description for Event10",
-  },
-];
-
 const Events = () => {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const data = await getAllEvents(); // Now returns an array of events
+        setEvents(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
   return (
     <>
       <Background_C />
@@ -98,13 +64,22 @@ const Events = () => {
       <main className="flex-grow">
         <div className="text-white px-20 py-10 text-5xl">Events</div>
         <div className="w-full flex items-center justify-center px-4 md:px-10 lg:px-20 mb-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-20">
-            {eventsArray.map((event) => (
-              <EventsCard key={event.id} id={event.id} name={event.name} />
-            ))}
-          </div>
+          {loading && <p className="text-white text-7xl">Loading events...</p>}
+          {error && <p className="text-red-500 text-5xl">Error: {error}</p>}
+          {!loading && !error && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-20">
+              {events.map((event) => (
+                <EventsCard
+                  key={event.id}
+                  id={event.id}
+                  name={event.name}
+                  imgsrc={event.imgsrc}
+                />
+              ))}
+            </div>
+          )}
         </div>
-       <Footer />
+        <Footer />
       </main>
     </>
   );
