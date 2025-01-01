@@ -41,7 +41,6 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const mainNavLinks = [
-    "Team",
     "Events",
     "Workshops",
     "Sponsors",
