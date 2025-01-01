@@ -28,18 +28,10 @@ export default function Workshops() {
       <Background_E />
       <div className="w-[100vw] h-[100vh] overflow-y-auto">
         <Navbar />
-        <div className="text-white px-20 py-10 text-5xl">Workshops</div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-10 m-10">
+        <div className="text-white px-4 sm:px-8 lg:px-12 py-10 text-5xl">Workshops</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 sm:p-8 lg:p-12">
           {workshops.map((workshop) => (
-            <WorkshopCard
-              key={workshop.id}
-              id={workshop.id}
-              name={workshop.name}
-              description={workshop.description}
-              sub_description={workshop.subWorkshops?.[0]?.sub_desc}
-              start_date={workshop.subWorkshops?.[0]?.startDate}
-              end_date={workshop.subWorkshops?.[0]?.endDate}
-            />
+            <WorkshopCard workshop={workshop} key={workshop.id} />
           ))}
         </div>
         <Footer />
