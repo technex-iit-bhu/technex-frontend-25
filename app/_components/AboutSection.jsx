@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function AboutSection() {
   const ref1 = useRef(null);
@@ -38,10 +39,12 @@ export default function AboutSection() {
             About Technex
           </h2>
           <div className="w-full h-[500px] overflow-hidden rounded-lg">
-            <img
-              src="./technex.png"
+            <Image
+              src="/technex.png"
               alt="Technology and innovation representation"
               className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+              width={800}
+              height={500}
             />
           </div>
         </motion.div>
@@ -125,8 +128,8 @@ export default function AboutSection() {
               steeped in history, spirituality, and culture. Nestled along the
               banks of the sacred{" "}
               <span className="text-yellow-400">River Ganga</span>, it is one of
-              the world's oldest continuously inhabited cities, radiating an
-              aura of timeless heritage and divine significance.
+              the world&apos;s oldest continuously inhabited cities, radiating
+              an aura of timeless heritage and divine significance.
             </p>
             <p>
               Renowned as the{" "}
@@ -175,10 +178,12 @@ export default function AboutSection() {
             About Varanasi
           </h2>
           <div className="w-full h-[500px] overflow-hidden rounded-lg">
-            <img
-              src="./varanasi.jpg"
+            <Image
+              src="/varanasi.jpg"
               alt="Varanasi Ghats during evening aarti"
               className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+              width={800}
+              height={500}
             />
           </div>
         </motion.div>
