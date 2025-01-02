@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <div className="absolute">
-      <Background_A />
+      {/* <Background_A /> */}
       <FireEffect />
       {[...Array(20)].map((_, i) => (
         <motion.div
