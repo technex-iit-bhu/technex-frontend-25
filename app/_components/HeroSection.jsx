@@ -68,22 +68,22 @@ export default function HeroSection() {
             initial={{ x: "-200px" }}
             whileInView={{ x: 0 }}
           />
-          <div className="flex justify-center items-center md:w-1/2 w-full h-full relative">
+          <div className="flex justify-center items-center w-full h-full relative">
             <motion.img
               src="/TECHNEX25.png"
               alt=""
-              className="absolute top-[200px] md:top-[300px] w-[300px] md:w-[350px]"
+              className="absolute top-[50vh] w-[300px] md:w-[500px]"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
             />
             <motion.img
               src="/splash_screen.png"
               alt=""
-              className="absolute w-[200px] md:w-[400px] top-[200px] md:top-[290px] rotate-[30deg] hidden md:block z-[2]"
+              className="absolute w-[300px] md:w-[400px] top-[50vh] rotate-[30deg] hidden md:block z-[2]"
               animate={{
                 scale: [1, 1.2, 1],
                 rotate: ["20deg"],
-                x: ["100px"],
+                x: ["180px"],
               }}
               transition={{
                 duration: 1,
@@ -95,7 +95,7 @@ export default function HeroSection() {
             <motion.img
               src="/splash_screen.png"
               alt=""
-              className="absolute w-[200px] md:w-[300px] top-[200px] md:top-[290px] rotate-[30deg] translate-x-[70px] block md:hidden z-[2]"
+              className="absolute w-[200px] md:w-[300px] top-[50vh] rotate-[30deg] translate-x-[70px] block md:hidden z-[2]"
               animate={{
                 scale: [1, 1.2, 1],
                 rotate: ["20deg"],
@@ -112,14 +112,14 @@ export default function HeroSection() {
           <div className="absolute bottom-0 rounded-t-lg z-[50] bg-opacity-70 text-black w-[300px] text-center text-xl text-[300] left-[calc(50vw-150px)] bg-white">
             [Scroll to explore]
           </div>
-          <div className="flex w-full md:w-1/2 h-full relative justify-center items-center"></div>
-          <motion.img
+          {/* <div className="flex w-full md:w-1/2 h-full relative justify-center items-center"></div> */}
+          {/* <motion.img
             src="/creeper.png"
             alt=""
             className="w-[50%] h-[200px] absolute bottom-0 object-contain object-bottom right-[50px] z-[2]"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-          />
+          /> */}
         </motion.div>
         <motion.div
           className="h-screen w-screen sticky top-0 left-0 flex flex-col justify-center items-center text-white"
