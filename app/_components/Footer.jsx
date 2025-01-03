@@ -1,14 +1,11 @@
-import React from 'react';
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 const SocialCard = ({ href = "#", src, alt }) => {
   return (
-    <motion.div
-      whileHover={{ scale: 1.2 }}
-      className="pixel-card"
-    >
+    <motion.div whileHover={{ scale: 1.2 }} className="pixel-card">
       <Link href={href} target="_blank" rel="noopener noreferrer">
         <Image
           src={src}
@@ -24,14 +21,14 @@ const SocialCard = ({ href = "#", src, alt }) => {
 
 export default function Footer() {
   return (
-    <motion.footer 
+    <motion.footer
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       className="w-full py-8 relative overflow-hidden"
     >
       {/* Minecraft-style background */}
       <div className="absolute inset-0 minecraft-pattern"></div>
-      
+
       {/* Animated border */}
 
       <div className="container mx-auto px-4 relative z-10">
@@ -53,11 +50,31 @@ export default function Footer() {
 
           {/* Social Icons */}
           <div className="flex flex-wrap justify-center gap-6">
-            <SocialCard href="https://www.facebook.com/technexiitbhu/" src="/facebook_icon.png" alt="Facebook" />
-            <SocialCard href="https://www.instagram.com/technexiitbhu/" src="/insta_icon.png" alt="Instagram" />
-            <SocialCard href="https://www.linkedin.com/company/technex-iit-bhu-varanasi/" src="/linkedin_icon.png" alt="LinkedIn" />
-            <SocialCard href="https://x.com/technexiitbhu" src="/X_icon.png" alt="Twitter" />
-            <SocialCard href="https://www.youtube.com/@TechnexIITBHU" src="/youtube_icon.png" alt="YouTube" />
+            <SocialCard
+              href="https://www.facebook.com/technexiitbhu/"
+              src="/facebook_icon.png"
+              alt="Facebook"
+            />
+            <SocialCard
+              href="https://www.instagram.com/technexiitbhu/"
+              src="/insta_icon.png"
+              alt="Instagram"
+            />
+            <SocialCard
+              href="https://www.linkedin.com/company/technex-iit-bhu-varanasi/"
+              src="/linkedin_icon.png"
+              alt="LinkedIn"
+            />
+            <SocialCard
+              href="https://x.com/technexiitbhu"
+              src="/X_icon.png"
+              alt="Twitter"
+            />
+            <SocialCard
+              href="https://www.youtube.com/@TechnexIITBHU"
+              src="/youtube_icon.png"
+              alt="YouTube"
+            />
           </div>
 
           {/* Contact info */}
@@ -65,8 +82,8 @@ export default function Footer() {
             whileHover={{ scale: 1.05 }}
             className="text-lg font-minecraft text-center minecraft-text"
           >
-            For queries:{' '}
-            <Link 
+            For queries:{" "}
+            <Link
               href="mailto:publicity@technex.in"
               className="hover:text-yellow-400 transition-colors minecraft-link"
             >
@@ -78,13 +95,13 @@ export default function Footer() {
 
       <style jsx global>{`
         @font-face {
-          font-family: 'Minecraft';
-          src: url('/fonts/minecraft.ttf') format('truetype');
+          font-family: "Minecraft";
+          src: url("/fonts/minecraft.ttf") format("truetype");
         }
 
         .minecraft-pattern {
-          background: 
-            linear-gradient(135deg, #2a2a2a 25%, transparent 25%) -10px 0,
+          background: linear-gradient(135deg, #2a2a2a 25%, transparent 25%) -10px
+              0,
             linear-gradient(225deg, #2a2a2a 25%, transparent 25%) -10px 0,
             linear-gradient(315deg, #2a2a2a 25%, transparent 25%),
             linear-gradient(45deg, #2a2a2a 25%, transparent 25%);
@@ -94,8 +111,12 @@ export default function Footer() {
         }
 
         @keyframes patternShift {
-          from { background-position: 0 0; }
-          to { background-position: 100px 100px; }
+          from {
+            background-position: 0 0;
+          }
+          to {
+            background-position: 100px 100px;
+          }
         }
 
         .pixel-border-animate {
@@ -104,16 +125,28 @@ export default function Footer() {
           left: 0;
           right: 0;
           height: 4px;
-          background: linear-gradient(90deg, 
-            #ff0000, #ff7f00, #ffff00, #00ff00, 
-            #0000ff, #4b0082, #8f00ff, #ff0000);
+          background: linear-gradient(
+            90deg,
+            #ff0000,
+            #ff7f00,
+            #ffff00,
+            #00ff00,
+            #0000ff,
+            #4b0082,
+            #8f00ff,
+            #ff0000
+          );
           background-size: 200% 100%;
           animation: borderFlow 2s linear infinite;
         }
 
         @keyframes borderFlow {
-          0% { background-position: 200% 0; }
-          100% { background-position: 0 0; }
+          0% {
+            background-position: 200% 0;
+          }
+          100% {
+            background-position: 0 0;
+          }
         }
 
         .pixel-card {
@@ -126,7 +159,7 @@ export default function Footer() {
         }
 
         .pixel-card::after {
-          content: '';
+          content: "";
           position: absolute;
           inset: -5px;
           background: linear-gradient(45deg, #404040, #1a1a1a);
@@ -157,7 +190,7 @@ export default function Footer() {
         }
 
         .minecraft-link::after {
-          content: '';
+          content: "";
           position: absolute;
           left: 0;
           right: 0;
