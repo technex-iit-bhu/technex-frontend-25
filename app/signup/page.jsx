@@ -7,7 +7,7 @@ export default function Signup() {
   return (
     <>
       <Background_B>
-        <div className="relative w-screen h-screen overflow-y-auto">
+        <div className="relative w-screen h-screen overflow-y-auto mt-10 pt-20">
           <div className="absolute inset-0 z-0">
             <FirefliesEffect />
           </div>

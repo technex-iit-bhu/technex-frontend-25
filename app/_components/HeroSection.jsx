@@ -125,13 +125,13 @@ export default function HeroSection() {
           className="h-screen w-screen sticky top-0 left-0 flex flex-col justify-center items-center text-white"
           style={{ opacity: opacityProgres2 }}
         >
-          <div className="relative text-2xl text-center typewriter mb-8">
+          <div className="relative text-2xl text-center typewriter mb-8 text-[#E0D3B3]">
             <h1 className={myFont.className}>
               WELCOME TO <br /> TEEEECHNEX
             </h1>
           </div>
           <div
-            className={`relative text-9xl text-center ${myFont.className} animate-pulse`}
+            className={`relative text-9xl text-center ${myFont.className} animate-pulse text-[#E0D3B3]`}
           >
             {text}
           </div>

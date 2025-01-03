@@ -12,6 +12,14 @@
   --background: blue;
 }
 
+html, :root {
+  cursor: url('/public/minecraft-cursor/DiamondSwordAnimated.ani');
+}
+
+a {
+  cursor: url('/public/minecraft-cursor/DiamondPickaxe.cur');
+}
+
 .font-pixel {
   font-family: "VT323", sans-serif;
 }

@@ -7,7 +7,7 @@ export default function Login() {
   return (
     <>
       <Background_B>
-        <div className="relative w-screen h-screen overflow-y-auto">
+        <div className="relative w-screen h-screen overflow-y-auto pt-12">
           <div className="absolute inset-0 z-0">
             <FirefliesEffect />
           </div>
