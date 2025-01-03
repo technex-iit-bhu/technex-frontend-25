@@ -1,13 +1,14 @@
 import Image from "next/image";
 
-export default function Background_A({ children }) {
+export default function Background_A() {
   return (
-    <Image
-      src="/bg1.png"
-      fill
-      objectFit="cover"
-      alt="bg-a"
-      className="sticky top-0 left-0 z-[-1] w-full h-full blur-sm  overflow-x-hidden"
-    />
+    <div className="fixed top-0 left-0 w-full h-full -z-10">
+      <Image
+        src="/bg1.png"
+        alt="bg-a"
+        fill
+        className="object-cover blur-sm"
+      />
+    </div>
   );
 }

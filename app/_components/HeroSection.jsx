@@ -2,6 +2,7 @@
 import localFont from "next/font/local";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import Background_A from "../_backgrounds/Background_A";
 const myFont = localFont({ src: "./minecrafter/Minecrafter.Reg.ttf" });
 
 export default function HeroSection() {
@@ -11,21 +12,48 @@ export default function HeroSection() {
   });
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [1, 2]);
   const opacityProgress = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const opacityProgres2 = useTransform(scrollYProgress, [0,0.8, 1], [0,0, 1]);
+  const opacityProgres2 = useTransform(scrollYProgress, [0, 0.8, 1], [0, 0, 1]);
   const topProgress = useTransform(scrollYProgress, [0, 1], ["50vh", "100vh"]);
   const targetDate = new Date("2025-01-04");
   const currentDate = new Date();
   const timeDiff = targetDate - currentDate;
   const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
   const text =
-    daysRemaining <= 0 ? "Stay Technexed!" : `${daysRemaining} days to go`;
+    daysRemaining <= 0
+      ? "Stay Technexed!"
+      : daysRemaining === 1
+      ? `${daysRemaining} day to go`
+      : `${daysRemaining} days to go`;
+  const TypewriterEffectText = ({ text }) => {
+    return (
+      <motion.div
+        className="h-screen w-screen sticky top-0 left-0 flex flex-col justify-center items-center text-white"
+        style={{ opacity: 0.8 }}
+      >
+        <div className="relative text-2xl text-center typewriter">
+          <h1 className={myFont.className}>
+            WELCOME TO <br /> TEEEECHNEX
+          </h1>
+        </div>
+        <div
+          className={`relative text-9xl text-center ${myFont.className} animate-pulse`}
+        >
+          {text}
+        </div>
+      </motion.div>
+    );
+  };
   return (
     <>
+    <Background_A />
       <div
         className="w-full h-[200vh] relative top-0 overflow-visible"
         ref={heroRef}
       >
-        <motion.div className="flex flex-col md:flex-row sticky top-0 w-screen justify-center items-center h-screen" style={{scale:scaleProgress,opacity:opacityProgress}}>
+        <motion.div
+          className="flex flex-col md:flex-row sticky top-0 w-screen justify-center items-center h-screen"
+          style={{ scale: scaleProgress, opacity: opacityProgress }}
+        >
           <motion.img
             src="/grass1.svg"
             alt=""
@@ -81,22 +109,32 @@ export default function HeroSection() {
               }}
             />
           </div>
-            <div className="absolute bottom-0 rounded-t-lg z-[50] bg-opacity-70 text-black w-[300px] text-center text-xl text-[300] left-[calc(50vw-150px)] bg-white">[Scroll to explore]</div>
+          <div className="absolute bottom-0 rounded-t-lg z-[50] bg-opacity-70 text-black w-[300px] text-center text-xl text-[300] left-[calc(50vw-150px)] bg-white">
+            [Scroll to explore]
+          </div>
           <div className="flex w-full md:w-1/2 h-full relative justify-center items-center"></div>
-          {/* <motion.img src="/creeper.png" alt="" className="w-[50%] h-[400px] object-contain sticky md:top-[calc(100vh-400px)] right-[100px] z-[2] origin-bottom-right hidden md:block" style={{scale:scaleProgress}}/> */}
           <motion.img
             src="/creeper.png"
             alt=""
-            className="w-[50%] h-[400px] absolute bottom-0 object-contain object-bottom right-[50px] z-[2]"
+            className="w-[50%] h-[200px] absolute bottom-0 object-contain object-bottom right-[50px] z-[2]"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
           />
         </motion.div>
         <motion.div
-          className="h-screen w-screen sticky top-0 left-0 flex justify-center items-center text-5xl text-white"
+          className="h-screen w-screen sticky top-0 left-0 flex flex-col justify-center items-center text-white"
           style={{ opacity: opacityProgres2 }}
         >
-          WELCOME TO <br /> TEEEECHNEX
+          <div className="relative text-2xl text-center typewriter mb-8">
+            <h1 className={myFont.className}>
+              WELCOME TO <br /> TEEEECHNEX
+            </h1>
+          </div>
+          <div
+            className={`relative text-9xl text-center ${myFont.className} animate-pulse`}
+          >
+            {text}
+          </div>
         </motion.div>
       </div>
     </>
