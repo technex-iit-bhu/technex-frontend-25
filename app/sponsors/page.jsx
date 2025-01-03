@@ -42,7 +42,7 @@ export default function Sponsors() {
       <FireEffect />
       <div className="w-[100vw] h-[100vh] overflow-y-auto">
         <Navbar />
-        <div className="text-white px-20 py-10 text-5xl">Sponsors</div>
+        <div className="text-white px-20 py-20 text-5xl">Sponsors</div>
         {/* <div className="w-full flex items-center justify-center">
           <div className="max-w-[1000px] flex flex-wrap gap-10 justify-center items-center">
             <SponsorCard company="Company A"/>
