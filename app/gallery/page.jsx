@@ -56,7 +56,7 @@ export default function Gallery() {
       <FireEffect />
       <div className="w-[100vw] h-[100vh] overflow-y-auto">
         <Navbar />
-        <div className="text-white px-20 py-10 text-5xl">Gallery</div>
+        <div className="text-white px-20 py-20 text-5xl">Gallery</div>
         <div className="w-full flex items-center justify-center mb-24">
           <div className="max-w-[1200px] flex flex-wrap gap-20 justify-center items-center">
             <GalleryCard imageSrc="dummy0.jpg" expand={setExpandedImage} />

@@ -1,3 +1,4 @@
+// EventCard.jsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -38,7 +39,6 @@ export default function EventCard({ event }) {
   const [showFrontImage, setShowFrontImage] = useState(true);
   const [activeTab, setActiveTab] = useState(0);
 
-  // This effect hides the front image after flip animation finishes
   useEffect(() => {
     if (isFlipped) {
       const timer = setTimeout(() => setShowFrontImage(false), 500);
@@ -48,7 +48,6 @@ export default function EventCard({ event }) {
   }, [isFlipped]);
 
   const formatDate = (dateString) => {
-    // e.g. "2025-03-12T00:00:00Z" => "Mar 12, 2025"
     const date = new Date(dateString);
     return date.toLocaleDateString(undefined, {
       year: "numeric",
@@ -60,29 +59,28 @@ export default function EventCard({ event }) {
   return (
     <motion.div
       onClick={() => setIsFlipped(!isFlipped)}
-      className="relative w-full sm:w-[300px] h-[400px] rounded-lg overflow-hidden cursor-pointer"
+      // Let the grid control the width. Just cap the max width if you like.
+      className="relative w-full max-w-[300px] h-[400px] rounded-lg overflow-hidden cursor-pointer"
     >
       <div className="w-full h-full bg-[#373737]">
         <div className="absolute inset-0">
-          {/* Back side: SubEvent Tabs */}
+          {/* BACK SIDE */}
           <motion.div
             initial={{ translateY: "100%" }}
             animate={{ translateY: isFlipped ? "0%" : "100%" }}
             transition={{ duration: 0.5 }}
             className="absolute inset-0 flex flex-col bg-[#373737] text-white"
           >
-            {/* Only show subEvent tabs if there are subEvents */}
             {event.subEvents && event.subEvents.length > 0 && (
               <div className="h-full flex flex-col">
-                {/* Tab Buttons */}
+                {/* TABS */}
                 <div className="flex gap-1 p-2 bg-[#272727] overflow-x-auto">
                   {event.subEvents.map((subEvent, index) => (
                     <TabButton
                       key={index}
                       isActive={activeTab === index}
                       onClick={(e) => {
-                        // Prevent the flip if user only changes tab
-                        e.stopPropagation();
+                        e.stopPropagation(); 
                         setActiveTab(index);
                       }}
                     >
@@ -91,11 +89,10 @@ export default function EventCard({ event }) {
                   ))}
                 </div>
 
-                {/* Tab Content */}
+                {/* TAB CONTENT */}
                 <div className="flex-1 p-4 overflow-y-auto">
                   {event.subEvents[activeTab] && (
                     <div className="space-y-4">
-                      {/* subEvent image */}
                       <div className="relative w-full h-32">
                         <Image
                           src={event.subEvents[activeTab].imgsrc || "/logo.png"}
@@ -106,12 +103,10 @@ export default function EventCard({ event }) {
                         />
                       </div>
 
-                      {/* subEvent Name */}
                       <h3 className="text-xl font-VT323 text-[#E0D3B3]">
                         {event.subEvents[activeTab].name}
                       </h3>
 
-                      {/* subEvent Description */}
                       <p className="text-sm">
                         {event.subEvents[activeTab].desc}
                       </p>
@@ -119,17 +114,11 @@ export default function EventCard({ event }) {
                         {event.subEvents[activeTab].sub_desc}
                       </p>
 
-                      {/* Start / End Date */}
                       <div className="text-sm text-[#E0D3B3]">
-                        <p>
-                          Start: {formatDate(event.subEvents[activeTab].sDate)}
-                        </p>
-                        <p>
-                          End: {formatDate(event.subEvents[activeTab].eDate)}
-                        </p>
+                        <p>Start: {formatDate(event.subEvents[activeTab].sDate)}</p>
+                        <p>End: {formatDate(event.subEvents[activeTab].eDate)}</p>
                       </div>
 
-                      {/* GitHub Link (optional) */}
                       {event.subEvents[activeTab].github && (
                         <a
                           href={event.subEvents[activeTab].github}
@@ -147,9 +136,10 @@ export default function EventCard({ event }) {
                         </a>
                       )}
 
-                      {/* Read More Button -> navigate to subEvent’s own page */}
+                      {/* TODO : Make this redirection page work */}
                       <Link
                         href={`/events/event/${eventId}/subevent/${event.subEvents[activeTab].name}`}
+                        onClick={(e) => e.stopPropagation()}
                         className="inline-block px-4 py-2 bg-yellow-600 text-white rounded-md"
                       >
                         Read More
@@ -161,7 +151,7 @@ export default function EventCard({ event }) {
             )}
           </motion.div>
 
-          {/* Front side image */}
+          {/* FRONT IMAGE */}
           {showFrontImage && !isFlipped && (
             <div className="absolute inset-0 w-full h-full">
               <Image
@@ -174,7 +164,7 @@ export default function EventCard({ event }) {
             </div>
           )}
 
-          {/* Front side text */}
+          {/* FRONT TEXT */}
           <motion.div
             initial={{ translateY: "0%" }}
             animate={{ translateY: isFlipped ? "-100%" : "0%" }}

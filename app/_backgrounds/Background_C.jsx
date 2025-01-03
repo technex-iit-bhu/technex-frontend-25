@@ -3,13 +3,14 @@ import Image from "next/image";
 export default function Background_C() {
   return (
     <>
+      <div className="fixed top-0 left-0 w-full h-full -z-10">
       <Image
         src="/bg3.png"
-        fill
-        objectFit="cover"
         alt="bg-c"
-        className="sticky top-0 left-0 z-[-1] w-full h-full blur-sm"
+        fill
+        className="object-cover blur-sm"
       />
+    </div>
     </>
   );
 }

@@ -38,14 +38,14 @@ export default function Events() {
       <SnowEffect />
       <Navbar />
       <main className="flex-grow">
-        <div className="text-white px-20 py-10 text-5xl">Events</div>
+        <div className="text-white px-4 md:px-20 py-20 text-5xl">Events</div>
 
-        <div className="w-full flex items-center justify-center px-4 md:px-10 lg:px-20 mb-20">
+        <div className="w-full px-4 md:px-10 lg:px-20 mb-20">
           {loading && <p className="text-white text-7xl">Loading events...</p>}
           {error && <p className="text-red-500 text-5xl">Error: {error}</p>}
 
           {!loading && !error && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12">
               {events.map((event) => (
                 <EventCard key={event.id} event={event} />
               ))}
