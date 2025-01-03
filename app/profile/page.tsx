@@ -1,17 +1,28 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Background_B from "@/app/_backgrounds/Background_B";
 import Navbar from "@/app/_components/Navbar";
 import Footer from "@/app/_components/Footer";
 import Link from "next/link";
-
+const backendURL = process.env.NEXT_PUBLIC_BACKEND_URL;
 // Helper function: fallback to "N/A" if empty
 const displayOrNA = (value?: string | number) =>
   value !== undefined && value !== null && value !== "" ? value : "N/A";
 
 export default function Profile() {
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<{
+    name?: string;
+    username?: string;
+    institute?: string;
+    city?: string;
+    year?: number;
+    branch?: string;
+    phone?: string;
+    referralCode?: string;
+    email?: string;
+    github?: string;
+    createdAt?: string;
+  } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -27,7 +38,7 @@ export default function Profile() {
         }
 
         // Call the backend: GET /api/user/profile
-        const res = await fetch("http://localhost:6969/api/user/profile", {
+        const res = await fetch(`${backendURL}/api/user/profile`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -39,8 +50,13 @@ export default function Profile() {
         const data = await res.json();
         // The user data is in data.data
         setProfile(data.data);
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message || "An Error occurred while Fetching profile");
+        } else {
+          setError("An unexpected error occurred");
+        }
+        setError(err as string);
       } finally {
         setLoading(false);
       }

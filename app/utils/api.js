@@ -47,7 +47,7 @@ export async function getEventById(id) {
 }
 
 export async function getSubEventByName(eventId, subEventName) {
-  const url = `http://localhost:6969/api/events/subevents?id=${eventId}&name=${encodeURIComponent(
+  const url = `${API_BASE_URL}/api/events/subevents?id=${eventId}&name=${encodeURIComponent(
     subEventName
   )}`;
 
@@ -61,4 +61,41 @@ export async function getSubEventByName(eventId, subEventName) {
   console.log("data is =", data);
   console.log("subEvent is =", data.subEvent);
   return data.subEvent;
+}
+
+/**
+ * For convenience, create a helper function to fetch user info
+ * or just reuse the fetchProfile logic from the Profile page.
+ */
+export async function fetchProfile(token) {
+  const res = await fetch(`${backendURL}/api/user/profile`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  if (!res.ok) {
+    throw new Error(`Failed to fetch profile: ${res.statusText}`);
+  }
+  const data = await res.json();
+  return data.data; // { name, username, institute, ... }
+}
+/**
+ * Helper to patch user data:
+ */
+export async function patchUserProfile(token, payload) {
+  const res = await fetch(`${backendURL}/api/user/update`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.message || "Update failed");
+  }
+
+  return await res.json();
 }
