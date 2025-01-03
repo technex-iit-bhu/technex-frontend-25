@@ -14,7 +14,7 @@ export default function HeroSection() {
   const opacityProgress = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const opacityProgres2 = useTransform(scrollYProgress, [0, 0.8, 1], [0, 0, 1]);
   const topProgress = useTransform(scrollYProgress, [0, 1], ["50vh", "100vh"]);
-  const targetDate = new Date("2025-01-28");
+  const targetDate = new Date("2025-02-28");
   const currentDate = new Date();
   const timeDiff = targetDate - currentDate;
   const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
