@@ -94,6 +94,12 @@ export default function EditProfilePage() {
     }
   };
 
+  useEffect(()=>{
+    if(success !== null){
+      setTimeout(() => router.push("/profile"), 1000)
+    }
+  },[success])
+
   if (loading) {
     return (
       <>
@@ -131,7 +137,6 @@ export default function EditProfilePage() {
             {success && (
               <>
                 <p className="text-green-400 mb-4">{success}</p>
-                {setTimeout(() => router.push("/profile"), 1000)}
               </>
             )}
 
