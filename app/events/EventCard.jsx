@@ -1,4 +1,3 @@
-// EventCard.jsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -80,7 +79,7 @@ export default function EventCard({ event }) {
                       key={index}
                       isActive={activeTab === index}
                       onClick={(e) => {
-                        e.stopPropagation(); 
+                        e.stopPropagation();
                         setActiveTab(index);
                       }}
                     >
@@ -117,8 +116,12 @@ export default function EventCard({ event }) {
                       </p>
 
                       <div className="text-sm text-[#E0D3B3]">
-                        <p>Start: {formatDate(event.subEvents[activeTab].sDate)}</p>
-                        <p>End: {formatDate(event.subEvents[activeTab].eDate)}</p>
+                        <p>
+                          Start: {formatDate(event.subEvents[activeTab].sDate)}
+                        </p>
+                        <p>
+                          End: {formatDate(event.subEvents[activeTab].eDate)}
+                        </p>
                       </div>
 
                       {event.subEvents[activeTab].github && (
@@ -158,7 +161,7 @@ export default function EventCard({ event }) {
           {showFrontImage && !isFlipped && (
             <div className="absolute inset-0 w-full h-full">
               <Image
-                src={event.imgsrc || "/MemberCard.png"}
+                src={event.imgsrc || "/bg2.png"}
                 alt={event.name}
                 fill
                 style={{ objectFit: "cover" }}
@@ -172,7 +175,7 @@ export default function EventCard({ event }) {
             initial={{ translateY: "0%" }}
             animate={{ translateY: isFlipped ? "-100%" : "0%" }}
             transition={{ duration: 0.5 }}
-            className="absolute inset-0 flex flex-col justify-center items-center text-white p-4"
+            className="absolute inset-0 flex flex-col justify-center items-center text-white p-4 bg-black opacity-60"
           >
             <h2 className="text-3xl font-VT323 text-[#E0D3B3] mb-2">
               {event.name}
