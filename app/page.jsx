@@ -37,7 +37,7 @@ export default function Home() {
           animate={{
             y: [null, -20, 0],
             opacity: [0.5, 0.8, 0.5],
-          }}
+          }}  
           transition={{
             duration: 2 + Math.random() * 2,
             repeat: Infinity,
@@ -45,9 +45,10 @@ export default function Home() {
           }}
         />
       ))}
-      <div className="w-[100vw] h-[100vh] overflow-y-auto lg:h-fit overflow-x-hidden">
+      <div className="w-[100vw] h-[100vh] lg:h-fit overflow-x-clip">
         <Navbar />
         <HeroSection />
+        <div className="h-20 spacer"></div>
         <FAQ />
         <AboutSection />
         <Footer />

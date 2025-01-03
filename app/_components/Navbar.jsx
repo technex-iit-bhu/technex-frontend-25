@@ -175,7 +175,7 @@ const Navbar = () => {
       </div>
 
       {/* Placeholder for fixed navbar */}
-      <div className="h-16" />
+      {/* <div className="h-16" /> */}
     </>
   );
 };

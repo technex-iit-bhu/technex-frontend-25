@@ -1,68 +1,103 @@
-"use client"
+"use client";
 import localFont from "next/font/local";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 const myFont = localFont({ src: "./minecrafter/Minecrafter.Reg.ttf" });
 
 export default function HeroSection() {
-  const heroRef=useRef(null)
-  const {scrollYProgress}=useScroll({
-    target:heroRef
-  })
-  const scaleProgress=useTransform(scrollYProgress,[0,1],[1,2])
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+  });
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [1, 2]);
+  const opacityProgress = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const opacityProgres2 = useTransform(scrollYProgress, [0,0.8, 1], [0,0, 1]);
+  const topProgress = useTransform(scrollYProgress, [0, 1], ["50vh", "100vh"]);
   const targetDate = new Date("2025-01-04");
   const currentDate = new Date();
   const timeDiff = targetDate - currentDate;
   const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-  const text = daysRemaining <= 0 ? "Stay Technexed!" : `${daysRemaining} days to go`;
+  const text =
+    daysRemaining <= 0 ? "Stay Technexed!" : `${daysRemaining} days to go`;
   return (
     <>
-      <div className="flex flex-col md:flex-row bg-gray-900  h-screen  w-screen relative justify-center items-center overflow-hidden  " ref={heroRef}>
-        <img src="/grass1.svg" alt="" className="absolute top-0 right-0 md:w-[30%] w-[60%] z-[1]"/>
-        <img src="/grass2.svg" alt="" className="absolute bottom-0 left-0 md:w-[30%] w-[60%] z-[1]"/>
-        <div className="flex justify-center items-center md:w-1/2 w-full h-full relative">
-          <img
-            src="/TECHNEX25.png"
+      <div
+        className="w-full h-[200vh] relative top-0 overflow-visible"
+        ref={heroRef}
+      >
+        <motion.div className="flex flex-col md:flex-row sticky top-0 w-screen justify-center items-center h-screen" style={{scale:scaleProgress,opacity:opacityProgress}}>
+          <motion.img
+            src="/grass1.svg"
             alt=""
-            className="absolute top-[200px] md:top-[300px] w-[300px] md:w-[350px]"
+            className="absolute top-0 right-0 md:w-[30%] w-[60%] z-[1]"
+            initial={{ x: "200px" }}
+            whileInView={{ x: 0 }}
           />
           <motion.img
-            src="/splash_screen.png"
+            src="/grass2.svg"
             alt=""
-            className="absolute w-[200px] md:w-[400px] top-[200px] md:top-[290px] rotate-[30deg] hidden md:block z-[2]"
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate:["20deg"],
-              x:["100px"]
-            }}
-            transition={{
-              duration: 1,
-              ease: "easeInOut",
-              repeat: Infinity,
-              repeatDelay: 0,
-            }}
+            className="absolute bottom-0 left-0 md:w-[30%] w-[60%] z-[1]"
+            initial={{ x: "-200px" }}
+            whileInView={{ x: 0 }}
           />
+          <div className="flex justify-center items-center md:w-1/2 w-full h-full relative">
+            <motion.img
+              src="/TECHNEX25.png"
+              alt=""
+              className="absolute top-[200px] md:top-[300px] w-[300px] md:w-[350px]"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+            />
+            <motion.img
+              src="/splash_screen.png"
+              alt=""
+              className="absolute w-[200px] md:w-[400px] top-[200px] md:top-[290px] rotate-[30deg] hidden md:block z-[2]"
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: ["20deg"],
+                x: ["100px"],
+              }}
+              transition={{
+                duration: 1,
+                ease: "easeInOut",
+                repeat: Infinity,
+                repeatDelay: 0,
+              }}
+            />
+            <motion.img
+              src="/splash_screen.png"
+              alt=""
+              className="absolute w-[200px] md:w-[300px] top-[200px] md:top-[290px] rotate-[30deg] translate-x-[70px] block md:hidden z-[2]"
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: ["20deg"],
+                x: ["70px"],
+              }}
+              transition={{
+                duration: 1,
+                ease: "easeInOut",
+                repeat: Infinity,
+                repeatDelay: 0,
+              }}
+            />
+          </div>
+            <div className="absolute bottom-0 rounded-t-lg z-[50] bg-opacity-70 text-black w-[300px] text-center text-xl text-[300] left-[calc(50vw-150px)] bg-white">[Scroll to explore]</div>
+          <div className="flex w-full md:w-1/2 h-full relative justify-center items-center"></div>
+          {/* <motion.img src="/creeper.png" alt="" className="w-[50%] h-[400px] object-contain sticky md:top-[calc(100vh-400px)] right-[100px] z-[2] origin-bottom-right hidden md:block" style={{scale:scaleProgress}}/> */}
           <motion.img
-            src="/splash_screen.png"
+            src="/creeper.png"
             alt=""
-            className="absolute w-[200px] md:w-[300px] top-[200px] md:top-[290px] rotate-[30deg] translate-x-[70px] block md:hidden z-[2]"
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate:["20deg"],
-              x:["70px"]
-            }}
-            transition={{
-              duration: 1,
-              ease: "easeInOut",
-              repeat: Infinity,
-              repeatDelay: 0,
-            }}
+            className="w-[50%] h-[400px] absolute bottom-0 object-contain object-bottom right-[50px] z-[2]"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
           />
-        </div>
-        <div className="flex w-full md:w-1/2 h-full relative justify-center items-center">
-        </div>
-        {/* <motion.img src="/creeper.png" alt="" className="w-[50%] h-[400px] object-contain sticky md:top-[calc(100vh-400px)] right-[100px] z-[2] origin-bottom-right hidden md:block" style={{scale:scaleProgress}}/> */}
-        <motion.img src="/creeper.png" alt="" className="w-[50%] h-[400px] absolute bottom-0 object-contain object-bottom right-[50px] z-[2]" />
+        </motion.div>
+        <motion.div
+          className="h-screen w-screen sticky top-0 left-0 flex justify-center items-center text-5xl text-white"
+          style={{ opacity: opacityProgres2 }}
+        >
+          WELCOME TO <br /> TEEEECHNEX
+        </motion.div>
       </div>
     </>
   );
