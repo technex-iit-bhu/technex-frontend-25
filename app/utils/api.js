@@ -47,9 +47,7 @@ export async function getEventById(id) {
 }
 
 export async function getSubEventByName(eventId, subEventName) {
-  const url = `${API_BASE_URL}/api/events/subevents?id=${eventId}&name=${encodeURIComponent(
-    subEventName
-  )}`;
+  const url = `${API_BASE_URL}/api/events/subevents?id=${eventId}&name=${subEventName}`;
 
   console.log("GET =>", url);
 
@@ -68,7 +66,7 @@ export async function getSubEventByName(eventId, subEventName) {
  * or just reuse the fetchProfile logic from the Profile page.
  */
 export async function fetchProfile(token) {
-  const res = await fetch(`${backendURL}/api/user/profile`, {
+  const res = await fetch(`${API_BASE_URL}/api/user/profile`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -83,7 +81,7 @@ export async function fetchProfile(token) {
  * Helper to patch user data:
  */
 export async function patchUserProfile(token, payload) {
-  const res = await fetch(`${backendURL}/api/user/update`, {
+  const res = await fetch(`${API_BASE_URL}/api/user/update`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

@@ -84,7 +84,9 @@ export default function EventCard({ event }) {
                         setActiveTab(index);
                       }}
                     >
-                      {`SubEvent ${index + 1}`}
+                      <div className="overflow-x-auto whitespace-nowrap">
+                        {subEvent.name}
+                      </div>
                     </TabButton>
                   ))}
                 </div>
@@ -141,6 +143,7 @@ export default function EventCard({ event }) {
                         href={`/events/event/${eventId}/subevent/${event.subEvents[activeTab].name}`}
                         onClick={(e) => e.stopPropagation()}
                         className="inline-block px-4 py-2 bg-yellow-600 text-white rounded-md"
+                        target="_blank"
                       >
                         Read More
                       </Link>
