@@ -62,8 +62,8 @@ export default function FAQ() {
       answer: "Technex is the annual techno-management festival of IIT (BHU) Varanasi."
     },
     {
-      question: "When is Technex 2024?",
-      answer: "Technex 2024 will be held from March 15 to March 17, 2024."
+      question: "When is Technex 2025?",
+      answer: "Technex 2025 will be held from March 2 to March 5, 2025."
     },
     {
       question: "How can I register for events?",
