@@ -96,7 +96,7 @@ export default function EventCard({ event }) {
                     <div className="space-y-4">
                       <div className="relative w-full h-32">
                         <Image
-                          src={event.subEvents[activeTab].imgsrc || "/logo.png"}
+                          src={event.subEvents[activeTab].imgsrc || "/logo.jpg"}
                           alt={event.subEvents[activeTab].name}
                           fill
                           style={{ objectFit: "cover" }}
@@ -161,7 +161,7 @@ export default function EventCard({ event }) {
           {showFrontImage && !isFlipped && (
             <div className="absolute inset-0 w-full h-full">
               <Image
-                src={event.imgsrc || "/bg2.png"}
+                src={event.imgsrc || "/bg2.jpg"}
                 alt={event.name}
                 fill
                 style={{ objectFit: "cover" }}
