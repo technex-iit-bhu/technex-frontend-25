@@ -9,7 +9,6 @@ export default function SubEventPage() {
   const [subEvent, setSubEvent] = useState(null);
   const [error, setError] = useState(null);
   const router = useRouter();
-  console.log(subEvent);
   useEffect(() => {
     if (!id || !name) return;
     getSubEventByName(id, name)

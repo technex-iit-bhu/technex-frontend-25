@@ -34,7 +34,6 @@ export const getAllEvents = async () => {
 };
 
 export async function getEventById(id) {
-  console.log("ID recieved = ", id);
   const res = await fetch(`${API_BASE_URL}/api/events/getEventByID?id=${id}`, {
     method: "GET",
   });
@@ -42,22 +41,17 @@ export async function getEventById(id) {
     throw new Error("Failed to fetch event: " + res.statusText);
   }
   const data = await res.json();
-  console.log("data recieved = ", data);
   return data;
 }
 
 export async function getSubEventByName(eventId, subEventName) {
   const url = `${API_BASE_URL}/api/events/subevents?id=${eventId}&name=${subEventName}`;
 
-  console.log("GET =>", url);
-
   const res = await fetch(url);
   if (!res.ok) {
     throw new Error(`Failed to fetch subEvent: ${res.statusText}`);
   }
   const data = await res.json();
-  console.log("data is =", data);
-  console.log("subEvent is =", data.subEvent);
   return data.subEvent;
 }
 
