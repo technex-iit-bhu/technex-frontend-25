@@ -35,7 +35,7 @@ export default function AboutSection() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="lg:w-1/2 flex flex-col items-center lg:items-end pr-0 lg:pr-8 mb-8 lg:mb-0"
         >
-          <h2 className="text-3xl font-bold mb-4 text-center lg:text-right">
+          <h2 className="text-4xl font-bold mb-4 text-center text-white lg:text-right">
             About Technex
           </h2>
           <div className="w-full h-[500px] overflow-hidden rounded-lg">
@@ -174,7 +174,7 @@ export default function AboutSection() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="lg:w-1/2 flex flex-col items-center lg:items-start pl-0 lg:pl-8 order-1 lg:order-2"
         >
-          <h2 className="text-3xl font-bold mb-4 text-center lg:text-left">
+          <h2 className="text-4xl text-white font-bold mb-4 text-center lg:text-left">
             About Varanasi
           </h2>
           <div className="w-full h-[500px] overflow-hidden rounded-lg">
