@@ -4,7 +4,7 @@ export default function Background_B({ children }) {
   return (
     <div className="relative w-full h-full">
       <Image
-        src="/bg2.png"
+        src="/bg2.jpg"
         fill
         objectFit="cover"
         alt="bg-b"

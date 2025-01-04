@@ -20,7 +20,7 @@ const SponsorCard = ({ company }) => {
       className="w-[300px] relative h-[400px] flex flex-col items-center text-white"
     >
       <Image
-        src="/SponsorCard.png"
+        src="/SponsorCard.jpg"
         width={300}
         height={0}
         className="absolute z-[-1] top-0"

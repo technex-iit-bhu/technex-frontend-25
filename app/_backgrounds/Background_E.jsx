@@ -33,7 +33,7 @@ export default function Background_E() {
   return (
     <div className="fixed top-0 left-0 w-full h-full -z-10">
       <div className="rain front-row absolute top-0 left-0 w-full h-full z-10"></div>
-      <Image src="/bg5.png" alt="bg-2" fill className="object-cover blur-sm" />
+      <Image src="/bg5.jpg" alt="bg-2" fill className="object-cover blur-sm" />
     </div>
   );
 }

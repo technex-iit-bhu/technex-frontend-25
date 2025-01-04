@@ -96,7 +96,7 @@ export default function FAQ() {
                   <div className="w-32 h-32 bg-[#C6C6C6] border-2 border-[#373737] p-1 flex-shrink-0 mx-auto md:mx-0">
                     <div className="w-full h-full bg-white">
                       <Image
-                        src="/skin.png"
+                        src="/skin.jpg"
                         alt=""
                         width={100}
                         height={100}

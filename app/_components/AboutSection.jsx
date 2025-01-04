@@ -40,7 +40,7 @@ export default function AboutSection() {
           </h2>
           <div className="w-full h-[500px] overflow-hidden rounded-lg">
             <Image
-              src="/technex.png"
+              src="/technex.jpg"
               alt="Technology and innovation representation"
               className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
               width={800}

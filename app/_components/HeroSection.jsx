@@ -93,7 +93,7 @@ export default function HeroSection() {
               }}
             />
             <motion.img
-              src="/splash_screen.png"
+              src="/splash_screen.jpg"
               alt=""
               className="absolute w-[200px] md:w-[300px] top-[50vh] rotate-[30deg] translate-x-[70px] block md:hidden z-[2]"
               animate={{
@@ -114,7 +114,7 @@ export default function HeroSection() {
           </div>
           {/* <div className="flex w-full md:w-1/2 h-full relative justify-center items-center"></div> */}
           {/* <motion.img
-            src="/creeper.png"
+            src="/creeper.jpg"
             alt=""
             className="w-[50%] h-[200px] absolute bottom-0 object-contain object-bottom right-[50px] z-[2]"
             initial={{ opacity: 0 }}
