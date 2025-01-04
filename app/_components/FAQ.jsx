@@ -63,7 +63,7 @@ export default function FAQ() {
     },
     {
       question: "When is Technex 2025?",
-      answer: "Technex 2025 will be held from March 2 to March 5, 2025."
+      answer: "Technex 2025 will be held from Feburary 28 to March 2, 2025."
     },
     {
       question: "How can I register for events?",
