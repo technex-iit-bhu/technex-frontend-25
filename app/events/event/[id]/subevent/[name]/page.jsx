@@ -9,7 +9,7 @@ export default function SubEventPage() {
   const [subEvent, setSubEvent] = useState(null);
   const [error, setError] = useState(null);
   const router = useRouter();
-  console.log(subEvent.image);
+  console.log(subEvent);
   useEffect(() => {
     if (!id || !name) return;
     getSubEventByName(id, name)
@@ -30,7 +30,7 @@ export default function SubEventPage() {
       {/* Header Image */}
       <div className="w-full max-w-4xl mb-6">
         <Image
-          src={subEvent.image}
+          src={subEvent.imgsrc}
           alt={subEvent.name}
           width={800}
           height={400}
