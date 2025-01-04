@@ -93,7 +93,7 @@ export default function HeroSection() {
               }}
             />
             <motion.img
-              src="/splash_screen.jpg"
+              src="/splash_screen.png"
               alt=""
               className="absolute w-[200px] md:w-[300px] top-[50vh] rotate-[30deg] translate-x-[70px] block md:hidden z-[2]"
               animate={{
