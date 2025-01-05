@@ -23,9 +23,8 @@ const TabButton = ({ isActive, onClick, children }) => (
     `}
   >
     <span
-      className={`text-sm ${
-        isActive ? "text-white" : "text-[#E0D3B3]"
-      } font-VT323 uppercase tracking-wide drop-shadow-[2px_2px_0px_rgba(0,0,0,0.5)]`}
+      className={`text-sm ${isActive ? "text-white" : "text-[#E0D3B3]"
+        } font-VT323 uppercase tracking-wide drop-shadow-[2px_2px_0px_rgba(0,0,0,0.5)]`}
     >
       {children}
     </span>
@@ -59,7 +58,7 @@ export default function EventCard({ event }) {
     <motion.div
       onClick={() => setIsFlipped(!isFlipped)}
       // Let the grid control the width. Just cap the max width if you like.
-      className="relative w-full max-w-[300px] h-[400px] rounded-lg overflow-hidden cursor-pointer"
+      className="relative rounded-lg overflow-hidden cursor-pointer max-w-[500px] sm:max-w-[600px] lg:max-w-[700px] h-[400px]"
     >
       <div className="w-full h-full bg-[#373737]">
         <div className="absolute inset-0">
@@ -175,12 +174,16 @@ export default function EventCard({ event }) {
             initial={{ translateY: "0%" }}
             animate={{ translateY: isFlipped ? "-100%" : "0%" }}
             transition={{ duration: 0.5 }}
-            className="absolute inset-0 flex flex-col justify-center items-center text-white p-4 bg-black opacity-60"
+            className="absolute inset-0 flex flex-col text-white p-4 bg-black opacity-80"
           >
-            <h2 className="text-3xl font-VT323 text-[#E0D3B3] mb-2">
-              {event.name}
-            </h2>
-            <p className="text-xl text-center">{event.desc}</p>
+            <div className="mb-4 mt-8">
+              <h2 className="text-3xl font-VT323 text-[#E0D3B3] mb-2 text-center">
+                {event.name}
+              </h2>
+            </div>
+            <div className="flex-1 overflow-y-auto">
+              <p className="text-xl text-center">{event.desc}</p>
+            </div>
           </motion.div>
         </div>
       </div>
