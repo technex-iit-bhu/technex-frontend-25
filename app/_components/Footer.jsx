@@ -3,19 +3,30 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const SocialCard = ({ href = "#", src, alt }) => {
+const SocialCard = ({ href = "#", src, alt, hoverColor }) => {
   return (
-    <motion.div whileHover={{ scale: 1.2 }} className="pixel-card">
-      <Link href={href} target="_blank" rel="noopener noreferrer">
-        <Image
-          src={src}
-          width={40}
-          height={40}
-          alt={alt}
-          className="pixel-image"
-        />
-      </Link>
-    </motion.div>
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group relative border-2 border-white/20 bg-black/80 p-2.5 rounded-lg
+        transition-all duration-300 ease-in-out
+        hover:-translate-y-0.5
+        hover:border-white/50
+        hover:bg-black
+        social-card
+        font-minecraft`}
+      style={{ "--hover-color": hoverColor }}
+    >
+      <Image
+        src={src}
+        width={40}
+        height={40}
+        alt={alt}
+        className="transition-all duration-300 brightness-0 invert
+          group-hover:scale-110"
+      />
+    </Link>
   );
 };
 
@@ -24,68 +35,83 @@ export default function Footer() {
     <motion.footer
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="w-full py-8 relative overflow-hidden"
+      className="w-full py-8 relative overflow-visible bg-black/90"
     >
-      {/* Minecraft-style background */}
-      <div className="absolute inset-0 minecraft-pattern"></div>
-
-      {/* Animated border */}
-
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center space-y-8">
           {/* Logo */}
           <motion.div
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
-            className="mb-4"
+            className="mb-4 transition-all duration-300 rounded-lg p-2
+              border-2 border-[#8B4513] 
+              hover:shadow-[0_0_20px_rgba(255,140,0,0.6)]
+              hover:border-[#FF8C00]
+              hover:bg-gradient-to-r hover:from-[#8B4513]/20 hover:to-[#FF8C00]/20"
           >
             <Image
               src="/sntc_footer.png"
               width={200}
               height={50}
               alt="SNTC Logo"
-              className="pixel-logo"
+              className="pixel-logo brightness-0 invert"
             />
           </motion.div>
 
           {/* Social Icons */}
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-wrap justify-center gap-6 p-6 bg-black/50 rounded-lg border border-white/10">
             <SocialCard
               href="https://www.facebook.com/technexiitbhu/"
               src="/facebook_icon.png"
               alt="Facebook"
+              hoverColor="#4267B2"
             />
             <SocialCard
               href="https://www.instagram.com/technexiitbhu/"
               src="/insta_icon.png"
               alt="Instagram"
+              hoverColor="#E1306C"
             />
             <SocialCard
               href="https://www.linkedin.com/company/technex-iit-bhu-varanasi/"
               src="/linkedin_icon.png"
               alt="LinkedIn"
+              hoverColor="#0077B5"
             />
             <SocialCard
               href="https://x.com/technexiitbhu"
               src="/X_icon.png"
               alt="Twitter"
+              hoverColor="#1DA1F2"
             />
             <SocialCard
               href="https://www.youtube.com/@TechnexIITBHU"
               src="/youtube_icon.png"
               alt="YouTube"
+              hoverColor="#FF0000"
             />
           </div>
 
           {/* Contact info */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-lg font-minecraft text-center minecraft-text"
+            className="text-lg font-minecraft text-center transition-all duration-300 rounded-lg p-2 border-2 border-purple-600/50 
+              hover:border-purple-600 
+              hover:bg-purple-600/10
+              hover:shadow-[0_0_30px_rgba(147,51,234,0.3)]
+              hover:backdrop-blur-sm
+              hover:backdrop-brightness-125
+              hover:backdrop-saturate-150
+              relative
+              before:absolute before:inset-0 before:rounded-lg
+              before:bg-gradient-to-r before:from-purple-600/0 before:via-purple-600/20 before:to-purple-600/0
+              before:opacity-0 hover:before:opacity-100
+              before:transition-opacity before:duration-300"
           >
-            For queries:{" "}
+            <span className="text-gray-300">For queries: </span>
             <Link
-              href="mailto:publicity@technex.in"
-              className="hover:text-yellow-400 transition-colors minecraft-link"
+              href="mailto:publicity@technex.in" 
+              className="text-white hover:text-purple-400 transition-colors minecraft-link"
             >
               publicity@technex.in
             </Link>
@@ -99,110 +125,14 @@ export default function Footer() {
           src: url("/fonts/minecraft.ttf") format("truetype");
         }
 
-        .minecraft-pattern {
-          background: linear-gradient(135deg, #2a2a2a 25%, transparent 25%) -10px
-              0,
-            linear-gradient(225deg, #2a2a2a 25%, transparent 25%) -10px 0,
-            linear-gradient(315deg, #2a2a2a 25%, transparent 25%),
-            linear-gradient(45deg, #2a2a2a 25%, transparent 25%);
-          background-size: 20px 20px;
-          background-color: #333333;
-          animation: patternShift 40s linear infinite;
-        }
-
-        @keyframes patternShift {
-          from {
-            background-position: 0 0;
-          }
-          to {
-            background-position: 100px 100px;
-          }
-        }
-
-        .pixel-border-animate {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 4px;
-          background: linear-gradient(
-            90deg,
-            #ff0000,
-            #ff7f00,
-            #ffff00,
-            #00ff00,
-            #0000ff,
-            #4b0082,
-            #8f00ff,
-            #ff0000
-          );
-          background-size: 200% 100%;
-          animation: borderFlow 2s linear infinite;
-        }
-
-        @keyframes borderFlow {
-          0% {
-            background-position: 200% 0;
-          }
-          100% {
-            background-position: 0 0;
-          }
-        }
-
-        .pixel-card {
-          background: #1a1a1a;
-          padding: 10px;
-          border: 4px solid #404040;
-          position: relative;
-          transition: all 0.3s ease;
-          image-rendering: pixelated;
-        }
-
-        .pixel-card::after {
-          content: "";
-          position: absolute;
-          inset: -5px;
-          background: linear-gradient(45deg, #404040, #1a1a1a);
-          z-index: -1;
-          transition: all 0.3s ease;
-        }
-
-        .pixel-card:hover::after {
-          filter: brightness(1.5);
-        }
-
         .pixel-logo {
-          filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
           image-rendering: pixelated;
-        }
-
-        .minecraft-text {
-          color: #ffffff;
-          text-shadow: 2px 2px #000000;
-          letter-spacing: 0.05em;
         }
 
         .minecraft-link {
           position: relative;
-          color: #ffaa00;
           text-decoration: none;
-          text-shadow: 1px 1px #000000;
-        }
-
-        .minecraft-link::after {
-          content: "";
-          position: absolute;
-          left: 0;
-          right: 0;
-          bottom: -2px;
-          height: 2px;
-          background: currentColor;
-          transform: scaleX(0);
-          transition: transform 0.3s ease;
-        }
-
-        .minecraft-link:hover::after {
-          transform: scaleX(1);
+          text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
         }
 
         .pixel-image {
@@ -210,8 +140,36 @@ export default function Footer() {
           transition: filter 0.3s ease;
         }
 
-        .pixel-image:hover {
-          filter: brightness(1.2);
+        .social-card {
+          position: relative;
+        }
+
+        .social-card::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: 8px;
+          background: transparent;
+          transition: all 0.3s ease;
+        }
+
+        .social-card:hover::before {
+          box-shadow: 0 0 15px var(--hover-color);
+          animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+          from {
+            box-shadow: 0 0 5px var(--hover-color), 0 0 10px var(--hover-color),
+              0 0 15px var(--hover-color);
+          }
+          to {
+            box-shadow: 0 0 10px var(--hover-color), 0 0 20px var(--hover-color),
+              0 0 30px var(--hover-color);
+          }
         }
       `}</style>
     </motion.footer>
