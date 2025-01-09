@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Technex25",
-  description: "¯_(ツ)_/¯",
+  title: "Technex'25",
+  description: "The Annual Techno-Management Fest, IIT-BHU",
 };
 
 export default function RootLayout({
