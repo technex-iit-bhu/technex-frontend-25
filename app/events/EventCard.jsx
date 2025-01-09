@@ -45,14 +45,14 @@ export default function EventCard({ event }) {
     setShowFrontImage(true);
   }, [isFlipped]);
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString(undefined, {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-  };
+  // const formatDate = (dateString) => {
+  //   const date = new Date(dateString);
+  //   return date.toLocaleDateString(undefined, {
+  //     year: "numeric",
+  //     month: "short",
+  //     day: "numeric",
+  //   });
+  // };
 
   return (
     <motion.div
@@ -114,14 +114,14 @@ export default function EventCard({ event }) {
                         {event.subEvents[activeTab].sub_desc}
                       </p>
 
-                      <div className="text-sm text-[#E0D3B3]">
+{/*                       <div className="text-sm text-[#E0D3B3]">
                         <p>
                           Start: {formatDate(event.subEvents[activeTab].sDate)}
                         </p>
                         <p>
                           End: {formatDate(event.subEvents[activeTab].eDate)}
                         </p>
-                      </div>
+                      </div> */}
 
                       {event.subEvents[activeTab].github && (
                         <a
