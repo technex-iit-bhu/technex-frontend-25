@@ -43,11 +43,11 @@ export default function SubEventPage() {
 
       {/* Event Schedule */}
       <p className="text-xl text-gray-300 mb-6">
-        Event Schedule:{" "}
-        <span className="text-white font-semibold">
+        Event Schedule:{" "} TO BE DECIDED SOON !!
+{/*         <span className="text-white font-semibold">
           From {new Date(subEvent.sDate).toLocaleString()} to{" "}
           {new Date(subEvent.eDate).toLocaleString()}
-        </span>
+        </span> */}
       </p>
 
       {/* Event Description */}
