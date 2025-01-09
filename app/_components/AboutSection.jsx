@@ -33,7 +33,7 @@ export default function AboutSection() {
           initial="hidden"
           animate={isInView1 ? "visible" : "hidden"}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="lg:w-1/2 flex flex-col items-center lg:items-end pr-0 lg:pr-8 mb-8 lg:mb-0"
+          className="w-full lg:w-1/2 flex flex-col items-center lg:items-end  lg:pr-8 mb-8 lg:mb-0"
         >
           <h2 className="text-4xl font-bold mb-4 text-center text-white lg:text-right">
             About Technex
@@ -120,7 +120,7 @@ export default function AboutSection() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="lg:w-1/2 lg:pr-8 order-2 lg:order-1 mb-8 lg:mb-0 space-y-4 text-justify text-white text-lg"
         >
-          <div className="bg-black bg-opacity-80 rounded-lg p-2 lg:mr-4">
+          <div className="bg-black bg-opacity-80 rounded-lg p-2 lg:mr-4 mt-6 md:mt-10">
             <p>
               <span className="text-yellow-400">Varanasi</span>, also known as{" "}
               <span className="text-yellow-400">Kashi</span> or{" "}
@@ -172,7 +172,7 @@ export default function AboutSection() {
           initial="hidden"
           animate={isInView2 ? "visible" : "hidden"}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="lg:w-1/2 flex flex-col items-center lg:items-start pl-0 lg:pl-8 order-1 lg:order-2"
+          className="w-full lg:w-1/2 flex flex-col items-center justify-center lg:items-start pl-0 lg:pl-8 order-1 lg:order-2 lg:px-5"
         >
           <h2 className="text-4xl text-white font-bold mb-4 text-center lg:text-left">
             About Varanasi
