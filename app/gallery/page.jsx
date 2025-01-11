@@ -74,7 +74,7 @@ export default function Gallery() {
   let [expandedImage, setExpandedImage] = useState(null);
 
   const images = [
-    { imageSrc: "/gallery/Sophie.png", alt: "Sophie" },
+    { imageSrc: "/gallery/Sophie.png", alt: "Sophia" },
     { imageSrc: "/gallery/AshneerGrover.png", alt: "Ashneer Grover" },
     { imageSrc: "/gallery/GuruRandhawa.png", alt: "Guru Randhawa" },
     { imageSrc: "/gallery/JubinNautiyal.png", alt: "Jubin Nautiyal" },
