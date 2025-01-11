@@ -41,7 +41,7 @@ export default function LoginCard() {
           transition={{ duration: 0.3, ease: "linear" }}
           className="hidden lg:flex  px-10 text-7xl text-center lg:text-left"
         >
-          Welcome To TechNex&apos;25
+          Welcome To Technex&apos;25
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}

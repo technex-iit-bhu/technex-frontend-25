@@ -23,8 +23,9 @@ const TabButton = ({ isActive, onClick, children }) => (
     `}
   >
     <span
-      className={`text-sm ${isActive ? "text-white" : "text-[#E0D3B3]"
-        } font-VT323 uppercase tracking-wide drop-shadow-[2px_2px_0px_rgba(0,0,0,0.5)]`}
+      className={`text-sm ${
+        isActive ? "text-white" : "text-[#E0D3B3]"
+      } font-VT323 uppercase tracking-wide drop-shadow-[2px_2px_0px_rgba(0,0,0,0.5)]`}
     >
       {children}
     </span>
@@ -103,9 +104,19 @@ export default function EventCard({ event }) {
                         />
                       </div>
 
-                      <h3 className="text-xl font-VT323 text-[#E0D3B3]">
-                        {event.subEvents[activeTab].name}
-                      </h3>
+                      <div className="flex justify-between items-center">
+                        <h3 className="text-xl font-VT323 text-[#E0D3B3]">
+                          {event.subEvents[activeTab].name}
+                        </h3>
+                        <Link
+                          href={`/events/event/${eventId}/subevent/${event.subEvents[activeTab].name}`}
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-block px-4 py-2 bg-yellow-600 text-white rounded-md"
+                          target="_blank"
+                        >
+                          Read More
+                        </Link>
+                      </div>
 
                       <p className="text-sm">
                         {event.subEvents[activeTab].desc}
@@ -113,15 +124,6 @@ export default function EventCard({ event }) {
                       <p className="text-sm text-gray-300">
                         {event.subEvents[activeTab].sub_desc}
                       </p>
-
-{/*                       <div className="text-sm text-[#E0D3B3]">
-                        <p>
-                          Start: {formatDate(event.subEvents[activeTab].sDate)}
-                        </p>
-                        <p>
-                          End: {formatDate(event.subEvents[activeTab].eDate)}
-                        </p>
-                      </div> */}
 
                       {event.subEvents[activeTab].github && (
                         <a
@@ -139,16 +141,6 @@ export default function EventCard({ event }) {
                           GitHub Repository
                         </a>
                       )}
-
-                      {/* TODO : Make this redirection page work */}
-                      <Link
-                        href={`/events/event/${eventId}/subevent/${event.subEvents[activeTab].name}`}
-                        onClick={(e) => e.stopPropagation()}
-                        className="inline-block px-4 py-2 bg-yellow-600 text-white rounded-md"
-                        target="_blank"
-                      >
-                        Read More
-                      </Link>
                     </div>
                   )}
                 </div>
