@@ -22,6 +22,7 @@ export default function Profile() {
     email?: string;
     github?: string;
     createdAt?: string;
+    technexId?: string;
   } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -121,6 +122,7 @@ export default function Profile() {
     email,
     github,
     createdAt,
+    technexId,
   } = profile;
 
   // Format "joined date"
@@ -131,7 +133,6 @@ export default function Profile() {
         day: "numeric",
       })
     : "N/A";
-
   return (
     <>
       <Background_B>
@@ -249,6 +250,14 @@ export default function Profile() {
               <div className="flex flex-col">
                 <span className="font-semibold">Joined At</span>
                 <span className="bg-black/30 rounded p-1">{joinedDate}</span>
+              </div>
+
+              {/* Technex ID */}
+              <div className="flex flex-col">
+                <span className="font-semibold">Technex ID</span>
+                <span className="bg-black/30 rounded p-1">
+                  {displayOrNA(technexId)}
+                </span>
               </div>
             </div>
           </div>
