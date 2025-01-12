@@ -57,12 +57,12 @@ const Navbar = () => {
     ? [
         { name: "Profile", href: "/profile" },
         { name: "Logout", onClick: handleLogout },
-        { name: "CA", href: "https://ca-frontend-25.vercel.app/" },
+        { name: "CA", href: "https://ca.technex.in" },
       ]
     : [
         { name: "Login", href: "/login" },
         { name: "Signup", href: "/signup" },
-        { name: "CA", href: "https://ca-frontend-25.vercel.app/" },
+        { name: "CA", href: "https://ca.technex.in/" },
       ];
 
   useEffect(() => {
