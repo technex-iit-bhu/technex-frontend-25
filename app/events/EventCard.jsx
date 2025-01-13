@@ -105,11 +105,11 @@ export default function EventCard({ event, registeredEvents }) {
                         />
                       </div>
 
-                      <div className="flex justify-between items-center">
+                      <div className="flex justify-between items-center flex-wrap">
                         <h3 className="text-xl font-VT323 text-[#E0D3B3]">
                           {event.subEvents[activeTab].name}
                         </h3>
-                        <div className="flex gap-4">
+                        <div className="flex gap-4 flex-shrink-0">
                           {!registeredEvents.includes(
                             event.subEvents[activeTab].name
                           ) ? (
