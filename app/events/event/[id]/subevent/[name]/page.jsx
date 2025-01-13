@@ -43,8 +43,11 @@ export default function SubEventPage() {
 
       {/* Event Schedule */}
       <p className="text-xl text-gray-300 mb-6">
-        Event Schedule:{" "} TO BE DECIDED SOON !!
-{/*         <span className="text-white font-semibold">
+        {/* Event Schedule:{" "} TO BE DECIDED SOON !! */}
+        <span className="text-white font-semibold">
+          {new Date(subEvent.sDate) > new Date() ? "Starts" : "Started"} on {new Date(subEvent.sDate).toLocaleDateString()}
+        </span>
+        {/* <span className="text-white font-semibold">
           From {new Date(subEvent.sDate).toLocaleString()} to{" "}
           {new Date(subEvent.eDate).toLocaleString()}
         </span> */}
@@ -61,18 +64,49 @@ export default function SubEventPage() {
         <h2 className="text-2xl font-semibold mb-2">Details</h2>
         <p className="text-gray-300">{subEvent.sub_desc}</p>
       </div>
+      
+      {/* Prize Pool */}
+      <div className="bg-gray-800 p-6 rounded-lg max-w-3xl w-full mb-6">
+        <h2 className="text-2xl font-semibold mb-2">Prize Pool</h2>
+        <p className="text-gray-300 text-xl">₹ {subEvent.prizeMoney.toLocaleString('en-IN')}</p>
+      </div>
 
-      {/* GitHub Button */}
-      {subEvent.github && (
-        <a
-          href={subEvent.github}
-          target="_blank"
-          rel="noreferrer"
-          className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-lg mb-4"
-        >
-          View Details on GitHub
-        </a>
-      )}
+      <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-3xl mb-4">
+        {/* Unstop Button */}
+        {subEvent.unstopLink && (
+          <a
+            href={subEvent.unstopLink}
+            target="_blank"
+            rel="noreferrer"
+            className="px-6 py-3 bg-[#1C4980] hover:bg-[#16304F] text-white rounded-md text-lg mb-4"
+          >
+            View Details on Unstop
+          </a>
+        )}
+        {/* Drive Button */}
+        {subEvent.driveLink && (
+          <a
+            href={subEvent.driveLink}
+            target="_blank"
+            rel="noreferrer"
+            className="px-6 py-3 bg-[#BE800E] hover:bg-[#9b6a11] text-white rounded-md text-lg mb-4"
+          >
+            View Details on Google Drive
+          </a>
+        )}
+        {/* GitHub Button */}
+        {subEvent.github && (
+          <a
+            href={subEvent.github}
+            target="_blank"
+            rel="noreferrer"
+            className="px-6 py-3 bg-[#2B3137] hover:bg-[#24292E] text-white rounded-md text-lg mb-4"
+          >
+            View Details on GitHub
+          </a>
+        )}
+      </div>
+      
 
       {/* Go Back Button */}
       <button
