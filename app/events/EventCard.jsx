@@ -33,15 +33,21 @@ const TabButton = ({ isActive, onClick, children }) => (
 );
 
 export default function EventCard({ event, registeredEvents }) {
+  
   const eventId = event.id;
   const [isFlipped, setIsFlipped] = useState(false);
   const [showFrontImage, setShowFrontImage] = useState(true);
   const [activeTab, setActiveTab] = useState(0);
+  const prize_pool = prizeMoneyToString(
+    event.subEvents?.reduce(
+      (acc, { prizeMoney }) => acc + (prizeMoney ?? 0),
+      0)
+  );
   // console.log("reg : ",registeredEvents)
 
   useEffect(() => {
     if (isFlipped) {
-      const timer = setTimeout(() => setShowFrontImage(false), 500);
+      const timer = setTimeout(() => setShowFrontImage(false), 20);
       return () => clearTimeout(timer);
     }
     setShowFrontImage(true);
@@ -192,12 +198,19 @@ export default function EventCard({ event, registeredEvents }) {
             transition={{ duration: 0.5 }}
             className="absolute inset-0 flex flex-col text-white p-4 bg-black opacity-80"
           >
-            <div className="mb-4 mt-8">
+            <div className="mb-3 mt-7">
               <h2 className="text-3xl font-VT323 text-[#E0D3B3] mb-2 text-center">
                 {event.name}
               </h2>
             </div>
             <div className="flex-1 overflow-y-auto">
+              <div className="flex-1 mr-8 gap-x-10 flex items-center justify-center">
+                <span className="text-2xl text-center text-[#F1CA60]">Prize Pool</span>
+                <div className="relative"><span className="text-2xl text-center text-[#F1CA60]">{prize_pool}</span>
+                  <Image src="/gold_ingot.png" className="absolute inline -right-10" height={30} width={30} />
+                </div>
+                
+              </div>
               <p className="text-xl text-center">{event.desc}</p>
             </div>
           </motion.div>
@@ -205,4 +218,10 @@ export default function EventCard({ event, registeredEvents }) {
       </div>
     </motion.div>
   );
+}
+
+const prizeMoneyToString = (prizeMoney) => {
+  if (prizeMoney < 1000) return prizeMoney;
+  if (prizeMoney < 100000) return `${prizeMoney / 1000}K`;
+  return `${prizeMoney / 100000}L`;
 }
