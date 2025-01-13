@@ -47,7 +47,7 @@ export default function EventCard({ event, registeredEvents }) {
 
   useEffect(() => {
     if (isFlipped) {
-      const timer = setTimeout(() => setShowFrontImage(false), 20);
+      const timer = setTimeout(() => setShowFrontImage(false), 500);
       return () => clearTimeout(timer);
     }
     setShowFrontImage(true);
