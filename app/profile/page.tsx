@@ -244,22 +244,81 @@ export default function Profile() {
           <div className="mt-10 w-full max-w-6xl bg-[#2B2A2A]/80 p-6 rounded-lg border-4 border-[#454242]">
             <h2 className="text-2xl mb-4 font-bold">Registered Events</h2>
             <div className="overflow-x-auto">
-              <div className="flex space-x-6 pb-4">
-                {registeredEvents.length > 0 ? (
-                  registeredEvents.map((event, index) => (
-                    <div
-                      key={index}
-                      className="bg-black/30 rounded p-4"
-                    >
-                      {event}
-                    </div>
-                  ))
-                ) : (
-                  <div className="bg-black/30 rounded p-4 w-full text-center">
-                    No events registered
+              {registeredEvents.length > 0 ? (
+                <>
+                  <div className="flex flex-wrap gap-4 mb-6">
+                    {registeredEvents.map((event, index) => (
+                      <div
+                        key={index}
+                        className="bg-black/30 rounded p-4 font-minecraft"
+                      >
+                        {event}
+                      </div>
+                    ))}
                   </div>
-                )}
-              </div>
+                  <div className="bg-black/30 rounded p-4 font-minecraft text-center">
+                    <div className="text-[#E0D3B3] mb-4">
+                      [!] Want to explore more epic quests?
+                    </div>
+                    <a
+                      href="https://konfhub.com/technex25"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="
+                        inline-block
+                        px-4 py-2
+                        bg-[#4D4D4D] hover:bg-[#5A5A5A]
+                        border-2 border-[#272727]
+                        relative
+                        transition-all duration-100
+                        hover:translate-y-[2px]
+                        before:absolute before:inset-0 
+                        before:border-t-2 before:border-l-[1px]
+                        before:border-white/10
+                        after:absolute after:inset-0
+                        after:border-r-[1px] after:border-b-2
+                        after:border-black/20
+                        text-[#E0D3B3] hover:text-white
+                        uppercase tracking-wide
+                        drop-shadow-[2px_2px_0px_rgba(0,0,0,0.5)]
+                      "
+                    >
+                      [Register More Events]
+                    </a>
+                  </div>
+                </>
+              ) : (
+                <div className="bg-black/30 rounded p-4 w-full text-center font-minecraft tracking-wide">
+                  <div className="text-[#E0D3B3] mb-4">
+                    [!] No events registered yet. Time to embark on a new quest!
+                  </div>
+                  <a 
+                    href="https://konfhub.com/technex25"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="
+                      inline-block
+                      px-4 py-2
+                      bg-[#4D4D4D] hover:bg-[#5A5A5A]
+                      border-2 border-[#272727]
+                      relative
+                      transition-all duration-100
+                      hover:translate-y-[2px]
+                      before:absolute before:inset-0 
+                      before:border-t-2 before:border-l-[1px]
+                      before:border-white/10
+                      after:absolute after:inset-0
+                      after:border-r-[1px] after:border-b-2
+                      after:border-black/20
+                      text-[#E0D3B3] hover:text-white
+                      uppercase tracking-wide
+                      drop-shadow-[2px_2px_0px_rgba(0,0,0,0.5)]
+                    "
+                  >
+                    [Register for Events]
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </main>
