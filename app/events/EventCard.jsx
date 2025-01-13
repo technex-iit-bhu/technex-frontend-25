@@ -32,11 +32,12 @@ const TabButton = ({ isActive, onClick, children }) => (
   </button>
 );
 
-export default function EventCard({ event }) {
+export default function EventCard({ event, registeredEvents }) {
   const eventId = event.id;
   const [isFlipped, setIsFlipped] = useState(false);
   const [showFrontImage, setShowFrontImage] = useState(true);
   const [activeTab, setActiveTab] = useState(0);
+  // console.log("reg : ",registeredEvents)
 
   useEffect(() => {
     if (isFlipped) {
@@ -108,14 +109,37 @@ export default function EventCard({ event }) {
                         <h3 className="text-xl font-VT323 text-[#E0D3B3]">
                           {event.subEvents[activeTab].name}
                         </h3>
-                        <Link
-                          href={`/events/event/${eventId}/subevent/${event.subEvents[activeTab].name}`}
-                          onClick={(e) => e.stopPropagation()}
-                          className="inline-block px-4 py-2 bg-yellow-600 text-white rounded-md"
-                          target="_blank"
-                        >
-                          Read More
-                        </Link>
+                        <div className="flex gap-4">
+                          {!registeredEvents.includes(
+                            event.subEvents[activeTab].name
+                          ) ? (
+                            <Link
+                              href={`https://konfhub.com/technex25`}
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-block px-4 py-2 bg-orange-600 text-white rounded-md"
+                              target="_blank"
+                            >
+                              Register Now
+                            </Link>
+                          ) : (
+                            <Link
+                              href={`#`}
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-block px-4 py-2 bg-gray-500 text-white rounded-md pointer-events-none"
+                              target="_blank"
+                            >
+                              Registered
+                            </Link>
+                          )}
+                          <Link
+                            href={`/events/event/${eventId}/subevent/${event.subEvents[activeTab].name}`}
+                            onClick={(e) => e.stopPropagation()}
+                            className="inline-block px-4 py-2 bg-yellow-600 text-white rounded-md"
+                            target="_blank"
+                          >
+                            Read More
+                          </Link>
+                        </div>
                       </div>
 
                       <p className="text-sm">

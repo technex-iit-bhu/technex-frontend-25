@@ -14,6 +14,7 @@ import EventCard from "./EventCard"; // <-- Adjust path as needed
 
 export default function Events() {
   const [events, setEvents] = useState([]);
+  const [registeredEvents, setRegisteredEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -31,6 +32,31 @@ export default function Events() {
 
     fetchEvents();
   }, []);
+
+  useEffect(() => {
+    if (events.length > 0) {
+      const token = localStorage.getItem("token");
+      // console.log("E")
+      try {
+        fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/profile`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => res.json())
+        .then((res) => {
+          if(res){
+            setRegisteredEvents(res.data.registeredEvents);
+            // console.log(res.data.registeredEvents)
+          }
+        });
+      } catch (err) {
+        console.log(err);
+      }
+      // console.log("EE")
+    }
+  }, [events]);
 
   return (
     <div className="absolute">
@@ -50,7 +76,7 @@ export default function Events() {
             {!loading && !error && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {events.map((event) => (
-                  <EventCard key={event.id} event={event} />
+                  <EventCard key={event.id} event={event} registeredEvents={registeredEvents}/>
                 ))}
               </div>
             )}
