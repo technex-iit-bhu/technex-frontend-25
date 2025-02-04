@@ -33,6 +33,25 @@ export const getAllEvents = async () => {
   return data.events;
 };
 
+export async function getAllWorkshops() {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/workshops`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      throw new Error("Failed to fetch workshops");
+    }
+    const data = await response.json();
+    return data.workshops;
+  } catch (error) {
+    console.error("Error fetching workshops:", error);
+    return [];
+  }
+}
+
 export async function getEventById(id) {
   const res = await fetch(`${API_BASE_URL}/api/events/getEventByID?id=${id}`, {
     method: "GET",
