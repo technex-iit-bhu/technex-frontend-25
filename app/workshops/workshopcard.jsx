@@ -75,7 +75,7 @@ const WorkshopCard = ({ workshop }) => {
                         setActiveTab(index);
                       }}
                     >
-                      {`Workshop ${index + 1}`}
+                      {sub.name}
                     </TabButton>
                   ))}
                 </div>
