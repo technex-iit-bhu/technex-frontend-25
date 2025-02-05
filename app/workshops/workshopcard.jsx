@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const TabButton = ({ isActive, onClick, children }) => (
   <button
@@ -19,7 +20,8 @@ const TabButton = ({ isActive, onClick, children }) => (
       after:border-r-[1px] after:border-b-2
       after:border-black/20`}
   >
-    <span className={`text-sm ${isActive ? "text-white" : "text-[#E0D3B3]"} 
+    <span
+      className={`text-sm ${isActive ? "text-white" : "text-[#E0D3B3]"} 
       font-VT323 uppercase tracking-wide
       drop-shadow-[2px_2px_0px_rgba(0,0,0,0.5)]`}
     >
@@ -79,31 +81,41 @@ const WorkshopCard = ({ workshop }) => {
                     </TabButton>
                   ))}
                 </div>
-                
+
                 <div className="flex-1 p-4 overflow-y-auto">
                   <div className="space-y-4">
                     <div className="relative w-full h-32">
                       <Image
-                        src={workshop.subWorkshops[activeTab].imgsrc || "/logo.png"}
+                        src={
+                          workshop.subWorkshops[activeTab].imgsrc || "/logo.png"
+                        }
                         alt={workshop.subWorkshops[activeTab].name}
                         fill
                         style={{ objectFit: "cover" }}
                         className="rounded-lg"
                       />
                     </div>
-                    
+
                     <h3 className="text-xl font-VT323 text-[#E0D3B3]">
                       {workshop.subWorkshops[activeTab].name}
                     </h3>
-                    
-                    <p className="text-sm">{workshop.subWorkshops[activeTab].desc}</p>
-                    <p className="text-sm text-gray-300">{workshop.subWorkshops[activeTab].sub_desc}</p>
-                    
+
+                    <p className="text-sm">
+                      {workshop.subWorkshops[activeTab].desc}
+                    </p>
+  
+
                     <div className="text-sm text-[#E0D3B3]">
-                      <p>Start: {formatDate(workshop.subWorkshops[activeTab].sDate)}</p>
-                      <p>End: {formatDate(workshop.subWorkshops[activeTab].eDate)}</p>
+                      <p>
+                        Start:{" "}
+                        {formatDate(workshop.subWorkshops[activeTab].sDate)}
+                      </p>
+                      <p>
+                        End:{" "}
+                        {formatDate(workshop.subWorkshops[activeTab].eDate)}
+                      </p>
                     </div>
-                    
+
                     {workshop.subWorkshops[activeTab].github && (
                       <a
                         href={workshop.subWorkshops[activeTab].github}
@@ -117,7 +129,23 @@ const WorkshopCard = ({ workshop }) => {
                           transition-all duration-100
                           hover:translate-y-[2px]"
                       >
-                        GitHub Repository
+                        Learn More
+                      </a>
+                    )}
+                    {workshop.subWorkshops[activeTab].sub_desc && (
+                      <a
+                        href={workshop.subWorkshops[activeTab].sub_desc}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-block px-4 py-2 mx-4 bg-[#4D4D4D] text-[#E0D3B3] 
+                          hover:bg-[#5A5A5A] hover:text-white
+                          border-2 border-[#272727]
+                          font-VT323 text-sm
+                          transition-all duration-100
+                          hover:translate-y-[2px]"
+                      >
+                        Register Here
                       </a>
                     )}
                   </div>
@@ -125,7 +153,7 @@ const WorkshopCard = ({ workshop }) => {
               </div>
             )}
           </motion.div>
-          
+
           {showImage && !isFlipped && (
             <div className="absolute inset-0 w-full h-full">
               <Image
@@ -137,14 +165,16 @@ const WorkshopCard = ({ workshop }) => {
               />
             </div>
           )}
-          
+
           <motion.div
             initial={{ translateY: "0%" }}
             animate={{ translateY: isFlipped ? "-100%" : "0%" }}
             transition={{ duration: 0.5 }}
             className="absolute inset-0 flex flex-col justify-center items-center text-white p-4"
           >
-            <h2 className="text-3xl font-VT323 text-[#E0D3B3] mb-2">{workshop.name}</h2>
+            <h2 className="text-3xl font-VT323 text-[#E0D3B3] mb-2">
+              {workshop.name}
+            </h2>
             <p className="text-xl text-center">{workshop.desc}</p>
           </motion.div>
         </div>
