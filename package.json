@@ -23,9 +23,12 @@
     "next": "^14.2.23",
     "next-optimized-images": "^2.6.2",
     "papaparse": "^5.5.2",
+    "qrcode.react": "^4.2.0",
     "react": "^18",
     "react-day-picker": "^9.4.0",
     "react-dom": "^18",
+    "react-to-pdf": "^1.0.1",
+    "react-to-print": "^3.0.5",
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {

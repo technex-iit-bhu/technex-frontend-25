@@ -4,6 +4,7 @@ import Background_B from "@/app/_backgrounds/Background_B";
 import Navbar from "@/app/_components/Navbar";
 import Footer from "@/app/_components/Footer";
 import Link from "next/link";
+import IdCard from "../idcard/page";
 const backendURL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 // Helper function: fallback to "N/A" if empty
@@ -25,6 +26,7 @@ export default function Profile() {
     createdAt?: string;
     technexId?: string;
     registeredEvents?: string[];
+    qrToken?: string;
   } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -49,7 +51,10 @@ export default function Profile() {
         }
 
         const data = await res.json();
-        setProfile(data.data);
+        const profile_data = data.data;
+        profile_data.qrToken = data.qrToken;
+        console.log(profile_data)
+        setProfile(profile_data);
       } catch (err: unknown) {
         if (err instanceof Error) {
           setError(err.message || "An Error occurred while Fetching profile");
@@ -124,10 +129,10 @@ export default function Profile() {
 
   const joinedDate = createdAt
     ? new Date(createdAt).toLocaleDateString(undefined, {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      })
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    })
     : "N/A";
 
   return (
@@ -292,7 +297,7 @@ export default function Profile() {
                   <div className="text-[#E0D3B3] mb-4">
                     [!] No events registered yet. Time to embark on a new quest!
                   </div>
-                  <a 
+                  <a
                     href="https://konfhub.com/technex25"
                     target="_blank"
                     rel="noreferrer"
@@ -321,6 +326,15 @@ export default function Profile() {
               )}
             </div>
           </div>
+          <IdCard userData={{
+            name: profile.name,
+            college: profile.institute,
+            id: profile.technexId,
+            email: profile.email,
+            phone: profile.phone,
+            qrToken: profile.qrToken,
+            profile_photo: "https://placehold.co/400",
+          }} />
         </main>
         <Footer />
       </Background_B>
