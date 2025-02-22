@@ -90,7 +90,7 @@ export default function IdCard ({userData}) {
                   {/* <img src="/logo.png" alt="logo" className="bg-black rounded-md w-10 h-10" /> */}
                   <div className="ml-2 flex flex-col justify-center">
                     <div className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 leading-tight">
-                      TECHNEX'25 PARTICIPANT
+                      TECHNEX&apos;25 PARTICIPANT
                     </div>
                     <div className="text-xs md:text-sm text-gray-500">
                       Valid through Technex 2025
