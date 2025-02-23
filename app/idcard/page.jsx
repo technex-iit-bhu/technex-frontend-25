@@ -4,7 +4,7 @@ import { QRCodeSVG } from "qrcode.react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
-export default function IdCard ({userData}) {
+export default function IdCard () {
   const cardRef = useRef(null);
   const buttonRef = useRef(null);
 
