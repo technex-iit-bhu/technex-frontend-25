@@ -3,8 +3,9 @@ import React, { useRef } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import Image from "next/image";
 
-export default function IdCard () {
+export default function IdCard ({userData : any}) {
   const cardRef = useRef(null);
   const buttonRef = useRef(null);
 
@@ -101,7 +102,7 @@ export default function IdCard () {
 
               {/* Profile Section */}
               <div className="flex items-center my-4">
-                <img src={userData.profile_photo} alt="profile photo" className="w-16 md:w-20 lg:w-24 h-16 md:h-20 lg:h-24 mr-4 rounded-full"/>
+                <Image src={userData.profile_photo} alt="profile photo" className="w-16 md:w-20 lg:w-24 h-16 md:h-20 lg:h-24 mr-4 rounded-full"/>
                 {/* <div className="w-16 md:w-20 lg:w-24 h-16 md:h-20 lg:h-24 bg-gray-300 rounded-full flex items-center justify-center mr-4">
                   <svg
                     className="w-8 md:w-10 lg:w-12 h-8 md:h-10 lg:h-12 text-gray-400"

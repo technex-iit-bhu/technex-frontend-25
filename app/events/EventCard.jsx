@@ -207,7 +207,7 @@ export default function EventCard({ event, registeredEvents }) {
               <div className="flex-1 mr-8 gap-x-10 flex items-center justify-center">
                 <span className="text-2xl text-center text-[#F1CA60]">Prize Pool</span>
                 <div className="relative"><span className="text-2xl text-center text-[#F1CA60]">{prize_pool}</span>
-                  <Image src="/gold_ingot.png" className="absolute inline -right-10" height={30} width={30} />
+                  <Image src="/gold_ingot.png" className="absolute inline -right-10" height={30} width={30} alt="gold_ingot" />
                 </div>
                 
               </div>

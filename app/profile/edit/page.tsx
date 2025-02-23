@@ -98,7 +98,7 @@ export default function EditProfilePage() {
     if(success !== null){
       setTimeout(() => router.push("/profile"), 1000)
     }
-  },[success])
+  },[success, router])
 
   if (loading) {
     return (

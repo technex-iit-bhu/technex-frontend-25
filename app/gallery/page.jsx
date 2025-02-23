@@ -1,6 +1,7 @@
 "use client"
 import Background_D from "../_backgrounds/Background_D";
 import Navbar from "../_components/Navbar";
+import Image from "next/image";
 import { FireEffect } from "../_components/particleEffects";
 import Footer from "../_components/Footer";
 
@@ -8,9 +9,9 @@ function Card({ alt, description, imageSrc,textColor="white" }) {
   return (
     <>
       <div className="w-[300px] h-[400px] relative overflow-hidden group transition-all shadow-lg">
-        <img
+        <Image
           src={imageSrc || "/projectDefault.jpg"}
-          alt=""
+          alt="default"
           className="w-full h-full object-cover object-center absolute top-0 group-hover:scale-[2] origin-top-left transition-all"
         />
         <div className={`absolute w-full h-full group-hover:backdrop-blur-xl transition-all p-4 text-${textColor}`}>
