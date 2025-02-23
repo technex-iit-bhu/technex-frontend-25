@@ -5,7 +5,8 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import Image from "next/image";
 
-export default function IdCard ({userData : any}) {
+export default function IdCard (props) {
+  const { userData } = props;
   const cardRef = useRef(null);
   const buttonRef = useRef(null);
 
