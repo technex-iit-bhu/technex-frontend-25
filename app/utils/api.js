@@ -1,5 +1,50 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
+export async function sendOTP(email) {
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/user/send-otp`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    return await res.json();
+  } catch (error) {
+    return { error: error.message };
+  }
+}
+
+export async function verifyOTP(email, otp) {
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/user/verify-otp`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, otp: parseInt(otp, 10) }),
+    });
+
+    return await res.json();
+  } catch (error) {
+    return { error: error.message };
+  }
+}
+
+export async function resetPassword(email, newPassword) {
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/user/reset-password`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, newPassword }),
+    });
+    return await res.json();
+  } catch (error) {
+    return { error: error.message };
+  }
+}
+
 export const registerUser = async (userData) => {
   const response = await fetch(`${API_BASE_URL}/api/user/register`, {
     method: "POST",

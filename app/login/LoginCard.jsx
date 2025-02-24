@@ -76,13 +76,18 @@ export default function LoginCard() {
               />
             </div>
             {error && <div className="text-red-500 mb-4">{error}</div>}
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="text-white border py-2 px-10 sm:px-20 text-xl sm:text-2xl hover:bg-white hover:text-black transition disabled:opacity-50"
-            >
-              {isLoading ? "Loading..." : "Login"}
-            </button>
+            <div className="flex flex-col items-center">
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="text-white border py-2 px-10 sm:px-20 text-xl sm:text-2xl hover:bg-white hover:text-black transition disabled:opacity-50"
+              >
+                {isLoading ? "Loading..." : "Login"}
+              </button>
+              <Link href="/forgot-password" className="text-slate-400 mt-4">
+                Forgot Password?
+              </Link>
+            </div>
           </form>
         </motion.div>
       </div>
