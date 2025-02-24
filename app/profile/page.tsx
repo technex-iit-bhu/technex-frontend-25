@@ -327,12 +327,12 @@ export default function Profile() {
             </div>
           </div>
           <IdCard userData={{
-            name: profile.name,
-            college: profile.institute,
-            id: profile.technexId,
-            email: profile.email,
-            phone: profile.phone,
-            qrToken: profile.qrToken,
+            name: profile.name || '',
+            college: profile.institute || '',
+            id: profile.technexId || '',
+            email: profile.email || '',
+            phone: profile.phone || '',
+            qrToken: profile.qrToken || '',
             profile_photo: "https://placehold.co/400",
           }} />
         </main>
