@@ -46,6 +46,7 @@ const Navbar = () => {
     "Sponsors",
     "Gallery",
     "Schedule",
+    "Guidelines",
   ];
 
   const handleLogout = () => {
