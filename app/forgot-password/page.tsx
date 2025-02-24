@@ -8,7 +8,9 @@ export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
   const [otp, setOTP] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const [stage, setStage] = useState<"email" | "otp" | "newPassword" | "done">("email");
+  const [stage, setStage] = useState<"email" | "otp" | "newPassword" | "done">(
+    "email"
+  );
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
@@ -80,7 +82,6 @@ export default function ForgotPasswordPage() {
       <div className="mx-auto w-11/12 max-w-md">
         <h1 className="text-2xl mb-4 text-center">Forgot Password</h1>
 
-        {/* Stage 1: Enter email */}
         {stage === "email" && (
           <div className="flex flex-col gap-4">
             <label htmlFor="email" className="font-bold">
@@ -103,7 +104,6 @@ export default function ForgotPasswordPage() {
           </div>
         )}
 
-        {/* Stage 2: Enter OTP */}
         {stage === "otp" && (
           <div className="flex flex-col gap-4">
             <label htmlFor="otp" className="font-bold">
@@ -126,7 +126,6 @@ export default function ForgotPasswordPage() {
           </div>
         )}
 
-        {/* Stage 3: Enter new password */}
         {stage === "newPassword" && (
           <div className="flex flex-col gap-4">
             <label htmlFor="newPassword" className="font-bold">
@@ -149,11 +148,9 @@ export default function ForgotPasswordPage() {
           </div>
         )}
 
-        {/* Stage 4: Done */}
         {stage === "done" && (
           <div className="text-center mt-8">
             <h2 className="text-xl font-bold">Success!</h2>
-            {/* <p>Your password has been reset. You can now log in.</p> */}
             <Link href="/login">
               <button className="mt-4 p-2 bg-gray-700 text-white border-none cursor-pointer">
                 Go to Login
@@ -162,7 +159,6 @@ export default function ForgotPasswordPage() {
           </div>
         )}
 
-        {/* Display message or error */}
         {message && <p className="text-green-400 mt-4">{message}</p>}
         {error && <p className="text-red-500 mt-4">{error}</p>}
       </div>
