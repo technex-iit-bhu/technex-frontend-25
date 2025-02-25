@@ -1,1 +1,1 @@
-# technex
+# technex frontend
