@@ -4,7 +4,7 @@ import Background_B from "@/app/_backgrounds/Background_B";
 import Navbar from "@/app/_components/Navbar";
 import Footer from "@/app/_components/Footer";
 import Link from "next/link";
-import {IdCard} from "../_components/IdCard";
+// import {IdCard} from "../_components/IdCard";
 const backendURL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 // Helper function: fallback to "N/A" if empty
