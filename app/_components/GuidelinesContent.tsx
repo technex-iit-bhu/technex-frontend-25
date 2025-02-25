@@ -16,7 +16,7 @@ export default function GuidelinesContent() {
     >
       {/* Main Heading */}
       <h1 className="text-2xl md:text-4xl font-bold mb-6 text-center uppercase" style={{ letterSpacing: "2px" }}>
-        Technex'25 Hospitality Guidelines
+        Technex&apos;25 Hospitality Guidelines
       </h1>
 
       <div className="space-y-4 text-sm md:text-base leading-relaxed">
@@ -88,7 +88,7 @@ export default function GuidelinesContent() {
         <p>
           Upon checkouts, Participants are expected to return all provided items in good condition for seamless operations.
         </p>
-        <p>All visitors are required to maintain the campus's decorum and cleanliness while strictly adhering to its policies at all times.</p>
+        <p>All visitors are required to maintain the campus&apos;s decorum and cleanliness while strictly adhering to its policies at all times.</p>
         <p>
           Random checks will be conducted to prevent unauthorized stays on campus. Failure to present electronic or paper lodging receipts during
           these checks will result in penalties and disqualification for the respective teams.

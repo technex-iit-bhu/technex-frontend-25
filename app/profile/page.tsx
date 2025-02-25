@@ -326,7 +326,7 @@ export default function Profile() {
               )}
             </div>
           </div>
-          <IdCard userData={{
+          {/* <IdCard userData={{
             name: profile.name || '',
             college: profile.institute || '',
             id: profile.technexId || '',
@@ -334,7 +334,7 @@ export default function Profile() {
             phone: profile.phone || '',
             qrToken: profile.qrToken || '',
             profile_photo: "https://placehold.co/400",
-          }} />
+          }} /> */}
         </main>
         <Footer />
       </Background_B>
