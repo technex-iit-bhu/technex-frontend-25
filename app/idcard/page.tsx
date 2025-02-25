@@ -1,23 +1,23 @@
-// "use client";
-// import React, { useRef } from "react";
-// import { QRCodeSVG } from "qrcode.react";
-// import html2canvas from "html2canvas";
-// import jsPDF from "jspdf";
-// import Image from "next/image";
+"use client";
+import React, { useRef } from "react";
+import { QRCodeSVG } from "qrcode.react";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+import Image from "next/image";
 
-// interface UserData {
-//   name: string;
-//   college: string;
-//   id: string;
-//   email: string;
-//   phone: string;
-//   qrToken: string;
-//   profile_photo: string;
-// }
+interface UserData {
+  name: string;
+  college: string;
+  id: string;
+  email: string;
+  phone: string;
+  qrToken: string;
+  profile_photo: string;
+}
 
-// interface IdCardProps {
-//   userData: UserData;
-// }
+interface IdCardProps {
+  userData: UserData;
+}
 
 // export default function IdCard(props: IdCardProps) {
 //   const { userData } = props;
@@ -161,3 +161,9 @@
 //     </div>
 //   );
 // }
+
+export default function IdCard() {
+  return (
+    <div>ID Card</div>
+  )
+}
