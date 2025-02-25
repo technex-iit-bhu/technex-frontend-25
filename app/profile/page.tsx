@@ -4,7 +4,7 @@ import Background_B from "@/app/_backgrounds/Background_B";
 import Navbar from "@/app/_components/Navbar";
 import Footer from "@/app/_components/Footer";
 import Link from "next/link";
-// import IdCard from "../idcard/page";
+import {IdCard} from "../_components/IdCard";
 const backendURL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 // Helper function: fallback to "N/A" if empty
@@ -326,15 +326,15 @@ export default function Profile() {
               )}
             </div>
           </div>
-          {/* <IdCard userData={{
+          <IdCard userData={{
             name: profile.name || '',
             college: profile.institute || '',
             id: profile.technexId || '',
             email: profile.email || '',
             phone: profile.phone || '',
             qrToken: profile.qrToken || '',
-            profile_photo: "https://placehold.co/400",
-          }} /> */}
+            profile_photo: "",
+          }} />
         </main>
         <Footer />
       </Background_B>

@@ -4,11 +4,13 @@ import { useParams, useRouter } from "next/navigation";
 import { getSubEventByName } from "@/app/utils/api";
 import Image from "next/image";
 import Background_E from "@/app/_backgrounds/Background_E";
+
 export default function SubEventPage() {
   const { id, name } = useParams();
   const [subEvent, setSubEvent] = useState(null);
   const [error, setError] = useState(null);
   const router = useRouter();
+
   useEffect(() => {
     if (!id || !name) return;
     getSubEventByName(id, name)
@@ -43,14 +45,9 @@ export default function SubEventPage() {
 
       {/* Event Schedule */}
       <p className="text-xl text-gray-300 mb-6">
-        {/* Event Schedule:{" "} TO BE DECIDED SOON !! */}
         <span className="text-white font-semibold">
           {new Date(subEvent.sDate) > new Date() ? "Starts" : "Started"} on {new Date(subEvent.sDate).toLocaleDateString()}
         </span>
-        {/* <span className="text-white font-semibold">
-          From {new Date(subEvent.sDate).toLocaleString()} to{" "}
-          {new Date(subEvent.eDate).toLocaleString()}
-        </span> */}
       </p>
 
       {/* Event Description */}
@@ -105,9 +102,19 @@ export default function SubEventPage() {
             View Details on GitHub
           </a>
         )}
+        {/* Assurance Letter Button */}
+        {subEvent.letterLink && (
+          <a
+            href={subEvent.letterLink}
+            target="_blank"
+            rel="noreferrer"
+            className="px-6 py-3 bg-[#4A90E2] hover:bg-[#3B7CBE] text-white rounded-md text-lg mb-4"
+          >
+            View Assurance Letter
+          </a>
+        )}
       </div>
       
-
       {/* Go Back Button */}
       <button
         onClick={() => router.push("/events")}
