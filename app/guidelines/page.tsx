@@ -10,7 +10,7 @@ export default function Guidelines() {
         <FirefliesEffect />
         <div className="w-[100vw] h-[100vh] lg:h-fit overflow-x-clip">
           <Navbar />
-          <main className="flex-grow p-2 md:p-4 pt-24">
+          <main className="flex-grow p-2 md:p-4 pt-24 md:pt-32">
             <GuidelinesContent />
           </main>
         </div>
