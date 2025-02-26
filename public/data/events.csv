@@ -1,7 +1,7 @@
 Event Name,Location,Day,Timings,,
 ,,,February 28,March 1,March 2
 ROBONEX,,,,,
-Robowars,Rajputana Ground,,10:00:00 - 16:00:00,"10:00:00 - 22:00:00",No Event
+Robowars,Rajputana Ground,,10:00:00 - 20:00:00,"10:00:00 - 13:00:00",17:00:00 - 22:00:00
 Mazex,SB Corridor 1st Floor,,10:00:00 - 17:00:00,10:00:00 - 17:00:00,10:00:00 - 14:00:00
 Bostacle Challenge,SB Lawn,,10:00:00 - 17:00:00,10:00:00 - 17:00:00,10:00:00 - 14:00:00
 Micromouse,SB Corridor Ground Floor,,10:00:00 - 17:00:00,10:00:00 - 17:00:00,10:00:00 - 14:00:00
@@ -30,7 +30,7 @@ Consultathon,LT 3.1B,Day 1,09:00:00 - 13:00:00,No Event,No Event
 Technalytics,LT 3.1C,Day 1,13:00:00 - 17:00:00,No Event,No Event
 Capital Quest,LT 3.1C,Day 3,No Event,No Event,09:00:00 - 13:00:00
 BYTE THE BITS,,,,,
-Hack It Out,ABLT 4,Hackathon - Day 1 & 2 | Presentation - Day 3,10:00:00- 22:00:00,08:00:00- 20:00:00,10:00:00- 13:00:00
+Hack It Out,ABLT 4,Hackathon - Day 1 & 2 | Presentation - Day 3,10:00:00- 23:59:00,00:00:00- 22:00:00,10900:00- 13:00:00
 1BRC,ABLT 2,"24 Hour Hackathon - Day 1 & 2, Final Evaluation - Day 3",10:00:00 - 22:00:00,08:00:00 - 20:00:00,09:00:00 - 13:00:00
 Gamejam,ABLT 3,Day 2,No Event,09:00:00- 13:00:00,No Event
 CTF Hackathon,Online,Day 1,No Event,No Event,No Event
