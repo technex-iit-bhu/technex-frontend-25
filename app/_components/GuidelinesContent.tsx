@@ -123,11 +123,21 @@ export default function GuidelinesContent() {
         </p>
       </div>
 
+      {/* Important Notes */}
+      <h2 className="text-xl md:text-2xl font-bold mb-2 mt-8 uppercase">Important Notes</h2>
+
       {/* Special Refund Guideline in Red */}
       <p className="text-red-500 text-center text-lg md:text-xl font-bold mt-8 px-2">
         Refunds are not possible. <br />
         However, in special cases, if you have a valid reason, please email the details to our Technex ID, and we will review your request.
       </p>
+
+      {/* Additional Guidelines */}
+      <div className="mt-8 space-y-4 text-sm md:text-base text-red-500">
+        <p className="text-center text-lg md:text-xl font-bold">
+          Entries in kaliedoscope and shows would be on the basis of first come first serve. It will be completely participant responsibility to grab his seat.
+        </p>
+      </div>
     </div>
   );
 }

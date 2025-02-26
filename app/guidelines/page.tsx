@@ -3,20 +3,18 @@ import Background_B from "../_backgrounds/Background_B";
 import { FirefliesEffect } from "../_components/particleEffects";
 import GuidelinesContent from "../_components/GuidelinesContent";
 
-export default function Login() {
+export default function Guidelines() {
   return (
-    <>
+    <div className="absolute">
       <Background_B>
-        <div className="relative w-screen h-screen overflow-y-auto pt-10 mt-10">
-          <div className="absolute inset-0 z-0">
-            <FirefliesEffect />
-          </div>
-          <div className="relative z-10">
-            <Navbar />
-            <GuidelinesContent/>
-          </div>
+        <FirefliesEffect />
+        <div className="w-[100vw] h-[100vh] lg:h-fit overflow-x-clip">
+          <Navbar />
+          <main className="flex-grow p-2 md:p-4 pt-24">
+            <GuidelinesContent />
+          </main>
         </div>
       </Background_B>
-    </>
+    </div>
   );
 }
