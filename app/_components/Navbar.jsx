@@ -47,6 +47,7 @@ const Navbar = () => {
     "Gallery",
     "Schedule",
     "Guidelines",
+    "Map"
   ];
 
   const handleLogout = () => {
