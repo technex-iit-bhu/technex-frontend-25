@@ -43,7 +43,7 @@ export default function Footer() {
           <motion.div
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
-            className="mb-4 transition-all duration-300 rounded-lg p-2
+            className="mb-4 transition-all duration-300 rounded-lg p-2 bg-black
               border-2 border-[#8B4513] 
               hover:shadow-[0_0_20px_rgba(255,140,0,0.6)]
               hover:border-[#FF8C00]
