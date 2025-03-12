@@ -40,7 +40,12 @@ const sponsorData = [
   { name: "CMPDI Coal", category: "Coal-Mining Partner", image: "/sponsors/CMPDI.png" },
   { name: "Hindustan Pencils Pvt. Ltd.", category: "Stationary Partner", image: "/sponsors/HinPen.png" },
   { name: "Shiv Naresh", category: "Apparel Partner", image: "/sponsors/ShivNaresh.png" },
-  { name: "Lotte Choco Pie", category: "Snacks Partner", image: "/LotteChocoPie.png" }
+  { name: "Lotte Choco Pie", category: "Snacks Partner", image: "/LotteChocoPie.png" },
+  { name: "SBI", category: "In Association with", image: "/sponsors/SBI.png" },
+  { name: "NHPC Limited", category: "Gold Partner", image: "/sponsors/NHPC Limited_Gold.jpg" },
+  { name: "Hero Future Energies", category: "Sustainibility Partner", image: "/sponsors/Hero.jpeg" },
+  { name: "BEL", category: "Diamond Sponsor", image: "/sponsors/BEL.jpeg" },
+  { name: "HPCL", category: "Diamond Sponsor", image: "/sponsors/HPCL.webp" },
 ];
 
 const SponsorCard = ({ name, category, image }) => {
