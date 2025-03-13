@@ -46,6 +46,7 @@ const sponsorData = [
   { name: "Hero Future Energies", category: "Sustainibility Partner", image: "/sponsors/Hero.jpeg" },
   { name: "BEL", category: "Diamond Sponsor", image: "/sponsors/BEL.jpeg" },
   { name: "HPCL", category: "Diamond Sponsor", image: "/sponsors/HPCL.webp" },
+  { name: "XBOOM", category: "Technical Partner", image: "/sponsors/xboom.png" },
 ];
 
 const SponsorCard = ({ name, category, image }) => {
