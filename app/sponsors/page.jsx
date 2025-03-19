@@ -14,7 +14,7 @@ const sponsorData = [
   { name: "Qualicy Industries", category: "Gold Sponsor", image: "/sponsors/Qualicy-Industries_Gold Sponsor.jpg" },
   { name: "GAIL", category: "Diamond Sponsor", image: "/sponsors/GAIL_Diamond Sponsor.jpg" },
   { name: "AMD", category: "Co-Presented by", image: "/sponsors/AMD_Copresenting.png" },
-  { name: "NTPC", category: "Co-Title Sponsor", image: "/sponsors/NTPC_CoTitle.png" },
+  { name: "NTPC Green", category: "Co-Title Sponsor", image: "/sponsors/NTPC_CoTitle.png" },
   { name: "ATEC", category: "Diamond Sponsor", image: "/sponsors/ATEC_DiamondSponsor.png" },
   { name: "Birla Opus Paints", category: "Creative Partner", image: "/sponsors/BIRLA Opus PAINTS_Creative Partner.jpg" },
   { name: "SP Singla Construction", category: "Diamond Sponsor", image: "/sponsors/SPSingla Construction Ltd._Diamond Sponsor.png" },
