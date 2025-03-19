@@ -42,12 +42,11 @@ const Navbar = () => {
 
   const mainNavLinks = [
     "Events",
-    "Workshops",
     "Sponsors",
     "Gallery",
     "Schedule",
     "Guidelines",
-    "Map"
+    "Map",
   ];
 
   const handleLogout = () => {
@@ -57,11 +56,21 @@ const Navbar = () => {
 
   const functionalLinks = isLoggedIn
     ? [
+        {
+          name: "Workshops/Internships",
+          href: "https://www.robokwik.com/",
+          target: "_blank",
+        },
         { name: "Profile", href: "/profile" },
         { name: "Logout", onClick: handleLogout },
         { name: "CA", href: "https://ca.technex.in" },
       ]
     : [
+        {
+          name: "Workshops/Internships",
+          href: "https://www.robokwik.com/",
+          target: "_blank",
+        },
         { name: "Login", href: "/login" },
         { name: "Signup", href: "/signup" },
         { name: "CA", href: "https://ca.technex.in/" },
