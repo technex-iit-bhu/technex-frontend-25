@@ -45,7 +45,7 @@ const sponsorData = [
   { name: "NHPC Limited", category: "Gold Partner", image: "/sponsors/NHPC Limited_Gold.jpg" },
   { name: "Hero Future Energies", category: "Sustainibility Partner", image: "/sponsors/Hero.jpeg" },
   { name: "BEL", category: "Diamond Sponsor", image: "/sponsors/BEL.jpeg" },
-  { name: "HPCL", category: "Diamond Sponsor", image: "/sponsors/HPCL.webp" },
+  { name: "HPCL", category: "Co-Powered by Sponsor", image: "/sponsors/HPCL.webp" },
   { name: "XBOOM", category: "Technical Partner", image: "/sponsors/xboom.png" },
 ];
 
