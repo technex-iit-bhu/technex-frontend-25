@@ -58,7 +58,7 @@ const Navbar = () => {
     ? [
         {
           name: "Workshops/Internships",
-          href: "https://www.robokwik.com/",
+          href: "https://www.robokwik.com/technexiitbhu/",
           target: "_blank",
         },
         { name: "Profile", href: "/profile" },
@@ -68,7 +68,7 @@ const Navbar = () => {
     : [
         {
           name: "Workshops/Internships",
-          href: "https://www.robokwik.com/",
+          href: "https://www.robokwik.com/technexiitbhu/",
           target: "_blank",
         },
         { name: "Login", href: "/login" },
