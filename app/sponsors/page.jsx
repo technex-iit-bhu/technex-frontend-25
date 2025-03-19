@@ -14,7 +14,7 @@ const sponsorData = [
   { name: "Qualicy Industries", category: "Gold Sponsor", image: "/sponsors/Qualicy-Industries_Gold Sponsor.jpg" },
   { name: "GAIL", category: "Diamond Sponsor", image: "/sponsors/GAIL_Diamond Sponsor.jpg" },
   { name: "AMD", category: "Co-Presented by", image: "/sponsors/AMD_Copresenting.png" },
-  { name: "NTPC", category: "Co-Title Sponsor", image: "/sponsors/NTPC_CoTitle.png" },
+  { name: "NTPC Green Energy Limited", category: "Co-Title Sponsor", image: "/sponsors/NTPC_CoTitle.png" },
   { name: "ATEC", category: "Diamond Sponsor", image: "/sponsors/ATEC_DiamondSponsor.png" },
   { name: "Birla Opus Paints", category: "Creative Partner", image: "/sponsors/BIRLA Opus PAINTS_Creative Partner.jpg" },
   { name: "SP Singla Construction", category: "Diamond Sponsor", image: "/sponsors/SPSingla Construction Ltd._Diamond Sponsor.png" },
@@ -45,7 +45,7 @@ const sponsorData = [
   { name: "NHPC Limited", category: "Gold Partner", image: "/sponsors/NHPC Limited_Gold.jpg" },
   { name: "Hero Future Energies", category: "Sustainibility Partner", image: "/sponsors/Hero.jpeg" },
   { name: "BEL", category: "Diamond Sponsor", image: "/sponsors/BEL.jpeg" },
-  { name: "HPCL", category: "Diamond Sponsor", image: "/sponsors/HPCL.webp" },
+  { name: "HPCL", category: "Co-Powered by Sponsor", image: "/sponsors/HPCL.webp" },
   { name: "XBOOM", category: "Technical Partner", image: "/sponsors/xboom.png" },
 ];
 
