@@ -47,6 +47,7 @@ const sponsorData = [
   { name: "BEL", category: "Diamond Sponsor", image: "/sponsors/BEL.jpeg" },
   { name: "HPCL", category: "Co-Powered by Sponsor", image: "/sponsors/HPCL.webp" },
   { name: "XBOOM", category: "Technical Partner", image: "/sponsors/xboom.png" },
+  { name: "TATA TISCON", category: "CO-PRESENTED PARTENER OF CIVIC TECH EVENT", image: "/sponsors/Tiscon.png" }
 ];
 
 const SponsorCard = ({ name, category, image }) => {
